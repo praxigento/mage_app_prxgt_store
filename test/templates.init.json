@@ -1,0 +1,27 @@
+{
+  "vars": {
+    "LOCAL_ROOT": "/home/alex/work/github/app_prxgt_store/test",
+    "LOCAL_OWNER": "user",
+    "LOCAL_GROUP": "group",
+    "CFG_DB_HOST": "localhost",
+    "CFG_DB_NAME": "mage_prxgt_store_local",
+    "CFG_DB_USER": "mage_prxgt_store_local",
+    "CFG_DB_PASS": "JvP2gZDrGkBKVESvSjXe",
+    "CFG_DB_PREFIX": "",
+    "CFG_LICENSE_AGREEMENT_ACCEPTED": "yes",
+    "CFG_LOCALE": "en_US",
+    "CFG_TIMEZONE": "America/Los_Angeles",
+    "CFG_DEFAULT_CURRENCY": "USD",
+    "CFG_URL": "http://prxgt_store.mage.local.prxgt.com:50080/",
+    "CFG_USE_REWRITES": "yes",
+    "CFG_USE_SECURE": "no",
+    "CFG_SECURE_BASE_URL": "",
+    "CFG_USE_SECURE_ADMIN": "no",
+    "CFG_ADMIN_LASTNAME": "Admin",
+    "CFG_ADMIN_FIRSTNAME": "Store",
+    "CFG_ADMIN_EMAIL": "admin@store.com",
+    "CFG_ADMIN_USERNAME": "admin",
+    "CFG_ADMIN_PASSWORD": "eE5nmsSX0FfVNQG1v5ld",
+    "CFG_SKIP_URL_VALIDATION": "yes"
+  }
+}
