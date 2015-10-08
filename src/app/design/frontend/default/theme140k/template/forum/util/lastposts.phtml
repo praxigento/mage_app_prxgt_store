@@ -1,0 +1,35 @@
+<?php
+/**
+ * webideaonline.com.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://webideaonline.com/licensing/
+ *
+ */
+?>
+<?php $posts = $this->getPosts(); ?>
+
+<?php $total  = $this->getTotalPosts() ?>
+<?php if($posts->getSize()): ?>
+<div class="block our-posts box base-mini">
+    <div class="block-title head">
+        <strong><span><?php echo $this->_getTitle(); ?></span></strong>
+    </div>
+    <div class="block-content content">
+          <ul class="our-forums">
+          	   <?php $all = 0; ?>
+               <?php foreach($posts as $post): ?>
+               		<?php $all++; ?>
+               		<li <?php if($all == $total): ?>class="last" <?php endif; ?>><a href="<?php echo $this->getViewUrlLatest( $post->getId() ) ?>"><?php echo $post->getParent_name() ?> </a><br>
+               			<b><?php echo $this->__('Posted'); ?>:</b>&nbsp;<em><?php echo $this->getPosted_by($post); ?>&nbsp;(<?php echo $this->getFormatedDate($post); ?>)</em></li>
+               		</li>
+				<?php endforeach; ?>
+          </ul>
+    </div>
+</div>
+
+<?php endif; ?>

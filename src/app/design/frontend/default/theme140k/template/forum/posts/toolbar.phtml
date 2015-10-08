@@ -1,0 +1,33 @@
+<?php if($this->getCollection()->getSize()): ?>
+<div class="toolbar">
+    <div class="pager">
+        <p class="amount">
+            <?php if($this->getLastPageNum()>1): ?>
+                <?php echo $this->__('Items <strong>%s</strong> to <strong>%s</strong> of <strong>%s</strong> total', $this->getFirstNum(), $this->getLastNum(), $this->getTotalNum()) ?>
+            <?php else: ?>
+                <strong><?php echo $this->__('%s Item(s)', $this->getTotalNum()) ?></strong>
+            <?php endif; ?>
+            		&nbsp;&nbsp;&nbsp;
+            		<strong><?php echo $this->__('Sort') ?>:&nbsp;</strong>
+            		<?php if($this->isSortCurrent('desc')): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif;?><a href="<?php echo $this->getSortUrl(1) ?>" class="simple-forum-sort-links"><?php echo $this->__('Newest') ?></a><?php if($this->isSortCurrent('desc')): ?></span><?php endif;?>
+					<?php if($this->isSortCurrent('asc')): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif;?><a href="<?php echo $this->getSortUrl(2) ?>" class="simple-forum-sort-links"><?php echo $this->__('Oldest') ?></a><?php if($this->isSortCurrent('asc')): ?></span> <?php endif;?>
+        </p>
+
+        <div class="limiter">
+            <label><?php echo $this->__('Show') ?></label>
+            <select onchange="setLocation(this.value)">
+            <?php foreach ($this->getAvailableLimit() as  $_key=>$_limit): ?>
+                <option value="<?php echo $this->getLimitUrl($_limit) ?>"<?php if($this->isLimitCurrent($_limit)): ?> selected="selected"<?php endif ?>>
+                    <?php echo $_limit ?>
+                </option>
+            <?php endforeach; ?>
+            </select> <?php echo $this->__('per page') ?>
+        </div>
+
+        <?php echo $this->getPagerHtml() ?>
+
+    </div>
+
+    
+</div>
+<?php endif ?>

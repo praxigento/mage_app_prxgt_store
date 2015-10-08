@@ -1,0 +1,54 @@
+#wio_notification
+{
+	position:absolute;
+	width:400px;
+	height:auto;
+	background: #fdf4eb;
+	border-left:5px solid #f3bf8f;
+	border-right:5px solid #f3bf8f;
+	border-bottom:5px solid #f3bf8f;
+	z-index:1000000;
+}
+.head-wio
+{
+	background:#f3bf8f;
+	height:22px;
+}
+.head-message-wio
+{
+	margin:5px;
+	font-size:12px;
+	font-weight:bold;
+	float:left;
+	padding-bottom:3px;
+}
+.head-close-wio
+{
+	background-image: url('../images/close_button.png');
+	height:22px;
+	width:72px;
+	float:right;
+	cursor:pointer;
+}
+.wio-notifications-content
+{
+	padding:10px;
+}
+.wio-not-info
+{
+	width:55px;
+	height:48px;
+	background-image: url('../images/info.png');
+	margin-top:5px;
+	float:left;
+	margin-left:5px;
+}
+.wio-not-message
+{
+	font-weight:normal;
+	margin-top:5px;
+	padding-left:5px;
+	float:right;
+	width: 300px;
+	margin-bottom:10px;
+}

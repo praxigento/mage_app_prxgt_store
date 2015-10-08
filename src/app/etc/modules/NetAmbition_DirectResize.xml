@@ -1,0 +1,8 @@
+<config>
+	<modules>
+		<NetAmbition_DirectResize>
+			<active>true</active>
+			<codePool>community</codePool>
+		</NetAmbition_DirectResize>
+	</modules>
+</config>

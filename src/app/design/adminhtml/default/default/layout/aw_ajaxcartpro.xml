@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<layout>
+    <adminhtml_system_config_edit>
+        <reference name="head">
+            <action method="addItem">
+                <type>skin_js</type>
+                <name>aw_ajaxcartpro/js/preview.js</name>
+            </action>
+        </reference>
+    </adminhtml_system_config_edit>
+</layout>

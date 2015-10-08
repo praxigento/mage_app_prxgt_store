@@ -1,0 +1,63 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Blog
+ * @version    1.2
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE.txt
+ */
+?>
+ 
+<?php $posts = $this->getPosts(); ?>
+<div id="messages_product_view">
+    <?php Mage::app()->getLayout()->getMessagesBlock()->setMessages(Mage::getSingleton('customer/session')->getMessages(true)); ?> 
+    <?php echo Mage::app()->getLayout()->getMessagesBlock()->getGroupedHtml(); ?> 
+</div>
+
+ <?php echo $this->getChildHtml('aw_blog_comments_toolbar'); ?>
+<?php foreach ($posts as $post): ?>
+    <div class="postWrapper">
+        <div class="postTitle">
+            <h2><a href="<?php echo $post->getAddress(); ?>" ><?php echo $post->getTitle(); ?></a></h2>
+            <h3><?php echo $post->getCreatedTime(); ?></h3>
+        </div>
+        <div class="postContent"><?php echo $post->getPostContent(); ?></div>
+
+        <?php echo $this->getBookmarkHtml($post) ?>
+        <div class="tags"><?php echo $this->getTagsHtml($post) ?></div>
+        <div class="postDetails">
+            <?php if ($this->getCommentsEnabled()): ?>
+                <?php echo $post->getCommentCount(); ?> <a href="<?php echo $post->getAddress(); ?>#commentBox" >Comments</a> | 
+            <?php endif; ?>
+            <?php $postCats = $post->getCats(); ?>
+            <?php if (!empty($postCats)): ?>
+                <?php echo Mage::helper('blog')->__('Posted in'); ?>
+                <?php foreach ($postCats as $data): ?>               
+                    <a href="<?php echo $data['url']; ?>"><?php echo $data['title']; ?></a> 
+                <?php endforeach; ?> 
+            <?php else: ?>
+                <?php echo Mage::helper('blog')->__('Posted'); ?>
+            <?php endif; ?><?php echo $this->__("By"); ?> <?php echo $post->getUser(); ?></div>
+    </div>
+<?php endforeach; ?> 
+ <?php echo $this->getChildHtml('aw_blog_comments_toolbar'); ?>
+<?php //$this->getPages(); ?>

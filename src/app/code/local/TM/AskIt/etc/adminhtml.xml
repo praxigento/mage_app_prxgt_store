@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<config>
+    
+    <menu>
+        <customer translate="title" module="customer">
+            <children>
+                <items module="askit">
+                    <title>Askit Products Questions</title>
+                    <sort_order>10</sort_order>
+                    <action>askit_admin/adminhtml_askIt</action>
+                </items>
+            </children>
+        </customer>
+    </menu>
+    
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <askit translate="title" module="askit">
+                                        <title>Askit Section</title>
+                                    </askit>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <customer>
+                        <children>
+                            <items module="askit">
+                                <title>Askit Products Questions</title>
+                                <sort_order>10</sort_order>
+                                <action>askit_admin/adminhtml_askIt</action>
+                            </items>
+                        </children>
+                    </customer>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+    <layout>
+        <updates>
+            <askit>
+                <file>askit.xml</file>
+            </askit>
+        </updates>
+    </layout>
+</config>

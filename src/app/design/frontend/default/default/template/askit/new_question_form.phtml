@@ -1,0 +1,75 @@
+<?php
+	$customerName = '';
+	$email = '';
+	if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+		$customerName = 'value="' . Mage::getSingleton('customer/session')->getCustomer()->getName() . '" ';
+		$email = 'value="' . Mage::getSingleton('customer/session')->getCustomer()->getEmail() . '"';
+	}
+?>
+
+<div>
+    <fieldset>
+    	<p class="a-right"><?php echo Mage::helper('askit')->__('Ask a question and Give an answer. Help your fellow customer.') ?></p>
+        <button id="askit-add-question-button" type="button" class="button right">
+            <span><span><?php echo Mage::helper('askit')->__('Ask a Question') ?></span></span>
+        </button>
+    </fieldset>
+    <div style="display: none">
+        <div class="add-askit-box">
+            <form id="askit-new-question-form" action="<?php echo $this->getFormAction(); ?>"  method="POST">
+				<div class="fieldset">
+				    <h4 class="legend"><?php echo Mage::helper('askit')->__('Ask Your Question'); ?></h4>
+			        <ul class="form-list">
+				        <li class="fields">
+			                <div class="field">
+		                        <label class="required" for="question-askitCustomer">
+		                            <?php echo Mage::helper('askit')->__('Name') ?><em>*</em>
+		                        </label>
+                                <div class="input-box">
+                                    <input type="text" class="input-text required-entry" name="askitCustomer" id="question-askitCustomer" <?php echo $customerName?>/>
+                                </div>
+                            </div>
+			                <div class="field">
+		                        <label class="required" for="question-askitEmail">
+		                            <?php echo Mage::helper('askit')->__('Email') ?><em>*</em>
+		                        </label>
+                                <div class="input-box">
+                                    <input type="text" class="input-text required-entry validate-email" name="askitEmail" id="question-askitEmail" <?php echo $email?>/>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="wide">
+		                    <label class="required" for="askitQuestion"><?php echo Mage::helper('askit')->__('Question') ?><em>*</em></label>
+                            <div class="input-box">
+								<textarea id="askitQuestion" class="input-text required-entry" title="<?php echo Mage::helper('askit')->__('Question') ?>" name="askitQuestion" cols="5" rows="3"></textarea>
+		                	</div>
+						</li>
+                        <?php if (Mage::getSingleton('customer/session')->isLoggedIn()) : ?>
+                        <li class="control">
+                            <input type="checkbox" id="askitPrivate" value="1" name="askitPrivate"/>
+                            <label for="askitPrivate"><?php echo Mage::helper('askit')->__('Post a private question') ?></label>
+                        </li>
+                        <?php endif;?>
+					</ul>
+                </div>
+                <div class="button-set-content clearer">
+			        <p class="required"><?php echo Mage::helper('contacts')->__('* Required Fields') ?></p>
+					<button id="submit-askit-new-question-form" type="button" class="button right" onclick="submitAskitNewQuestionForm()">
+                        <span><span><?php echo Mage::helper('askit')->__('Ask a Question') ?></span></span>
+                    </button>
+			    </div>
+            </form>
+    	</div>			
+        <script type="text/javascript">
+            //<![CDATA[
+                var askitNewQuestionForm = new VarienForm('askit-new-question-form');
+                function submitAskitNewQuestionForm(){
+                    if(askitNewQuestionForm.validator.validate()) {
+                        askitNewQuestionForm.form.submit();
+                    }
+                }
+            //]]>
+        </script>
+        <div class="clear"></div>
+    </div>
+</div>

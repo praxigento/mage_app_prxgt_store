@@ -1,0 +1,212 @@
+/**
+ * aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ *
+ * @category   AW
+ * @package    AW_Kbase
+ * @copyright  Copyright (c) 2008-2010 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/LICENSE-M1.txt
+ */
+
+.kbase {
+    display:block;
+}
+.kbase-block {
+    display:block;
+    padding:20px;
+    margin:20px 0;
+    border:solid 1px #C4C1BC;
+}
+.kbase-block-main {
+    display:block;
+}
+.kbase-block-search {
+    display:block;
+}
+.kbase-block-title {
+}
+.kbase-main-search {
+}
+.kbase-main-search input {
+    width:500px;
+    padding:1px;
+}
+.kbase-main-search label {
+    display:none;
+}
+.kbase-main-category {
+}
+.kbase-main-category .kbase-list ul li {
+    margin-left:20px;
+}
+.kbase-main-top {
+}
+.kbase-main-latest {
+}
+.kbase-main-tag {
+}
+.kbase-main-tag .kbase-list li {
+    display:inline;
+}
+.kbase .kbase-sorter {
+	background:url("../images/bkg_toolbar.gif") repeat-x scroll 0 100% #FFFFFF;
+	border-top:1px solid #E2E2E2;
+	font-size:11px;
+	padding:4px 8px;
+	text-align:left;
+	height:19px;
+}
+.kbase .kbase-sorter .amount {
+	float:left;
+	margin:0;
+}
+.kbase .kbase-sorter .sort-by {
+	float:right;
+    padding-right:36px;
+}
+.kbase .kbase-sorter .sort-by label {
+    vertical-align:middle;
+}
+.kbase .kbase-sorter .sort-by select {
+    margin:0 0 1px;
+    padding:0;
+    vertical-align:middle;
+}
+.kbase .kbase-sorter .sort-by img {
+	vertical-align:middle;
+}
+.kbase .kbase-sorter label {
+	font-weight:normal;
+	color:inherit;
+}
+.kbase .kbase-sorter:after {
+	display:block;
+	content:".";
+	clear:both;
+	font-size:0;
+	line-height:0;
+	height:0;
+	overflow:hidden;
+	zoom:1;
+}
+.kbase-listing {
+    border:1px solid #C4C1BC;
+}
+.kbase-listing p {
+    margin:0;
+}
+tr.kbase-listing:hover {
+    background-color:#FCF5DD;
+    cursor:pointer;
+}
+.kbase-listing-full {
+}
+.kbase-listing-description {
+}
+.kbase-listing-tag {
+    font-size:80%;
+}
+.kbase-listing-rating {
+}
+.kbase-listing-date-updated {
+}
+table .kbase-listing {
+    border:1px solid #BEBCB7;
+    width:100%;
+    border-spacing:0;
+    empty-cells:show;
+    font-size:100%;
+}
+.kbase-listing thead th {
+    border-bottom:0 none !important;
+    background:url("../../images/bkg_th.gif") repeat-x scroll 0 100% #D9E5EE;
+    border-right:1px solid #C2D3E0;
+    color:#0A263C;
+    font-weight:bold;
+    padding:2px 8px;
+    vertical-align:middle;
+    white-space:nowrap;
+}
+.kbase-listing tbody td {
+    border-bottom:1px solid #D9DDE3;
+}
+.kbase-listing tbody td.kbase-listing-general {
+    border-right:1px solid #D9DDE3;
+}
+.kbase-listing tbody td.kbase-listing-rating {
+    text-align:center;
+    border-right:1px solid #D9DDE3;
+}
+.kbase-listing tbody td.kbase-listing-date-updated {
+    text-align:center;
+}
+.kbase-listing td {
+    padding:10px;
+}
+.kbase-even {
+    background:none repeat scroll 0 0 #EEEDED;
+}
+.kbase-odd {
+    background:none repeat scroll 0 0 #F8F7F5;
+}
+.kbase-article-date {
+    font-size:85%;
+}
+.kbase-article-author {
+    font-style:italic;
+}
+.kbase-article-text UL.products-grid,
+.kbase-article-text UL.products-grid UL,
+.kbase-article-text  OL.products-list {
+    list-style: none outside none !important;
+}
+.kbase-listing-general UL.products-grid {
+    width:100%!important;
+}
+.kbase-article-text ol {
+    list-style-position: inside;
+    list-style-type: decimal;
+}
+.kbase-article-text ul {
+    list-style-position: inside;
+    list-style-type: disc;
+}
+.kbase-article-attachment {
+}
+.kbase-article-category {
+}
+.kbase-article-tag {
+}
+.kbase-article-rating {
+}
+.kbase-article-rating:after {
+    display:block;
+    content:".";
+    clear:both;
+    font-size:0;
+    line-height:0;
+    height:0;
+    overflow:hidden;
+}
+.kbase-article-rating span {
+    float:left;
+    margin-right:10px;
+}
+.kbase-article-rating .rating-box {
+    float:left;
+    margin-top:3px;
+}
+.kbase-article-rating select {
+    min-width:40px;
+    padding:1px;
+    margin-right:2px;
+}
+.kbase-article-rating form {
+    float:right;
+}

@@ -1,0 +1,60 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+   <catalog_product_view>
+   		<reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/ajaxwishlist/ajaxwishlist.js</name></action>
+        </reference>
+	   	<reference name='product.info.addto'>
+	   		<action method='setTemplate'><template>ajaxwishlist/catalog/product/view/addto.phtml</template></action>
+	   	</reference>
+   </catalog_product_view>
+   <catalog_category_default>
+   		<reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/ajaxwishlist/ajaxwishlist.js</name></action>
+        </reference>
+    	<reference name='product_list'>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp_item.phtml</template></action>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp.phtml</template></action>
+            <action method="addPriceBlockType"><type>msrp_noform</type><block>catalog/product_price</block><template>catalog/product/price_msrp_noform.phtml</template></action>
+    		<action method='setTemplate'><template>ajaxwishlist/catalog/product/list.phtml</template></action>
+    	</reference>
+    </catalog_category_default>
+	
+    <catalog_category_layered>
+    	<reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/ajaxwishlist/ajaxwishlist.js</name></action>
+        </reference>
+    	<reference name='product_list'>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp_item.phtml</template></action>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp.phtml</template></action>
+            <action method="addPriceBlockType"><type>msrp_noform</type><block>catalog/product_price</block><template>catalog/product/price_msrp_noform.phtml</template></action>
+    		<action method='setTemplate'><template>ajaxwishlist/catalog/product/list.phtml</template></action>
+    	</reference>
+    </catalog_category_layered>
+	    <catalogsearch_advanced_result translate="label">
+        <label>Advanced Search Result</label>
+   		<reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/ajaxwishlist/ajaxwishlist.js</name></action>
+        </reference>
+    	<reference name='product_list'>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp_item.phtml</template></action>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp.phtml</template></action>
+            <action method="addPriceBlockType"><type>msrp_noform</type><block>catalog/product_price</block><template>catalog/product/price_msrp_noform.phtml</template></action>
+    		<action method='setTemplate'><template>ajaxwishlist/catalog/product/list.phtml</template></action>
+    	</reference>
+		
+    </catalogsearch_advanced_result>
+	    <catalogsearch_result_index translate="label">
+        <label>Quick Search Form</label>
+   		<reference name="head">
+            <action method="addItem"><type>skin_js</type><name>js/ajaxwishlist/ajaxwishlist.js</name></action>
+        </reference>
+    	<reference name='product_list'>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp_item.phtml</template></action>
+			<action method="addPriceBlockType"><type>msrp</type><block>catalog/product_price</block><template>catalog/product/price_msrp.phtml</template></action>
+            <action method="addPriceBlockType"><type>msrp_noform</type><block>catalog/product_price</block><template>catalog/product/price_msrp_noform.phtml</template></action>
+    		<action method='setTemplate'><template>ajaxwishlist/catalog/product/list.phtml</template></action>
+    	</reference>
+    </catalogsearch_result_index>
+	
+</layout> 

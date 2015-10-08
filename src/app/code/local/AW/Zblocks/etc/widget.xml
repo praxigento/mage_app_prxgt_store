@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?> 
+<widgets>     
+    <aw_zblock type="zblocks/widget_block" translate="name description" module="zblocks">
+        <name>Z-block</name>
+        <is_email_compatible>0</is_email_compatible>
+        <show_in_default>1</show_in_default>
+        <show_in_website>1</show_in_website>
+        <show_in_store>1</show_in_store>        
+        <parameters>
+            <block_id type="complex" translate="label">
+                <visible>1</visible>
+                <required>1</required>
+                <label>Block</label>
+                <type>label</type>
+                <helper_block>
+                    <type>zblocks/adminhtml_cms_block_widget_chooser</type>
+                    <data>
+                        <button translate="open">
+                            <open>Select Z-block</open>
+                        </button>
+                    </data>
+                </helper_block>
+                <sort_order>20</sort_order>
+            </block_id>
+           <template translate="label">
+                <label>Template</label>
+                <visible>1</visible>
+                <type>select</type>      
+                <value>cms/widget/link/link_inline.phtml</value>
+                <values>
+                    <default translate="label">                       
+                        <label>Z-block default template</label>
+                        <value>cms/widget/link/link_inline.phtml</value>
+                    </default>
+                </values>
+                <sort_order>10</sort_order>
+            </template>    
+        </parameters>  
+    </aw_zblock>
+</widgets>
+ 

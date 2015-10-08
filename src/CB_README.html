@@ -1,0 +1,34 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>Commerce Bug Installation Guide</title>
+</head>
+<body><h1>Commerce Bug Installation Guide</h1>
+
+<p><strong>Please Note</strong> If you are installing Commerce Bug 2 over Commerce Bug 1, it is necessary to manually remove all files related to Commerce Bug 1.  If you require assistance, please contact Pulse Storm Support: http://www.pulsestorm.net/contact-us/</p>
+
+<p>Commerce Bug 2 is distributed as a Magento Connect 2 extension.  You'll find it in the zip file you downloaded with an name something like</p>
+
+<pre><code>Packagename_Commercebug-2.x-x.tgz
+</code></pre>
+
+<p>Where "Packagename" is the customized Magento package name for your extension.   </p>
+
+<p>This package may be installed in a Magento system using the Magento Connect manager.  If the Magento connect manager is unavailable on your system, you can install the extension manually by un-taring the tgz file and following the remaining steps in the README file. </p>
+
+<ol>
+<li><p>Copy/Upload the contents of the "app" folder to the corresponding "app" folder of your Magento system</p></li>
+<li><p>Copy/Upload the contents of the "js" folder to the corresponding "js" folder of your Magento system</p></li>
+<li><p>Ensure the uploaded files and folders have *nix permissions, ownership and groups identical to the rest of your Magento files and folder</p></li>
+<li><p>Clear the Magento Cache.  This may be done under [System -&gt; Cache Management]</p></li>
+<li><p>Log out of the Magento Admin Application to clear you admin session.  This is necessary to grant admin super users the correct access permissions to view Commerce Bug's system configuration.</p></li>
+<li><p>If you're using compilation, re-compile your classes.</p></li>
+<li><p>Configure Commerce Bug (update notifications, output, etc.) at System -&gt; Configuration -&gt; Advanced -&gt; Commerce Bug</p></li>
+</ol>
+</body>
+</html>
+
+
+
+

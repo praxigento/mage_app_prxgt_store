@@ -1,0 +1,621 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <webideaonline translate="label" module="forum">
+            <label>WebIdeaOnline Extensions</label>
+            <sort_order>300</sort_order>
+        </webideaonline>
+    </tabs>
+	<sections>
+		<forum translate="label" module="forum">
+			<label>Forum Configuration</label>
+			<tab>webideaonline</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>99999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+                <forumconfiguration translate="label">
+                    <label>Forum Main Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+						<active>
+							<label>Show at Customers account</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>0</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+						</active>
+
+                    	<forum_title translate="label">
+                            <label>Forum Title</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </forum_title>
+
+                        <allowsearchblock translate="label">
+                            <label>Show Search block</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowsearchblock>
+
+                        <allowbookmarkblock translate="label">
+                            <label>Show Bookmark block</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowbookmarkblock>
+
+                        <allowjumptoblock translate="label">
+                            <label>Show Jump To block</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>22</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowjumptoblock>
+
+                        <allowfastreply translate="label">
+                            <label>Show Fast Reply button</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>23</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowfastreply>
+
+                        <allowrssfeeds translate="label">
+                            <label>Allow RSS Feeds</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowrssfeeds>
+
+
+
+                        <allowdeleteowntpics translate="label">
+                        	<label>Allow users delete own Topics</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>29</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowdeleteowntpics>
+
+                        <sortpriorityforums translate="label">
+                        	<label>Sort Forums by Priority</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sortpriorityforums>
+
+                        <defaultshowsnewesttopic translate="label">
+                        	<label>Default Shows Newest Topics</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>47</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </defaultshowsnewesttopic>
+
+                        <defaultshowsnewestpost translate="label">
+                        	<label>Default Shows Newest Posts</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </defaultshowsnewestpost>
+
+                        <pageslimits translate="label">
+                        	<label>Limit per Page</label>
+							<comment>Set limits Forums; Topics; Posts per page</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>forum/system_source_limits</source_model>
+                            <sort_order>53</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </pageslimits>
+
+                        <display_short_description translate="label">
+                        	<label>Show Description Field on Topic Form</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>54</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_short_description>
+
+
+                    </fields>
+                </forumconfiguration>
+                <sitemap>
+                	<label>Sitemap Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>200</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<allowcreation>
+                    		<label>Allow system Create Sitemap Files</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                    	</allowcreation>
+
+                    	<sitemapfilename translate="label">
+                            <label>Site Map File Name</label>
+							<comment>Should be diferent to main sitemap with products and CMS pages</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>12</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sitemapfilename>
+
+                        <path_to_sitemapfilename translate="label">
+                            <label>Path to Site Map File</label>
+                            <comment>Should exists in project root</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </path_to_sitemapfilename>
+                    </fields>
+                </sitemap>
+                <forummoderation>
+                	<label>Moderate Forum Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                	<fields>
+						<moderatetopics translate="label">
+                        	<label>Moderate Topics</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </moderatetopics>
+
+                        <moderateposts translate="label">
+                        	<label>Moderate Posts</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </moderateposts>
+					</fields>
+                </forummoderation>
+                <forumnotification>
+                	<label>Forum Notification Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                	<fields>
+                		<allownotifymoder translate="label">
+                        	<label>Notify Moderator About New Post; Topic</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allownotifymoder>
+
+						<notifyemail translate="label">
+                            <label>Notify Moderator Email</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>25</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notifyemail>
+
+                        <email_template_moderator translate="label">
+                            <label>Email Template Moderator Notification</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>26</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_template_moderator>
+
+                        <senderemail translate="label">
+                            <label>Email Sender</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_identity</source_model>
+                            <sort_order>27</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </senderemail>
+
+                        <allownotifycheckbox translate="label">
+                        	<label>Allow Notify Customers Via Email</label>
+							<comment>Showed checkbox on Form Add Edit Post Topic</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>28</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allownotifycheckbox>
+
+                        <email_template_customer translate="label">
+                            <label>Email Template Notify Customer</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </email_template_customer>
+
+                        <notify_private_messages>
+                            <label>Notify Customers about Private Messages</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>161</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </notify_private_messages>
+
+                        <newprivatemessage translate="label">
+                            <label>Email Template Notify Customers PM</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_email_template</source_model>
+                            <sort_order>162</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </newprivatemessage>
+
+                	</fields>
+                </forumnotification>
+                <recaptchasetting>
+                	<label>RE-CAPTCHA settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>4</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                	<fields>
+						<allowrecaptchapm translate="label">
+                        	<label>Use RE-CAPTCHA(PM)</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>21</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowrecaptchapm>
+
+						<allowrecaptcha translate="label">
+                        	<label>Use RE-CAPTCHA(Forum Posts)</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allowrecaptcha>
+
+                        <recaptchakey translate="label">
+                            <label>RE-CAPTCHA Public Key API key</label>
+                            <comment>You can get it here https://www.google.com/recaptcha/. eg.6LdQ27sSAAAAANTMon0b0hNZtdd-piGtX26hpkxp</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </recaptchakey>
+
+                        <recaptchakeyprivate translate="label">
+                            <label>RE-CAPTCHA Private Key API key</label>
+                            <comment>You can get it here https://www.google.com/recaptcha/. eg.6LdQ27sSAAAAANTMon0b0hNZtdd-piGtX26hpkxp</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </recaptchakeyprivate>
+					</fields>
+                </recaptchasetting>
+                <designsettings>
+                	<label>Design settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>5</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                    	<layout translate="label">
+                            <label>Page Layout</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>forum/design_layout</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </layout>
+                        <showtopbanner translate="label">
+                        	<label>Show Top Banner</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>24</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </showtopbanner>
+                        <topbannerimage translate="label">
+                            <label>Top Banner image src</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>33</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </topbannerimage>
+                        <topbannerlink translate="label">
+                            <label>Top Banner Link</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </topbannerlink>
+                        <topbannerlinkblank translate="label">
+                        	<label>Top Banner Link Open in new Window</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>37</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </topbannerlinkblank>
+					</fields>
+                </designsettings>
+                <advanced_settings>
+                	<label>Advanced Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10000</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                    	<display_on_product_details translate="label">
+                        	<label>Display Forum On Product Details</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_on_product_details>
+
+                    	<display_topics_quantity translate="label">
+                            <label>Display Topics On Product Details</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>forum/advanced_topics</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_topics_quantity>
+
+                        <avatar_width translate="label">
+                            <label>Avatar Width</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>3</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </avatar_width>
+
+                        <avatar_url_path translate="label">
+                            <label>Avatar Url Path</label>
+                            <comment>path to /media/forumavatar/ eg. http://www.yoursite.com/media/forumavatar/</comment>
+							<frontend_type>text</frontend_type>
+                            <sort_order>4</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </avatar_url_path>
+
+                        <display_forum_controls translate="label">
+                            <label>Show Top Forum Controls</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>5</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </display_forum_controls>
+
+                        <show_icons_onfront>
+                            <label>Show Forum, Topic Icons</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>6</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_icons_onfront>
+
+                        <show_topics_status>
+                            <label>Show Topic Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <comment>Display different folder icons for non-answered and hot topic</comment>
+                            <sort_order>7</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_topics_status>
+
+                        <show_quote_link>
+                            <label>Show Quote Link</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>8</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </show_quote_link>
+
+                        <use_sticky_posts>
+                            <label>Enable Sticky Posts</label>
+                            <comment>Display enabled by admin posts always at top</comment>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>9</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_sticky_posts>
+
+
+                        <sticky_posts_border translate="label">
+                            <label>Color Border for Sticky Posts</label>
+                            <comment>eg. #000000</comment>
+							<frontend_type>text</frontend_type>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sticky_posts_border>
+
+                        <sticky_posts_bg translate="label">
+                            <label>Color Background for Sticky Posts</label>
+                            <comment>eg. #FFFFFF</comment>
+							<frontend_type>text</frontend_type>
+                            <sort_order>11</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sticky_posts_bg>
+
+                    </fields>
+                </advanced_settings>
+
+				<tinymcesettings>
+                	<label>tinyMCE Settings</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>10001</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+
+                    	<allow_backend translate="label">
+                        	<label>Allow image upload for backend</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>1</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allow_backend>
+
+						<allow_frontend translate="label">
+                        	<label>Allow image upload for frontend</label>
+							<frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>2</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </allow_frontend>
+
+                        <connector_path translate="label">
+                            <label>Uploader connector path</label>
+                            <comment>eg. http://www.your_site.com/connector/php/upload.php</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </connector_path>
+
+						<image_path translate="label">
+                            <label>Image path</label>
+                            <comment>eg. http://www.your_site.com/connector/media</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </image_path>
+
+                        <use_image_resize translate="label">
+                            <label>Use Image Resize</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </use_image_resize>
+
+                        <maximum_image_width translate="label">
+                            <label>Maximum Image Width</label>
+                            <comment>resize image after upload if width bigger</comment>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>46</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </maximum_image_width>
+
+                    </fields>
+                </tinymcesettings>
+
+			</groups>
+		</forum>
+	</sections>
+</config>

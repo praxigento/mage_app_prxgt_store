@@ -1,0 +1,22 @@
+
+<form action="<?php echo /* $this->getActionSubmitUrl(); */ $this->getUrl('forum/search'); ?>" method="post">
+	<table id="table_search_forum" >
+		<tr>
+			<td>
+				<input id="search_forum_input" class="input-text" type="text" onblur="restoreDefaultSF(this ,this.value, '<?php echo $this->getDefaultValue() ?>')" onfocus="eraseSearchBlockSF(this ,this.value, '<?php echo $this->getDefaultValue() ?>')" name="<?php echo $this->getSearchInputName(); ?>" value="<?php echo $this->getSearchValue(); ?>" />
+			</td>
+			<td>
+				<button type="submit" class="simple-forum-default-button" title="<?php echo /* $this->getSubmitButtonTitle(); */ $this->__('Search Forum') ?>" >	
+					<nobr><?php echo /* $this->getSubmitButtonTitle(); */ $this->__('Search Forum') ?></nobr>
+				</button>
+			</td>
+			<?php if( $this->haveSearchValue() ):?>
+			<td>
+				<button type="button" class="simple-forum-default-button reset-forum-search" title="<?php echo $this->__('Search Forum'); ?>" onclick="document.location.href='<?php echo $this->getResetSearchUrl() ?>'">	
+					<nobr><?php echo $this->__('Reset Search'); ?></nobr>
+				</button>
+			</td>
+			<?php endif;?>
+		</tr>
+	</table>
+</form>

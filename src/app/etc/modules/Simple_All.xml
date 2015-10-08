@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+  <modules>
+    <Simple_Forum>
+      <active>true</active>
+      <codePool>local</codePool>
+    </Simple_Forum>
+  </modules> 
+</config>

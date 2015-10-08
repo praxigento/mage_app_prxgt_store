@@ -1,0 +1,22 @@
+<script>
+	function WIO_SimpleForum_displayAvatar()
+	{
+		var avatar_url   = '<?php echo $this->getAvatarUrl(); ?>';
+        var delavurl     = '<?php echo $this->getDelAvatarUrl(); ?>';
+        var avatar_width = '<?php echo $this->getAvatarWidth(); ?>';
+
+		var block = $('<?php echo $this->getAvatarBlock() ?>').parentNode;
+		block.innerHTML = '';
+		var div = document.createElement('div');
+		div.className = 'simple-forum-avatar-place';
+  		div.innerHTML += '<img src="' + avatar_url + '" width="' + avatar_width + '">';
+
+    	<?php if($this->getHaveAvatar()): ?>
+        	div.innerHTML += '<a href="'+delavurl+'" style="color:#d51818; font-size:92%;" onclick="if(confirm(\'<?php echo $this->__('Are you sure you want delete avatar image?') ?>\')){return true;}else{return false;}"><?php echo $this->__('Delete') ?></a>';
+     	<?php endif; ?>
+
+     	div.innerHTML += '</div>';
+     	block.appendChild(div);
+ 	}
+    Event.observe(window, 'load', WIO_SimpleForum_displayAvatar);
+</script>

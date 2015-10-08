@@ -1,0 +1,56 @@
+tables:
+  zblocks/zblocks:
+    - 
+      zblock_id: 1
+      block_title: Zblocks[PHPUNIT SIDEBAR RIGHT TOP]
+      block_position: sidebar-right-top
+      block_position_custom: 'NULL'
+      store_ids: 0
+      category_ids:
+      creation_time: 2011-10-25 09:58:05
+      update_time: 2011-10-25 09:58:05
+      block_is_active: 1
+      schedule_from_date: 'NULL'
+      schedule_to_date: 'NULL'
+      schedule_pattern: every day
+      schedule_from_time: 00:00:00
+      schedule_to_time: 00:00:00
+      block_sort_order: 0
+      rotator_mode: 0
+      show_in_subcategories: 1
+      mss_rule_id: 0
+    - 
+      zblock_id: 2
+      block_title: Second block
+      block_position: menu-top
+      block_position_custom: 'NULL'
+      store_ids: 0
+      category_ids: 
+      creation_time: 2010-10-25 12:00:19
+      update_time: 2010-10-25 12:00:19
+      block_is_active: 1
+      schedule_from_date: 1969-10-25      
+      schedule_to_date: 2099-10-25
+      schedule_pattern: every day
+      schedule_from_time: 
+      schedule_to_time: 
+      block_sort_order: 1
+      rotator_mode: 1
+      show_in_subcategories: 1
+      mss_rule_id: 0
+      
+  zblocks/content:
+    - 
+      block_id: 1
+      zblock_id: 1
+      title: 'NULL'
+      content: Z-blocks contents
+      is_active: 1
+      sort_order: 0
+    - 
+      block_id: 2
+      zblock_id: 2
+      title: 'NULL'
+      content: PHPUNIT_MENU_TOP
+      is_active: 1
+      sort_order: 0

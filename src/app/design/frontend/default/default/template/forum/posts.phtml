@@ -1,0 +1,174 @@
+<div class="simple-forum-content">
+<div align="center">
+	<?php if($this->isOnProduct()): ?>
+		<table style="width:auto;">
+			<tr>
+				<td align="left">
+					<?php echo $this->getHeadProductHtml(); ?>
+				</td>
+			</tr>
+		</table>
+	<?php endif; ?>
+</div>
+<a name="simple-forum-top"></a>
+<?php if(!$this->isOnProduct()): ?>
+	<?php echo $this->getHeadHtml(); ?>
+	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	<?php echo $this->getBreadCrumbs(); ?>
+<?php endif; ?>
+
+<div class="forum-top">
+<?php echo $this->getTop(); ?>
+<table width="100%">
+	<tr>
+		<td>
+			<div class="forum-title">
+				<?php if(Mage::getStoreConfig('forum/advanced_settings/show_icons_onfront') && Mage::registry('current_object')->getIcon_id() && Mage::registry('current_object')->getIcon_id() != ''): ?>
+					<img src="<?php echo $this->getSkinUrl() . Mage::helper('forum/data')->getIconImgFront(Mage::registry('current_object')->getIcon_id()); ?>" class="simple-forum-icons-small" />
+				<?php endif; ?>
+				<?php echo $this->getTitleContent(); ?>
+			</div>
+		</td>
+		<td>
+			<div class="forum-controls">
+				<?php echo $this->getControls(); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+<?php echo $this->getToolbarHtml(); ?>
+<?php $posts = $this->getAllObjects(); ?>
+
+<div>
+    <table witdh="100%" border="0" id="forum_table_posts" class="data-table">
+		<thead>
+		<tr class="first last">
+			<th width="25%">&nbsp;</th>
+			<th width="75%"><?php echo $this->__('Post') ?></th>
+		<tr>
+		</thead>
+	<?php if($posts->getSize()): ?>
+	<?php $all_posts = $posts->getSize(); ?>
+		<?php foreach($posts as $post): ?>
+		<tr >
+			<td valign="top" class="forum-post-left" id="<?php echo $this->getReplyIdBegin() ?><?php echo $post->getId() ?>" <?php if(Mage::getStoreConfig('forum/advanced_settings/use_sticky_posts') && $post->getIs_sticky() == 1): ?> style="<?php if(Mage::getStoreConfig('forum/advanced_settings/sticky_posts_border')): ?> border:1px solid <?php echo Mage::getStoreConfig('forum/advanced_settings/sticky_posts_border'); ?>; <?php endif; ?> <?php endif; ?>>
+				<?php $userProfile = $post->getUserProfile() ?>
+                <div align="center">
+                	<div class="simple-forum-avatar-place-post">
+                		<img src="<?php echo $this->getAvatarUrl($userProfile); ?>" width="<?php echo $this->getAvatarWidth() ?>">
+                	</div>
+                	<?php if(!$this->getIsAdmin( $post->getSystem_user_id() ) && !$this->getIsMe( $post->getSystem_user_id() )): ?>
+	                	<div class="simple-forum-customer-pm-block">
+		                	<a href="<?php echo $this->getPMUrl($post->getSystem_user_id()) ?>"><?php echo $this->__('Send PM'); ?></a>
+		             	</div>
+		        	<?php endif; ?>
+                </div>
+				<h5 class="simple-forum-h-created" style="font-weight:normal"><?php echo $this->__('Posted By'); ?>: <?php echo Mage::helper('forum/customer')->getCustomerLink($post->getSystem_user_id(), $this->getNickName($post)); ?>
+				</h5>
+				<div class="simple-forum-user-total-posts"><?php echo $this->__('Total Posts') ?>: <?php echo $post->getUserTotalPosts() ?></div>
+				<div class="simple-forum-user-joined-date"><?php echo $this->__('Joined Date') ?>: <?php echo $this->getFormatedDate($post->getUserJoined()); ?></div>
+
+			</td>
+			<td valign="top" <?php if(Mage::getStoreConfig('forum/advanced_settings/use_sticky_posts') && $post->getIs_sticky() == 1): ?> style="<?php if(Mage::getStoreConfig('forum/advanced_settings/sticky_posts_border')): ?> border:1px solid <?php echo Mage::getStoreConfig('forum/advanced_settings/sticky_posts_border'); ?>; <?php endif; ?><?php if(Mage::getStoreConfig('forum/advanced_settings/sticky_posts_bg')): ?>background:<?php echo Mage::getStoreConfig('forum/advanced_settings/sticky_posts_bg') ?>; <?php endif; ?>" <?php endif; ?> class="forum-post-right" id="<?php echo $this->getReplyIdBegin() ?><?php echo $post->getId() ?>-td">
+				</h5>
+				<?php echo $post->getPost(); ?>
+			<div class="forum-post-signature">
+				<?php if($post->getSignature() && $post->getSignature() != ''): ?>
+					<div class="forum-post-user-signature">
+						<?php echo $post->getSignature(); ?>
+					</div>
+				<?php endif; ?>
+				<dl class="forum-post-signature-posted">
+					<table width="100%" id="forum-post-bottom">
+						<tr>
+							<td width="50%">
+								<b>
+									<?php echo $this->__('Posted'); ?>
+								</b>:
+								<?php echo $this->getFormatedDate($post->getCreated_time()); ?>
+							</td>
+							<td width="50%" align="right">
+							<div class="forum-controls-user">
+							<nobr>
+ 							<?php if(Mage::getStoreConfig('forum/advanced_settings/show_quote_link')): ?>
+                                  <b><a class="simple-forum-quote-link" href="<?php echo $this->getQuotePostUrl($post->getId(), $post); ?>"><?php echo '"' . $this->__('QUOTE') . '"'; ?></a></b>&nbsp;&nbsp;
+ 							<?php endif; ?>
+							<a href="#simple-forum-top">
+								<img src="<?php echo $this->getSkinUrl('forum/images/arrow_up.png') ?>" alt="<?php echo $this->__('Top') ?>" title="<?php echo $this->__('Top') ?>" border="0" />
+ 							</a>
+								<?php if($this->getHaveEditableRights($post->getSystem_user_id())): ?>
+
+										<a href="<?php echo $this->getEditPostUrl($post->getId(), $post); ?>"><img src="<?php echo $this->getSkinUrl('forum/images/page_edit.png') ?>" alt="<?php echo $this->__('Edit') ?>" title="<?php echo $this->__('Edit') ?>" border="0" /></a>&nbsp;
+<a href="<?php echo $this->getDeletePostUrl($post->getId()); ?>" onclick="if(confirm('<?php echo $this->__('Are You sure?') ?>')) document.location.href=this.href; return false;"><img src="<?php echo $this->getSkinUrl('forum/images/delete.png') ?>" alt="<?php echo $this->__('Delete') ?>" title="<?php echo $this->__('Delete') ?>" border="0" /></a>
+									<?php if($this->isModerator()): ?>
+										<?php if($post->getStatus() == 1): ?>
+											&nbsp;<a href="<?php echo $this->getDeactivatePostUrl($post->getId()); ?>" ><img src="<?php echo $this->getSkinUrl('forum/images/cancel.png') ?>" border="0" alt="<?php echo $this->__('Deactivate') ?>" title="<?php echo $this->__('Deactivate') ?>" /></a>
+										<?php elseif($post->getStatus() == 0): ?>
+											&nbsp;<a href="<?php echo $this->getActivatePostUrl($post->getId()); ?>" ><img src="<?php echo $this->getSkinUrl('forum/images/add.png') ?>" alt="<?php echo $this->__('Activate') ?>" title="<?php echo $this->__('Activate') ?>" border="0" /></a>
+										<?php endif; ?>
+									<?php endif; ?>
+
+
+								<?php endif; ?>
+							</nobr>
+							</div>
+							</td>
+						</tr>
+					</table>
+				</dl>
+			</div>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+
+	<?php else: ?>
+		<tr>
+		<td colspan="4">
+			<div style="text-align:center">
+				<?php echo $this->__('No Data To Display'); ?>
+			</div>
+		</td>
+	<?php endif;?>
+	</table>
+	<?php echo $this->getToolbarHtml(); ?>
+	<br>
+	<table width="100%">
+	<tr>
+		<td>
+			<div class="forum-title">
+				<?php if(Mage::getStoreConfig('forum/advanced_settings/show_icons_onfront') && Mage::registry('current_object')->getIcon_id() && Mage::registry('current_object')->getIcon_id() != ''): ?>
+					<img src="<?php echo $this->getSkinUrl() . Mage::helper('forum/data')->getIconImgFront(Mage::registry('current_object')->getIcon_id()); ?>" class="simple-forum-icons-small" />
+				<?php endif; ?>
+				<?php echo $this->getTitleContent(); ?>
+			</div>
+		</td>
+		<td>
+			<div class="forum-controls">
+				<?php echo $this->getControls(1); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+<?php if($this->getAllowFastReply()): ?>
+<div id="simple-forum-fast-reply-block">
+	<form id="simple-forum-fast-replay-form" action="<?php echo $this->getSaveUrl() ?>" method="post">
+		    <input type="hidden" name="topic_id" value="<?php echo $this->getTopicId() ?>" >
+		    <input type="hidden" name="back" value="<?php echo $this->getBackFormUrl() ?>" />
+		    <input type="hidden" name="parent_id" value="<?php echo $this->getParentId() ?>" />
+		    <br>
+			<textarea name="Post" id="simple-forum-fast-reply-textarea" ></textarea>
+			<div>
+				<ul class="form-list">
+					<?php echo $this->getRecaptchField() ?>
+				</ul>
+			</div>
+			<div id="simple-forum-fast-reply-button-block">
+				<button class="simple-forum-default-button" onclick="forumFastReplaySF(); return false;" title="<?php echo $this->__('Cancel'); ?>" ><?php echo $this->__('Cancel'); ?></button>
+				<button class="simple-forum-default-button" type="submit" title="<?php echo $this->__('Submit Post'); ?>" ><?php echo $this->__('Submit Post'); ?></button>
+			</div>
+	</form>
+</div>
+<?php endif; ?>
+</div>
+</div>

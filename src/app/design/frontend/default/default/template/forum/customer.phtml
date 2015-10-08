@@ -1,0 +1,34 @@
+<?php $customer = $this->getCustomer() ?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<div class="simple-forum-customer-main-block">
+<h4><?php echo $this->__('Profile for Forum User'); ?>: <?php echo $this->getCustomerName(); ?></h4>
+	<table class="simple-forum-customer-block">
+		<tr>
+			<td>
+    			<div class="simple-forum-customer-avatar-block">
+	    			<?php $userProfile = $customer->getUserSettingsData(); ?>
+	         		<img src="<?php echo $this->getAvatarUrl($userProfile); ?>" width="<?php echo $this->getAvatarWidth(); ?>">
+    			</div>
+    		</td>
+    		<td>
+                 <div class="simple-forum-customer-info-block">
+                       <strong><?php echo $this->__('Name') ?>:</strong> <?php echo $this->getCustomerName(); ?><br>
+                       <strong><?php echo $this->__('Total Topics') ?>:</strong> <?php echo $customer->getTotalTopics(); ?><br>
+                       <strong><?php echo $this->__('Total Posts') ?>:</strong> <?php echo $customer->getTotalPosts(); ?><br>
+                       <strong><?php echo $this->__('Forum Status') ?>:</strong> <?php echo $customer->getStatus(); ?><br>
+                       <strong><?php echo $this->__('Joined Date') ?>:</strong> <?php echo $this->getFormatedDate($this->getCustomerJoinedDate()); ?>
+                 </div>
+    		</td>
+    	</tr>
+    	<?php if($this->getIsAdmin() != true && $this->getIsMe() != true): ?>
+	    	<tr>
+	             <td colspan="2" align="center">
+	             	<div class="simple-forum-customer-pm-block">
+	                	<a href="<?php echo $this->getPMUrl($customer->getCId()) ?>"><?php echo $this->__('Send Private Message'); ?></a>
+	             	</div>
+	             </td>
+	    	</tr>
+	  	<?php endif; ?>
+	</table>
+</div>

@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+
+
+<config>
+  <modules>
+    <WIO_All>
+      <version>1.0.0</version>
+    </WIO_All>
+  </modules>
+  
+	<global>
+		<blocks>
+		  <wioall>
+			<class>WIO_All_Block</class>
+		  </wioall>
+			<adminhtml>
+				<rewrite>
+					<notification_window>WIO_All_Block_Notification_Window</notification_window>
+				</rewrite>	
+			</adminhtml>
+		</blocks>
+		<resources>
+		  <wioall_setup>
+			  <setup>
+				  <module>WIO_All</module>
+			  </setup>
+			  <connection>
+				  <use>core_setup</use>
+			  </connection>
+		  </wioall_setup>
+		  <wioall_write>
+			  <connection>
+				  <use>core_write</use>
+			  </connection>
+		  </wioall_write>
+		  <wioall_read>
+			  <connection>
+				  <use>core_read</use>
+			  </connection>
+		  </wioall_read>
+		</resources>
+		<models>
+			<wioall>
+				<class>WIO_All_Model</class>
+			</wioall>
+		</models>
+
+	  <helpers>
+		  <wioall>
+			  <class>WIO_All_Helper</class>
+		  </wioall>
+	  </helpers>
+	</global>
+	
+	<adminhtml>
+		<layout>
+			<updates>
+				<wioall module="wioall">
+					<file>wio_all.xml</file>
+				</wioall>
+			</updates>
+		</layout>
+		
+		<acl>
+			<resources>
+				<admin>
+					<children>
+						<system>
+							<children>
+								<config>
+									<children>
+										<wioall>
+											<title>WIO-All</title>
+										</wioall>
+									</children>
+								</config>
+							</children>
+						</system>
+					</children>
+				</admin>
+			</resources>
+		</acl>
+		<events>
+            <controller_action_predispatch>
+                <observers>
+                    <wio_all_feeds_read>
+                        <type>singleton</type>
+                        <class>wioall/feeds</class>
+                        <method>loadFeeds</method>
+                    </wio_all_feeds_read>				
+                </observers>
+            </controller_action_predispatch>
+        </events>		
+	</adminhtml>
+	<default>
+		<wioall>
+			<feeds>
+				<url>webideaonline.com/tag/magento-products/feed/</url>
+				<use_https>0</use_https>
+				<period>86400</period>
+				<allownotification>1</allownotification>
+			</feeds>
+		</wioall>
+	</default>			
+</config>

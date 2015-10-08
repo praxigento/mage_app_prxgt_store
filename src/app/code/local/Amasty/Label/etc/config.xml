@@ -1,0 +1,182 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2008-2012 Amasty (http://www.amasty.com)
+* @package Amasty_Label
+*/
+-->
+<config>
+
+    <modules>
+        <Amasty_Label>
+            <version>2.0.1</version>
+        </Amasty_Label>
+    </modules>
+    
+    <global>
+        <models>
+            <amlabel>
+                <class>Amasty_Label_Model</class>
+                <resourceModel>amlabel_mysql4</resourceModel>
+            </amlabel>
+            <amlabel_mysql4>
+                <class>Amasty_Label_Model_Mysql4</class>
+                <entities>
+                    <label>
+                        <table>am_label</table>
+                    </label> 
+                </entities>
+            </amlabel_mysql4>
+        </models>
+        
+        <resources>
+            <amlabel_setup>
+                <setup>
+                    <module>Amasty_Label</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </amlabel_setup>
+            
+            <amlabel_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </amlabel_write>
+            
+            <amlabel_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </amlabel_read>
+        </resources>
+
+        <blocks>
+            <amlabel>
+                <class>Amasty_Label_Block</class>
+            </amlabel>
+
+            <adminhtml>
+                <rewrite>
+                    <catalog_product_edit_tabs>Amasty_Label_Block_Adminhtml_Catalog_Product_Edit_Tabs</catalog_product_edit_tabs>
+                </rewrite>
+            </adminhtml> 
+
+        </blocks>
+         
+        <helpers>
+            <amlabel>
+                <class>Amasty_Label_Helper</class>
+            </amlabel>
+        </helpers>
+    </global>
+    
+     <frontend>
+        <translate>
+            <modules>
+                <Amasty_Label>
+                    <files>
+                        <default>Amasty_Label.csv</default>
+                    </files>
+                </Amasty_Label>
+            </modules>
+        </translate>
+        <layout>
+              <updates>
+                  <amlabel module="Amasty_Label">
+                      <file>amlabel.xml</file>
+                  </amlabel>
+              </updates>
+        </layout>
+    </frontend>  
+     
+    <admin>
+        <routers>
+			<amlabel>
+				<use>admin</use>
+				<args>
+					<module>Amasty_Label</module>
+					<frontName>amlabel</frontName>
+				</args>
+			</amlabel>
+        </routers>
+    </admin> 
+        
+    <adminhtml>
+    
+        <events>
+            <catalog_product_save_after>
+                <observers>
+                    <amlabel>
+                        <class>amlabel/observer</class>
+                        <method>applyLabels</method>
+                    </amlabel>
+                </observers>
+            </catalog_product_save_after>
+        </events>
+        
+        <menu>
+            <catalog>
+                <children>
+                    <amlabel translate="title" module="amlabel">
+                        <title>Product Labels</title>
+                        <action>amlabel/adminhtml_label</action>
+                        <sort_order>800</sort_order>
+                    </amlabel>
+                </children>
+            </catalog>
+        </menu>     
+        
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <catalog>
+                            <children>
+                                <amlabel>
+                                    <title>Product Labels</title>
+                                </amlabel>
+                            </children>
+                        </catalog>    
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <amlabel>
+                                            <title>Product Labels</title>
+                                        </amlabel>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>                     
+                     </children>
+                </admin> 
+            </resources>
+        </acl>
+        
+        <translate>
+            <modules>
+                <Amasty_Label>
+                    <files>
+                        <default>Amasty_Label.csv</default>
+                    </files>
+                </Amasty_Label>
+            </modules>
+        </translate>
+    
+    </adminhtml>
+    
+    <default>
+        <amlabel>
+            <general>
+                <sale_min>0</sale_min>
+            </general>        
+        </amlabel>
+    </default>
+    
+</config>

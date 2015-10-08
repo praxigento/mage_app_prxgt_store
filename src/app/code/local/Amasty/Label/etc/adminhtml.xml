@@ -1,0 +1,74 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2008-2012 Amasty (http://www.amasty.com)
+* @package Amasty_Label
+*/
+-->
+<config>
+
+    <events>
+        <catalog_product_save_after>
+            <observers>
+                <amlabel>
+                    <class>amlabel/observer</class>
+                    <method>applyLabels</method>
+                </amlabel>
+            </observers>
+        </catalog_product_save_after>
+    </events>
+
+	<menu>
+	    <catalog>
+            <children>
+                <amlabel translate="title" module="amlabel">
+                    <title>Product Labels</title>
+                    <action>amlabel/adminhtml_label</action>
+                    <sort_order>800</sort_order>
+                </amlabel>
+            </children>
+        </catalog>
+	</menu>     
+
+	<acl>
+		<resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+            <admin>
+                <children>
+                    <catalog>
+                        <children>
+                            <amlabel>
+                                <title>Product Labels</title>
+                            </amlabel>
+                        </children>
+                    </catalog>    
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <amlabel>
+                                        <title>Product Labels</title>
+                                    </amlabel>
+                                </children>
+                            </config>
+                        </children>
+                    </system>                     
+                 </children>
+            </admin> 
+		</resources>
+	</acl>
+    
+    <translate>
+        <modules>
+            <Amasty_Label>
+                <files>
+                    <default>Amasty_Label.csv</default>
+                </files>
+            </Amasty_Label>
+        </modules>
+    </translate>
+    
+</config> 

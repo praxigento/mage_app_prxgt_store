@@ -1,0 +1,63 @@
+<?php
+	$customerName = '';
+	$email = '';
+	if (Mage::getSingleton('customer/session')->isLoggedIn()) {
+		$customerName = 'value="' . Mage::getSingleton('customer/session')->getCustomer()->getName() . '" ';
+		$email = 'value="' . Mage::getSingleton('customer/session')->getCustomer()->getEmail() . '"';
+	}
+?>
+<div class="action clearer askit-answergroup">
+	<span class="askit-haveyouanswer"><?php echo Mage::helper('askit')->__('Can you answer these question?'); ?></span>
+    <button type="button" class="button askit-add-answer-button"><span><span><?php echo  Mage::helper('askit')->__('Leave a Reply') ?></span></span></button>
+</div>
+<div style="display: none">
+    <div class="add-askit-box">
+        <form id="askit-new-answer-form<?php echo  $this->getQuestionId()?>" action="<?php echo $this->getFormAction(); ?>"  method="POST">
+            <div class="fieldset">
+                <h4 class="legend"><?php echo Mage::helper('askit')->__('Leave a Reply') ?></h4>
+                <ul class="form-list">
+                    <li class="fields">
+                        <div class="field">
+                            <label class="required" for="answer-askitCustomer">
+                                <?php echo Mage::helper('askit')->__('Name') ?><em>*</em>
+                            </label>
+                            <div class="input-box">
+                                <input type="text" class="input-text required-entry" id="answer-askitCustomer" name="askitCustomer" <?php echo $customerName?>/>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <label class="required" for="answer-askitEmail">
+                                <?php echo Mage::helper('askit')->__('Email') ?><em>*</em>
+                            </label>
+                            <div class="input-box">
+                                <input type="text" class="input-text required-entry validate-email" name="askitEmail" id="answer-askitEmail" <?php echo $email?>/>
+                            </div>
+                        </div>
+                    </li>
+                    <li class="wide">
+                        <label class="required" for="askitAnswer"><?php echo Mage::helper('askit')->__('Your Answer') ?><em>*</em></label>
+                        <div class="input-box">
+                            <textarea class="input-text required-entry" id="askitAnswer" title="<?php echo Mage::helper('askit')->__('Your Answer') ?>" name="askitAnswer" cols="5" rows="3"></textarea>
+                        </div>
+                    </li>
+                </ul>
+				<div class="action">
+                    <button id="submit-askit-new-answer-form" type="button" class="button right" onclick="submitAskitNewAnswerForm<?php echo  $this->getQuestionId();?>()">
+                        <span><span><?php echo Mage::helper('askit')->__('Leave a Reply') ?></span></span>
+                    </button>              
+                </div>
+            </div>
+        </form>
+        <script type="text/javascript">
+            //<![CDATA[
+                var askitNewAnswerForm<?php echo  $this->getQuestionId();?> = new VarienForm('askit-new-answer-form<?php echo  $this->getQuestionId()?>');
+                function submitAskitNewAnswerForm<?php echo  $this->getQuestionId()?>() {
+                    if(askitNewAnswerForm<?php echo  $this->getQuestionId();?>.validator.validate()) {
+                        askitNewAnswerForm<?php echo  $this->getQuestionId();?>.form.submit();
+                    }
+                }
+            //]]>
+        </script>
+        <div class="clear"></div>
+    </div>
+</div>

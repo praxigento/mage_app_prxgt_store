@@ -1,0 +1,55 @@
+<div class="page-title title-buttons">
+	<h1><?php echo $this->__('Send Private Message') ?> </h1>
+</div>
+<?php $customer = $this->getSendToCustomer(); ?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<form name="forum_send_private_message" id="forum_send_private_message" action="<?php echo $this->getSendPMAction() ?>" method="post">
+	<input type="hidden" name="cid" value="<?php echo $this->getCId() ?>" />
+	<input type="hidden" name="redirect" value="<?php echo $this->getBackUrl() ?>" />
+	<div class="simple-forum-myprivatemessages-add-block">
+		<table class="simple-forum-myprivatemessages-add-table" border="0">
+			<tr>
+		         <td class="simple-forum-myprivatemessages-add-customer-block">
+		         	<div class="simple-forum-customer-avatar-block">
+	            		<?php $userProfile = $customer->getUserSettingsData(); ?>
+						<img src="<?php echo $this->getAvatarUrl($userProfile); ?>" width="<?php echo $this->getAvatarWidth(); ?>" />
+						<br>
+		    			<a href="<?php echo $this->getCustomerUrl() ?>">
+		        			<?php echo $this->getCustomerName(); ?>
+		    			</a>
+					</div>
+		         </td>
+		         <td class="simple-forum-myprivatemessages-add-text-block">
+		         	<div class="simple-forum-myprivatemessages-subject-label">
+		         		<label for="privatemessagetitle"><em>*</em><?php echo $this->__('Subject'); ?></label>
+		     		</div>
+            		<input type="text" name="subject" id="privatemessagetitle" value="<?php echo $this->getSubjectSend() ?>" class="input-text required-entry simple-forum-myprivatemessages-subject" />
+		         	<div class="simple-forum-myprivatemessages-subject-label">
+		         		<label for="privatemessagetitle_text"><em>*</em><?php echo $this->__('Text'); ?></label>
+		     		</div>
+	             	<textarea name="privatemessage" id="privatemessagetitle_text" class="input-text required-entry simple-forum-myprivatemessages-text"><?php echo $this->getMessageSend() ?></textarea><br>
+	              	<small style="font-size:85%">(<?php echo $this->__('alowed tags') ?>: <?php echo htmlspecialchars('<b>, <ul>, <em>') ?>)</small>  <br>
+	               	<div style="text-align:right;">
+	               		<?php echo $this->getRecaptchField(); ?>
+	              	</div>
+	               	<br>
+	               	<div>
+	               		<button type="submit" title="<?php echo $this->getSubmitTitle() ?>" class="simple-forum-default-button">
+							<?php echo $this->getSubmitTitle() ?>
+						</button>
+					</div>
+		         </td>
+			</tr>
+		</table>
+	</div>
+</form>
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a> &nbsp; <a href="<?php echo $this->getForumUrl() ?>"><small>&laquo; </small><?php echo $this->__('Forum') ?></a></p>
+</div>
+
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('forum_send_private_message', true);
+//]]>
+</script>

@@ -1,0 +1,342 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Simple_Forum>
+            <version>1.1.6.1</version>
+        </Simple_Forum>
+    </modules>
+    <frontend>
+    	<translate>
+		    <modules>
+		        <Simple_Forum>
+		            <files>
+		                <default>Simple_Forum.csv</default>
+		            </files>
+		        </Simple_Forum>
+		    </modules>
+		</translate>
+        <routers>
+            <forum>
+            	<use>standard</use>
+                <args>
+                    <module>Simple_Forum</module>
+                    <frontName>forum</frontName>
+                </args>
+            </forum>
+        </routers>
+        <layout>
+            <updates>
+                <forum module="forum">
+                    <file>forum.xml</file>
+                </forum>
+            </updates>
+        </layout>
+    </frontend>
+    <admin>
+        <routers>
+            <forum_admin>
+            	<use>admin</use>
+                <args>
+                    <module>Simple_Forum</module>
+                    <frontName>forum_admin</frontName>
+                </args>
+            </forum_admin>
+        </routers>
+    </admin>
+    <adminhtml>
+    	<translate>
+		    <modules>
+		        <Simple_Forum>
+		            <files>
+		                <default>Simple_Forum.csv</default>
+		            </files>
+		        </Simple_Forum>
+		    </modules>
+		</translate>
+        <menu>
+            <forum module="forum">
+            <title>Forum</title>
+			<depends>
+                <module>Simple_Forum</module>
+            </depends>
+            <sort_order>77</sort_order>
+                <children>
+                	<forum_admin module="forum">
+                        <title>Forum Manager</title>
+                        <sort_order>1</sort_order>
+                        <action>forum_admin/adminhtml_forum</action>
+                    </forum_admin>
+                    <forum_admin_new module="forum">
+                        <title>Add Forum</title>
+                        <sort_order>2</sort_order>
+                        <action>forum_admin/adminhtml_forum/new</action>
+                    </forum_admin_new>
+                    <forum_admin_topic module="forum">
+                        <title>Topic Manager</title>
+                        <sort_order>3</sort_order>
+                        <action>forum_admin/adminhtml_topic</action>
+                    </forum_admin_topic>
+                    <forum_admin_topic_new module="forum">
+                        <title>Add Topic</title>
+                        <sort_order>4</sort_order>
+                        <action>forum_admin/adminhtml_topic/new</action>
+                    </forum_admin_topic_new>
+                    <forum_admin_subtopic module="forum">
+                        <title>Sub-Topic Manager</title>
+                        <sort_order>5</sort_order>
+                        <action>forum_admin/adminhtml_subtopic</action>
+                    </forum_admin_subtopic>
+                    <forum_admin_subtopic_new module="forum">
+                        <title>Add Sub-Topic</title>
+                        <sort_order>6</sort_order>
+                        <action>forum_admin/adminhtml_subtopic/new</action>
+                    </forum_admin_subtopic_new>
+                    <forum_admin_post module="forum">
+                        <title>Manage Posts</title>
+                        <sort_order>7</sort_order>
+                        <action>forum_admin/adminhtml_post</action>
+                    </forum_admin_post>
+                    <forum_admin_post_new module="forum">
+                        <title>Add Post</title>
+                        <sort_order>8</sort_order>
+                        <action>forum_admin/adminhtml_post/new</action>
+                    </forum_admin_post_new>
+                    <forum_admin_moderators module="forum">
+                    	<title>Manage Moderators</title>
+                    	<sort_order>9</sort_order>
+                    	<action>forum_admin/adminhtml_moderators</action>
+                    </forum_admin_moderators>
+                    <forum_admin_settings module="forum">
+                    	<title>Admin Display Settings</title>
+                    	<sort_order>10</sort_order>
+                    	<action>forum_admin/adminhtml_admsettings</action>
+                    </forum_admin_settings>
+					<forum_configuration module="forum">
+                        <title>Configuration</title>
+                        <sort_order>11</sort_order>
+                        <action>adminhtml/system_config/edit/section/forum</action>
+                    </forum_configuration>
+                </children>
+            </forum>
+        </menu>
+        <acl>
+        <resources>
+			<all>
+				<title>Allow Everything</title>
+			</all>
+            <admin>
+                <children>
+
+					<forum translate="title">
+						<title>Forum</title>
+						<sort_order>77</sort_order>
+						<children>
+							<forum_admin module="forum">
+								<title>Forum Manager</title>
+							</forum_admin>
+							<forum_admin_new>
+								<title>Add Forum</title>
+							</forum_admin_new>
+							<forum_admin_topic module="forum">
+								<title>Topic Manager</title>
+							</forum_admin_topic>
+							<forum_admin_topic_new module="forum">
+								<title>Add Topic</title>
+							</forum_admin_topic_new>
+							<forum_admin_subtopic module="forum">
+		                        <title>Sub-Topic Manager</title>
+		                    </forum_admin_subtopic>
+		                    <forum_admin_subtopic_new module="forum">
+		                        <title>Add Sub-Topic</title>
+		                    </forum_admin_subtopic_new>
+							<forum_admin_post module="forum">
+								<title>Manage Posts</title>
+							</forum_admin_post>
+							<forum_admin_post_new module="forum">
+								<title>Add Post</title>
+							</forum_admin_post_new>
+							<forum_admin_moderators module="forum">
+								<title>Manage Moderators</title>
+							</forum_admin_moderators>
+		                    <forum_admin_settings module="forum">
+		                    	<title>Admin Display Settings</title>
+		                    </forum_admin_settings>
+							<forum_configuration>
+								<title>Configuration</title>
+							</forum_configuration>
+						</children>
+					</forum>
+
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <forum module="forum">
+                                        <title>Simple Forum Allowed</title>
+                                    </forum>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+
+				</children>
+            </admin>
+
+        </resources>
+    	</acl>
+        <layout>
+            <updates>
+                <forum module="forum">
+                    <file>forum.xml</file>
+                </forum>
+            </updates>
+        </layout>
+    </adminhtml>
+    <global>
+        <models>
+            <forum>
+                <class>Simple_Forum_Model</class>
+                <resourceModel>forum_mysql4</resourceModel>
+            </forum>
+            <forum_mysql4>
+                <class>Simple_Forum_Model_Mysql4</class>
+                <entities>
+                    <topic>
+                        <table>forum_topic</table>
+                    </topic>
+                    <forum>
+                        <table>forum_topic</table>
+                    </forum>
+                    <post>
+                        <table>forum_post</table>
+                    </post>
+					<entity>
+                        <table>forum_entity</table>
+                    </entity>
+					<visitor>
+                        <table>forum_visitors</table>
+                    </visitor>
+					<user>
+                        <table>forum_users</table>
+                    </user>
+                    <moderator>
+                    	<table>forum_moderator</table>
+                    </moderator>
+                    <notify>
+                    	<table>forum_notification</table>
+                    </notify>
+                    <usersettings>
+                     	<table>forum_usersettings</table>
+                    </usersettings>
+                    <privatemessages>
+                    	<table>forum_privatemessages</table>
+                    </privatemessages>
+                </entities>
+            </forum_mysql4>
+        </models>
+        <resources>
+            <forum_setup>
+                <setup>
+                    <module>Simple_Forum</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </forum_setup>
+            <forum_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </forum_write>
+            <forum_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </forum_read>
+        </resources>
+        <blocks>
+            <forum>
+                <class>Simple_Forum_Block</class>
+            </forum>
+        </blocks>
+        <helpers>
+            <forum>
+                <class>Simple_Forum_Helper</class>
+            </forum>
+        </helpers>
+        <template>
+            <email>
+                <forum_forumnotification_email_template_customer translate="label" module="forum">
+                    <label>New Post Notify</label>
+                    <file>simple_forum/newpost_customer_notify.html</file>
+                    <type>html</type>
+                </forum_forumnotification_email_template_customer>
+                <forum_forumnotification_email_template_moderator translate="label" module="forum">
+                    <label>New Post or Topic</label>
+                    <file>simple_forum/newdata_moder_notify.html</file>
+                    <type>html</type>
+                </forum_forumnotification_email_template_moderator>
+                <forum_forumnotification_newprivatemessage translate="label" module="forum">
+                    <label>New Private Message</label>
+                    <file>simple_forum/newprivatemessage_notify.html</file>
+                    <type>html</type>
+                </forum_forumnotification_newprivatemessage>
+            </email>
+        </template>
+        <events>
+            <controller_action_predispatch>
+                <observers>
+                    <simple_forum_sitemap_update>
+                        <type>singleton</type>
+                        <class>forum/sitemap</class>
+                        <method>___initialize</method>
+                    </simple_forum_sitemap_update>
+                </observers>
+            </controller_action_predispatch>
+            <controller_front_init_routers>
+                <observers>
+                    <forum>
+                        <type>singleton</type>
+                        <class>Simple_Forum_Controller_Router</class>
+                        <method>___initialize</method>
+                    </forum>
+                </observers>
+            </controller_front_init_routers>
+        </events>
+    </global>
+    <default>
+    	<sitemap>
+			<forum>
+				<changefreq>weekly</changefreq>
+				<priority>0.5</priority>
+			</forum>
+		</sitemap>
+		<forum>
+			<sitemap>
+				<allowcreation>0</allowcreation>
+				<sitemapfilename>forumsitemap.xml</sitemapfilename>
+				<path_to_sitemapfilename>sitemaps</path_to_sitemapfilename>
+				<periodcreation>86400</periodcreation>
+			</sitemap>
+			<designsettings>
+				<layout>page/1column.phtml</layout>
+			</designsettings>
+
+			<advanced_settings>
+				<display_topics_quantity>3</display_topics_quantity>
+				<display_on_product_details>1</display_on_product_details>
+				<avatar_width>100</avatar_width>
+				<avatar_path>media/forumavatar</avatar_path>
+				<avatar_noimage>no_image.jpg</avatar_noimage>
+				<show_icons_onfront>true</show_icons_onfront>
+				<show_topics_status>true</show_topics_status>
+				<show_quote_link>true</show_quote_link>
+			</advanced_settings>
+
+			<tinymcesettings>
+             	<maximum_image_width>580</maximum_image_width>
+             	<use_image_resize>true</use_image_resize>
+			</tinymcesettings>
+		</forum>
+    </default>
+</config>

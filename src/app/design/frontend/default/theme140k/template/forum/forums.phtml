@@ -1,0 +1,121 @@
+<div class="simple-forum-content">
+<?php echo $this->getHeadHtml(); ?>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<?php echo $this->getBreadCrumbs(); ?>
+<div class="forum-top">
+<?php echo $this->getTop(); ?>
+<table width="100%">
+	<tr>
+		<td>
+			<div class="forum-title">
+				<?php echo $this->getTitleContent(); ?>
+			</div>
+		</td>
+		<td>
+			<div class="forum-controls">
+				<?php echo $this->getControls(); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+<?php echo $this->getToolbarHtml(); ?>
+<?php $forums = $this->getAllForums(); ?>
+<div>
+    <table witdh="100%" border="0" id="forum_table" class="data-table">
+		<thead>
+		<tr class="first last">
+		<?php if(Mage::getStoreConfig('forum/advanced_settings/show_icons_onfront')): ?>
+			<th>&nbsp;</th>
+		<?php endif; ?>
+			<th width="40%"><?php echo $this->__('Forum Name') ?></th>
+			<th width="10%"><?php echo $this->__('Total Topics') ?></th>
+			<th width="10%"><?php echo $this->__('Total Posts') ?></th>
+			<th width="40%"><?php echo $this->__('Latest Reply') ?></th>
+		<tr>
+		</thead>
+
+	<?php if($forums->getSize()): ?>
+		<?php foreach($forums as $forum): ?>
+		<tr>
+			<?php if(Mage::getStoreConfig('forum/advanced_settings/show_icons_onfront')): ?>
+				<td width="1%">
+				     <?php if($forum->getIcon_id() && $forum->getIcon_id() != ''): ?>
+         				<img src="<?php echo $this->getSkinUrl() . Mage::helper('forum/data')->getIconImgFrontMedium($forum->getIcon_id()); ?>" class="simple-forum-icons-medium" />
+         			 <?php else:  ?>
+                  		&nbsp;
+				     <?php endif; ?>
+				</td>
+			<?php endif; ?>
+			<td>
+				<table width="100%" cellpadding="2" cellspacing="2">
+					<tr>
+						<td width="1%">
+							<img src="<?php echo $this->getSkinUrl() ?>forum/images/folder_forum.png" >
+						</td>
+						<td>
+							<a id="simple-forum-link-<?php echo $forum->getId() ?>" href="<?php echo $this->getViewUrl( $forum->getId(), $forum);?>"><?php echo $forum->getTitle(); ?></a><br>
+							<?php if($forum->getDescription() && trim($forum->getDescription()) != '' && Mage::helper('forum/topic')->getDisplayShortDescriptionField()): ?>
+								<script>
+									var ___tBaloon = new doBaloon($('simple-forum-link-<?php echo $forum->getId() ?>'), false, false, '<?php echo addslashes($forum->getDescription()) ?>');
+
+								</script>
+							<?php endif; ?>
+							<?php echo $this->__('Created') ?>: <?php echo $this->getFormatedDate($forum->getCreated_time());?><br>
+							<?php echo $this->__('Created By') ?>: <?php echo Mage::helper('forum/customer')->getCustomerLink($forum->getSystem_user_id(), $this->getUserNick($forum->getSystem_user_id(), $forum));?>
+						</td>
+					</tr>
+				</table>
+			</td>
+			<td style="text-align:center;" valign="middle"><?php echo $forum->getTotal_topics(); ?></td>
+			<td style="text-align:center;"><?php echo $forum->getTotal_posts(); ?></td>
+			<td>
+				<?php if($forum->getLatest_topic()): ?>
+					<nobr>
+					    <?php if($forum->getLatest_topic()->getIcon_id() && $forum->getLatest_topic()->getIcon_id() != '' && Mage::getStoreConfig('forum/advanced_settings/show_icons_onfront')): ?>
+                        	<img src="<?php echo $this->getSkinUrl() . Mage::helper('forum/data')->getIconImgFront($forum->getLatest_topic()->getIcon_id()); ?>" class="simple-forum-icons-small" />
+					    <?php endif; ?>
+						<a id="simple-forum-link-<?php echo $forum->getLatest_topic()->getId() ?>" href="<?php echo $this->getViewUrlLatest( $forum->getLatest_postId(), $forum->getLatest_topic());?>"><?php echo $forum->getLatest_topic()->getTitle(); ?></a><br>
+					</nobr>
+					<?php if($forum->getLatest_topic()->getDescription() != '' && Mage::helper('forum/topic')->getDisplayShortDescriptionField()): ?>
+						<script>
+							var ___tBaloon = new doBaloon($('simple-forum-link-<?php echo $forum->getLatest_topic()->getId() ?>'), false, false, '<?php echo addslashes($forum->getLatest_topic()->getDescription()) ?>');
+						</script>
+					<?php endif; ?>
+					<?php echo $this->__('Posted'); ?> :<?php echo $this->getFormatedDate($forum->getLatest_created_time());?><br>
+					<?php echo $this->__('Posted By'); ?> :<?php echo Mage::helper('forum/customer')->getCustomerLink($forum->getLatest_user_id(), $forum->getLatest_user_name()); ?>
+				<?php else: ?>
+					<?php echo $this->__('No Topics Posts posted Yet'); ?>
+				<?php endif; ?>
+			</td>
+		</tr>
+		<?php endforeach; ?>
+
+	<?php else: ?>
+		<tr>
+		<td colspan="4">
+			<div style="text-align:center" class="forum-no-data-table">
+				<?php echo $this->__('No Data To Display'); ?>
+			</div>
+		</td>
+	</tr>
+	<?php endif;?>
+	</table>
+<?php echo $this->getToolbarHtml(); ?>
+	<br>
+	<table width="100%">
+	<tr>
+		<td>
+			<div class="forum-title">
+				<?php echo $this->getTitleContent(); ?>
+			</div>
+		</td>
+		<td>
+			<div class="forum-controls">
+				<?php echo $this->getControls(); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+</div>

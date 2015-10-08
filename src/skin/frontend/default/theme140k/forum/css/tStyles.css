@@ -1,0 +1,137 @@
+/*############## TLIB */
+.tWin {
+	position: absolute;
+	}
+.tWinTitle {
+	position: relative;
+	background-color: #AABBDD;
+	border: 2px solid #AABBDD;
+}
+.tFrame {
+	position: relative;
+	background-color: #FFF;
+	padding: 1em;
+	border: 2px solid #AABBDD;
+}
+.tLoader
+{
+	background:#FFF;
+	text-align:center;
+	padding-top:10px;
+	font-weight:bold;
+	border: 1px solid black;
+}
+.tLoaderIE
+{
+	background:#FFF;
+	text-align:center;
+	padding-top:10px;
+	font-weight:bold;
+	z-index:100;
+	border: 1px solid black;
+	top: expression(( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + (document.getElementById('tLoaderBack')?( document.getElementById('tLoaderBack').postop?document.getElementById('tLoaderBack').postop:1) : 1 ) +  'px') ;
+}
+.tLoaderIEIframe
+{   
+	top: expression(( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + (document.getElementById('tLoaderBack')?( document.getElementById('tLoaderBack').postop?document.getElementById('tLoaderBack').postop:1) : 1 ) +  'px') ;
+	background:#FFF;
+	position: absolute;
+	z-index:99;
+}
+.tBaloon
+{
+	background: transparent url(../images/loading_round_1.gif) center no-repeat;
+	background-color: #FFF;
+    border: 2px solid #618499;    
+	width:285px;
+}
+.tFrameBg
+{
+	border:0px;
+	padding:0px;
+	margin:0px;
+}
+/*** SEARCH BOX LAYOUT ***/
+.tFocus
+{
+    border:3px solid red;
+    filter: alpha(opacity=15);
+    opacity: 0.15;
+    background-color:white;	
+}	
+.tScroller
+{
+   position: absolute;
+   border: 1px solid black;
+   background-color: #RRR;	
+}
+
+.tMiddleElScroller
+{
+   background:#333333;
+   width: 10px;
+   position: absolute;
+   cursor:pointer;	
+}	
+div.tSelectedSpan{
+    border:1px solid black;
+    font-size:12px;
+    padding:2px;
+    cursor:pointer;
+    font-weight:bold;
+	color:#000;	
+}
+span.tslectedText{
+    background:#fde2d3;
+    font-weight:bold;
+    font-size:12px;	
+    color:#000;
+}
+/*** WINDOW FRAME STYLES ***/
+.tWinBack
+{
+	position:absolute;
+	margin:0 0 0 0;
+	padding:0 0 0 0;
+    background : #000;
+    filter: alpha(opacity=15);
+    opacity: 0.15;
+}
+.tWinBody
+{
+	position:absolute;
+	background: #fff;
+    border    : 2px solid #6d2e47; 
+    float:left;
+}
+.iEtWinBody
+{
+	   position:absolute;
+	   background: #fff;
+	   top: expression(( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + (document.getElementById('tWinBack')?( document.getElementById('tWinBack').postop?document.getElementById('tWinBack').postop:1) : 1 ) +  'px') ;
+	   border    : 2px solid #6d2e47; 
+}
+.ietLoader
+{
+	 position:absolute;
+	 top: expression(( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + (document.getElementById('image_loader_frame')?( document.getElementById('image_loader_frame').postop?document.getElementById('image_loader_frame').postop:1) : 1 ) +  'px') ;
+	 padding:0px;
+}
+.tWinClose
+{
+	cursor:pointer;
+	position:absolute;
+	background: transparent url(../images/close_win.gif) top left no-repeat;
+}
+.iEtWinClose{
+	top: expression(( ignoreMe = document.documentElement.scrollTop ? document.documentElement.scrollTop : document.body.scrollTop) + (document.getElementById('tWinBack')?( document.getElementById('tWinBack').postop?document.getElementById('tWinBack').postop:1) : 1 ) +  'px') ;
+	background: transparent url(../images/close_win.gif) top left no-repeat;
+	position:absolute;	
+}
+.tFrameWin
+{
+    width : 100%;
+    height: 100%;
+    float:left;
+    position:relative;
+}

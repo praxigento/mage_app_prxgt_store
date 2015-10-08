@@ -1,0 +1,47 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <default>
+        <reference name="head">
+            <action method="addJs"><script>aw_ajaxcartpro/ajaxcartpro.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/cart.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/sidebar.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/topLinks.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/options.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/wishlist.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/miniWishlist.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/addProductConfirmation.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/updaters/removeProductConfirmation.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/observers/clickOnButtonInCartPageForm.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/observers/clickOnAddToCartInCategoryList.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/observers/clickOnAddToCartInOptionsPopup.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/observers/clickOnAddToCartInProductPage.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/observers/clickOnDeleteFromCart.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/observers/clickOnAddToCartInMiniWishlist.js</script></action>
+            <action method="addJs"><script>varien/product.js</script></action>
+            <action method="addJs"><script>aw_ajaxcartpro/product.js</script></action>
+            <action method="addItem"><type>skin_js</type><name>js/bundle.js</name></action>
+            <action method="addCss"><stylesheet>ajaxcartpro/css/styles.css</stylesheet></action>
+            <action method="addItem"><type>skin_css</type><name>ajaxcartpro/css/ie7-style.css</name><params/><if>IE 7</if></action>
+            <block type="ajaxcartpro/init" template="ajaxcartpro/init.phtml" name="aw.ajaxcartpro.init" />
+        </reference>
+        <reference name="before_body_end">
+            <block type="core/template" template="ajaxcartpro/overlay.phtml" name="aw.ajaxcartpro.overlay" />
+            <block type="core/template" template="ajaxcartpro/progress.phtml" name="aw.ajaxcartpro.progress" />
+            <block type="ajaxcartpro/confirmation_addproduct" template="ajaxcartpro/confirm/addproduct.phtml" name="aw.ajaxcartpro.confirm.addproduct" />
+            <block type="ajaxcartpro/confirmation_removeproduct" template="ajaxcartpro/confirm/removeproduct.phtml" name="aw.ajaxcartpro.confirm.removeproduct" />
+            <block type="core/template" template="ajaxcartpro/options-container.phtml" name="aw.ajaxcartpro.container" />
+        </reference>
+    </default>
+    <remove_ajaxcartpro>
+        <remove name="aw.ajaxcartpro.init"/>
+        <remove name="aw.ajaxcartpro.overlay"/>
+        <remove name="aw.ajaxcartpro.progress"/>
+        <remove name="aw.ajaxcartpro.confirm.addproduct"/>
+        <remove name="aw.ajaxcartpro.confirm.removeproduct"/>
+        <remove name="aw.ajaxcartpro.container"/>
+    </remove_ajaxcartpro>
+    <ajaxcartpro_ajax_confirmation>
+        <block type="core/template" template="ajaxcartpro/overlay.phtml" name="aw.ajaxcartpro.overlay" />
+        <block type="ajaxcartpro/confirmation" template="ajaxcartpro/confirm.phtml" name="aw.ajaxcartpro.confirm" />
+    </ajaxcartpro_ajax_confirmation>
+</layout>

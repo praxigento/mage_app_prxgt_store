@@ -1,0 +1,144 @@
+<?php if($this->isModerator()): ?>
+	<div class="simple-forum-moderator-block-top">
+		<?php echo $this->__('Logged as Moderator') ?>
+	</div>
+	<script src="<?php echo $this->getSkinUrl('') ?>forum/js/WIO_MassactionForm.js"></script>
+	<script>
+		WIO_MassactionForm.baseUrl = '<?php echo $this->getBaseUrl() ?>';
+	</script>
+<?php endif; ?>
+<div class="page-title title-buttons">
+        <h1><?php echo $this->__('My Forum Topics') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div>
+<table class="simple-forum-my-accounts-controls">
+	<tr>
+		<td><b><?php echo $this->__('Sort') ?>:</b></td>
+		<td>&nbsp;<?php if($this->getSort() == 'desc'): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getSortUrl(1) ?>" class="simple-forum-sort-links"><?php echo $this->__('Newest') ?></a><?php if($this->getSort() == 'desc'): ?></span><?php endif; ?></td>
+		<td>&nbsp;<?php if($this->getSort() == 'asc'): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getSortUrl(2) ?>" class="simple-forum-sort-links"><?php echo $this->__('Oldest') ?></a><?php if($this->getSort() == 'asc'): ?></span><?php endif; ?></td>
+		<?php if($this->isModerator()): ?>
+			<td>&nbsp;&nbsp;<b><?php echo $this->__('Sort By Status') ?>:</b></td>
+			<td>&nbsp;<?php if($this->getStatus() == 1): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getApprovedUrl(1) ?>" class="simple-forum-sort-links"><?php echo $this->__('All') ?></a><?php if($this->getStatus() == 1): ?></span><?php endif; ?></td>
+			<td>&nbsp;<?php if($this->getStatus() == 2): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getApprovedUrl(2) ?>" class="simple-forum-sort-links" style="color:red;"><?php echo $this->__('Not Active') ?></a><?php if($this->getStatus() == 2): ?></span><?php endif; ?></td>
+			<td>&nbsp;<?php if($this->getStatus() == 3): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getApprovedUrl(3) ?>" class="simple-forum-sort-links" style="color:green;"><?php echo $this->__('Active') ?></a><?php if($this->getStatus() == 3): ?></span><?php endif; ?></td>
+			<td>
+			<?php $massActions = $this->getMassActions(); ?>
+				<form method="post" name="wio-mass-action" no_action="true" id="wio-mass-action" action="no_action" onsubmit="return WIO_MassactionForm._submit('<?php echo $this->__('Are you sure') ?>?', '<?php echo $this->__('No items Selected') ?>!', '<?php echo $this->__('Select Action') ?>!');">
+					<input type="hidden" name="ret" value="<?php echo $this->getRetUrl() ?>">
+					<input type="hidden" name="type" value="topic">
+					<table>
+						<tr>
+							<td>&nbsp;&nbsp;<b><?php echo $this->__('With selected') ?>:</b></td>
+							<td valign="top">
+								<select name="wio-mass-action" onchange="WIO_MassactionForm._onchange(this, this.selectedIndex)" >
+									<?php foreach($massActions as $action): ?>
+										<option confirm="<?php echo $action['confirm'] ?>" value="<?php echo $action['action'] ?>"><?php echo $this->__($action['label']) ?></option>
+									<?php endforeach; ?>
+								</select>
+							</td>
+							<td valign="top">
+								<button type="submit" name="massAction" class="simple-forum-default-button"><?php echo $this->__('Go'); ?></button>
+							</td>
+						</tr>
+					</table>
+				</form>
+			</td>
+		<?php endif; ?>
+	</tr>
+</table>
+<?php echo $this->getToolbarHtml(); ?>
+<?php $myposts = $this->getAllTopics(); ?>
+
+    <table witdh="100%" border="0" id="forum_table" class="data-table">
+		<thead>
+		<tr class="first last">
+			<?php if($this->isModerator()): ?>
+				<th width="1%">
+					<input type="checkbox" name="_dummy_all" id="_dummy_all" onclick="WIO_MassactionForm._selectAll(this.checked);">
+				</th>
+			<?php endif; ?>
+			<th width="35%"><?php echo $this->__('Forum Name') ?></th>			
+			<th width="35%"><?php echo $this->__('Topic Name') ?></th>			
+			
+			<?php if($this->isModerator()): ?><th width="10%"><?php echo $this->__('Posted By') ?></th><?php endif; ?>
+			<th width="20%" style="text-align:center;" ><?php echo $this->__('Total Posts') ?></th>		
+			<th width="10%" style="text-align:center;" ><?php echo $this->__('Manage') ?></th>
+		<tr>
+		</thead>
+	
+	<?php if($myposts->getSize()): ?>
+	<?php $count = 0; ?>
+		<?php foreach($myposts as $mypost): ?>
+		<tr <?php if($count%2): ?>class="simple-forum-dark-tr" <?php endif; ?>>
+			<?php if($this->isModerator()): ?>
+				<td width="1%">
+					<input type="checkbox" value="<?php echo $mypost->getId() ?>" name="wio-element" class="wio-mass-action-checkbox">				
+				</td>
+			<?php endif; ?>	
+			<td>
+				<a href="<?php echo $this->getViewUrl($mypost->getParent_object()->getId(), $mypost->getParent_object()) ?>">
+					<?php echo $mypost->getParent_object()->getTitle() ?>
+				</a>
+			</td>				
+			<td valign="middle">
+				<a href="<?php echo $this->getViewUrl($mypost->getId(), $mypost) ?>">
+					<?php echo $mypost->getTitle() ?>
+				</a>
+				<div align="right">
+					<?php echo $this->getFormatedDate($mypost->getCreated_time()); ?>
+				</div>
+			</td>
+			
+			<?php if($this->isModerator()): ?><td ><?php echo $mypost->getUser_name() ?></td><?php endif; ?>	
+			<td style="text-align:center;"  style="text-align:center;">
+				<b><?php echo $mypost->getTotal_posts() ?></b>
+			</td>
+			<td align="center" style="text-align:center;">
+				<nobr>
+					<a href="<?php echo $this->getEditUrl($mypost->getId(), $mypost) ?>"><img src="<?php echo $this->getSkinUrl('forum/images/page_edit.png') ?>" alt="<?php echo $this->__('Edit') ?>" title="<?php echo $this->__('Edit') ?>" border="0" /></a>&nbsp;
+					<?php if($this->getAllowDelete()): ?>
+						<a href="<?php echo $this->getDeleteUrl($mypost->getId(), $mypost) ?>" onclick="if(confirm('<?php echo $this->__('Are You sure?') ?>')) document.location.href=this.href; return false;"><img src="<?php echo $this->getSkinUrl('forum/images/delete.png') ?>" alt="<?php echo $this->__('Delete') ?>" title="<?php echo $this->__('Delete') ?>" border="0" /></a>
+					<?php endif;  ?>
+					
+					<?php if($this->isModerator()): ?>
+						<?php if($mypost->getStatus() == 1): ?>
+							&nbsp;<a href="<?php echo $this->getDeactivateTopicUrl($mypost->getId()); ?>" ><img src="<?php echo $this->getSkinUrl('forum/images/cancel.png') ?>" alt="<?php echo $this->__('Deactivate') ?>" title="<?php echo $this->__('Deactivate') ?>" border="0" /></a>
+						<?php elseif($mypost->getStatus() == 0): ?>
+							&nbsp;<a href="<?php echo $this->getActivateTopicUrl($mypost->getId()); ?>" ><img src="<?php echo $this->getSkinUrl('forum/images/add.png') ?>" alt="<?php echo $this->__('Activate') ?>" title="<?php echo $this->__('Activate') ?>" border="0" /></a>
+						<?php endif; ?>
+					<?php endif; ?>
+				</nobr>
+			</td>		
+		</tr>
+		<?php $count++; ?>
+		<?php endforeach; ?>
+
+	<?php else: ?>
+		<tr>
+		<td colspan="5">
+			<div style="text-align:center" class="forum-no-data-table">
+				<?php echo $this->__('No Data To Display'); ?>
+			</div>
+		</td>
+	</tr>
+	<?php endif; ?>
+	</table>
+<?php echo $this->getToolbarHtml(); ?>
+<table class="simple-forum-my-accounts-controls">
+	<tr>
+		<td><b><?php echo $this->__('Sort') ?>:</b></td>
+		<td>&nbsp;<?php if($this->getSort() == 'desc'): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getSortUrl(1) ?>" class="simple-forum-sort-links"><?php echo $this->__('Newest') ?></a><?php if($this->getSort() == 'desc'): ?></span><?php endif; ?></td>
+		<td>&nbsp;<?php if($this->getSort() == 'asc'): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getSortUrl(2) ?>" class="simple-forum-sort-links"><?php echo $this->__('Oldest') ?></a><?php if($this->getSort() == 'asc'): ?></span><?php endif; ?></td>
+		<?php if($this->isModerator()): ?>
+			<td>&nbsp;&nbsp;<b><?php echo $this->__('Sort By Status') ?>:</b></td>
+			<td>&nbsp;<?php if($this->getStatus() == 1): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getApprovedUrl(1) ?>" class="simple-forum-sort-links"><?php echo $this->__('All') ?></a><?php if($this->getStatus() == 1): ?></span><?php endif; ?></td>
+			<td>&nbsp;<?php if($this->getStatus() == 2): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getApprovedUrl(2) ?>" class="simple-forum-sort-links" style="color:red;"><?php echo $this->__('Not Active') ?></a><?php if($this->getStatus() == 2): ?></span><?php endif; ?></td>
+			<td>&nbsp;<?php if($this->getStatus() == 3): ?><span style="font-weight:bold; text-decoration:underline;"><?php endif; ?><a href="<?php echo $this->getApprovedUrl(3) ?>" class="simple-forum-sort-links" style="color:green;"><?php echo $this->__('Active') ?></a><?php if($this->getStatus() == 3): ?></span><?php endif; ?></td>
+		<?php endif; ?>
+	</tr>
+</table>
+</div>
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a> &nbsp; <a href="<?php echo $this->getForumUrl() ?>"><small>&laquo; </small><?php echo $this->__('Forum') ?></a></p>
+</div>

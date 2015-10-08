@@ -1,0 +1,22 @@
+<div class="divider"></div>
+<h4><?php echo $this->__('Our Forum') ?></h4>
+
+<?php $topics = $this->getCollection() ?>
+
+<?php if($topics->getSize()): ?>
+	<?php foreach($topics as $topic): ?>
+		<a href="<?php echo $this->getViewUrl($topic->getId(), $topic) ?>"><?php echo $topic->getTitle(); ?> (<?php echo $this->__('Replies'); ?> <?php echo $topic->getTotal_posts(); ?>)</a><br>
+	<?php endforeach; ?>
+<?php else: ?>
+	<?php echo $this->__('No Forum Topics about this product') ?>
+<?php endif; ?>
+<br>
+<div>
+	<button onclick="document.location.href='<?php echo $this->getAddNewUrl() ?>'" class="button" type="button">
+		<span>
+			<span>
+				<?php echo $this->getButtonName() ?>
+			</span>
+		</span>
+	</button>
+</div>

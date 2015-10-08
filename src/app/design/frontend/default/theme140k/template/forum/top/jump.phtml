@@ -1,0 +1,19 @@
+<?php $data = $this->prepareData() ?>
+<form onsubmit="return false;">
+	<table id="table_jump_to_forum">
+		<tr>
+			<td>
+				<nobr><?php echo $this->__('Jump To'); ?>:</nobr>
+			</td>
+			<td>
+				<select class="jump_to_forum" onchange="jumpToForumSF(this.value, '<?php echo $this->getBaseUrl() ?>', 'forum/')">
+					<?php foreach ($data as $val): ?>
+					<?php $label = (!empty($val['label_nbsp']) ?  $val['label_nbsp'] : $val['label']); ?>
+					<?php $url_text = (!empty($val['url_text']) ? $val['url_text'] : '')  ?>
+						<option style="<?php echo (!empty($val['style']) ? $val['style'] : '') ?>" <?php echo ($this->getSelected() == $url_text ? 'selected' : '')  ?> value="<?php echo $url_text ?>"><?php echo $label ?></option>
+					<?php endforeach;?>
+				</select>
+			</td>
+		</tr>
+	</table>
+</form>

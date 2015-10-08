@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<config>
+    <acl>
+        <resources>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <akismet translate="title" module="akismet">
+                                        <title>Akismet Section</title>
+                                    </akismet>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+
+    <translate>
+        <modules>
+            <TM_Akismet>
+                <files>
+                    <default>TM_Akismet.csv</default>
+                </files>
+            </TM_Akismet>
+        </modules>
+    </translate>
+</config>

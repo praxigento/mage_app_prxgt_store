@@ -1,0 +1,105 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <!-- PRXGT-57 -->
+    <!--<default>-->
+    <!--<reference name="footer_links">-->
+    <!--<block type="kbase/general_footer" name="kbase_footer">-->
+    <!--<action method="addFooterLinks"></action>-->
+    <!--</block>-->
+    <!--</reference>-->
+    <!--</default>-->
+
+	<kbase_article_index>
+        <reference name="head">
+            <action method="addCss"><stylesheet>aw_kbase/css/main.css</stylesheet></action>
+        </reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+            <block type="core/template" name="kbase_header" template="aw_kbase/general/header.phtml" />
+			<block type="kbase/main" name="kbase_main" template="aw_kbase/main.phtml" >
+				<block type="kbase/main_search" name="kbase_search" template="aw_kbase/main/search.phtml" />
+				<block type="kbase/main_category" name="kbase_category" template="aw_kbase/main/category.phtml" />
+				<block type="kbase/main_top" name="kbase_top" template="aw_kbase/main/top.phtml" />
+				<block type="kbase/main_latest" name="kbase_latest" template="aw_kbase/main/latest.phtml" />
+				<block type="kbase/main_tag" name="kbase_tag" template="aw_kbase/main/tag.phtml" />
+			</block>
+		 </reference>
+	</kbase_article_index>
+
+    <kbase_article_search>
+        <reference name="head">
+            <action method="addCss"><stylesheet>aw_kbase/css/main.css</stylesheet></action>
+            <action method="addJs"><script>aw_kbase/main.js</script></action>
+        </reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="kbase/search" name="kbase_search" >
+                <block type="core/template" name="kbase_header" template="aw_kbase/general/header.phtml" />
+                <block type="kbase/main_search" name="kbase_main_search" />
+                <block type="kbase/general_breadcrumbs" name="kbase_breadcrumbs" />
+                <block type="kbase/list_sorter" name="kbase_sorter" />
+                <block type="kbase/list_pager" name="kbase_pager" />
+			</block>
+		 </reference>
+	</kbase_article_search>
+
+	<kbase_article_article>
+        <reference name="head">
+            <action method="addCss"><stylesheet>aw_kbase/css/main.css</stylesheet></action>
+        </reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="kbase/article" name="kbase_article" >
+                <block type="core/template" name="kbase_header" template="aw_kbase/general/header.phtml" />
+                <block type="kbase/main_search" name="kbase_main_search" />
+                <block type="kbase/general_breadcrumbs" name="kbase_breadcrumbs" />
+			</block>
+		 </reference>
+	</kbase_article_article>
+
+	<kbase_article_category>
+        <reference name="head">
+            <action method="addCss"><stylesheet>aw_kbase/css/main.css</stylesheet></action>
+            <action method="addJs"><script>aw_kbase/main.js</script></action>
+        </reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="kbase/category" name="kbase_category" >
+                <block type="core/template" name="kbase_header" template="aw_kbase/general/header.phtml" />
+                <block type="kbase/main_search" name="kbase_main_search" />
+                <block type="kbase/general_breadcrumbs" name="kbase_breadcrumbs" />
+                <block type="kbase/list_sorter" name="kbase_sorter" />
+                <block type="kbase/list_pager" name="kbase_pager" />
+			</block>
+		 </reference>
+	</kbase_article_category>
+
+	<kbase_article_tag>
+        <reference name="head">
+            <action method="addCss"><stylesheet>aw_kbase/css/main.css</stylesheet></action>
+            <action method="addJs"><script>aw_kbase/main.js</script></action>
+        </reference>
+		<reference name="root">
+			<action method="setTemplate"><template>page/2columns-right.phtml</template></action>
+		</reference>
+		<reference name="content">
+			<block type="kbase/tag" name="kbase_tag" >
+                <block type="core/template" name="kbase_header" template="aw_kbase/general/header.phtml" />
+                <block type="kbase/main_search" name="kbase_main_search" />
+                <block type="kbase/general_breadcrumbs" name="kbase_breadcrumbs" />
+                <block type="kbase/list_sorter" name="kbase_sorter" />
+                <block type="kbase/list_pager" name="kbase_pager" />
+			</block>
+		 </reference>
+	</kbase_article_tag>
+
+</layout>

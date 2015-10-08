@@ -1,0 +1,97 @@
+<?php echo $this->getHeadHtml(); ?>
+<div class="forum-top">
+<?php echo $this->getTop(); ?>
+<table width="100%">
+	<tr>
+		<td>
+			<div class="forum-title">
+				<?php echo $this->getTitleContent(); ?>
+			</div>
+		</td>
+		<td>
+			<div class="forum-controls">
+				<?php echo $this->getControls(); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div class="simple-forum-aligned-right simple-forum-search-type">
+	<strong><a <?php if($this->getIsSearchTypeByPost()): ?> class="selected"<?php endif; ?> href="<?php echo $this->getSearchByPostContentUrl() ?>"><?php echo $this->__('Search by Posts Content') ?></a></strong>
+		&nbsp;|&nbsp;
+	<strong><a <?php if($this->getIsSearchTypeByTopic()): ?> class="selected"<?php endif; ?> href="<?php echo $this->getSearchByTopicTitleUrl() ?>"><?php echo $this->__('Search by Topics Title') ?></a></strong>
+</div>
+
+<?php echo $this->getToolbarHtml(); ?>
+<?php $objects = $this->getSearchResult(); ?>
+<div>
+    <table witdh="100%" border="0" id="forum_table" class="data-table">
+		<thead>
+		<tr class="first last">
+			<th><?php echo $this->__('Search Results') ?></th>	
+		<tr>
+		</thead>
+	
+	<?php if($objects->getSize()): ?>
+	
+		<?php if($this->getIsSearchTypeByPost()): ?>
+			
+			<?php foreach($objects as $object): ?>
+			<tr class="first odd">	
+				<td>
+					<div class="search-forum-topic">
+						<a href="<?php echo $this->getViewUrl($object->getParentTopic()->getId(), $object->getParentTopic() ) ?>"><?php echo $object->getParentTopic()->getTitle() ?></a>
+					</div>
+					<div class="search-forum-post">
+						<?php echo $object->getPost_search() ?>
+					</div>
+				</td>						
+			</tr>
+			<?php endforeach; ?>
+		
+		<?php endif; ?>
+		
+		<?php if($this->getIsSearchTypeByTopic()): ?>
+			
+			<?php foreach($objects as $object): ?>
+			<tr class="first odd">	
+				<td>
+					<div class="search-forum-topic">
+						<a href="<?php echo $this->getViewUrl($object->getId(), $object ) ?>"><?php echo $object->getTopicTitle() ?></a>
+					</div>
+					<div class="search-forum-post">
+						
+					</div>
+				</td>						
+			</tr>
+			<?php endforeach; ?>
+		<?php endif; ?>
+		
+	<?php else: ?>
+		<tr>
+		<td colspan="4">
+			<div style="text-align:center" class="forum-no-data-table">
+				<?php echo $this->__('No Results Matches Search'); ?> "<?php echo $this->getSearchValue(); ?>"
+			</div>
+		</td>
+	</tr>
+	<?php endif; ?>
+	</table>
+<?php echo $this->getToolbarHtml(); ?>
+	<br>
+	<table width="100%">
+	<tr>
+		<td>
+			<div class="forum-title">
+				<?php echo $this->getTitleContent(); ?>
+			</div>
+		</td>
+		<td>
+			<div class="forum-controls">
+				<?php echo $this->getControls(); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>

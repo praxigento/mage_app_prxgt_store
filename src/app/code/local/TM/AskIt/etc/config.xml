@@ -1,0 +1,221 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <TM_AskIt>
+            <version>1.0.6</version>
+        </TM_AskIt>
+    </modules>
+    <frontend>
+        <routers>
+            <askit>
+                <use>standard</use>
+                <args>
+                    <module>TM_AskIt</module>
+                    <frontName>askit</frontName>
+                </args>
+            </askit>
+        </routers>
+        <layout>
+            <updates>
+                <askit>
+                    <file>askit.xml</file>
+                </askit>
+            </updates>
+        </layout>
+        <translate>
+            <modules>
+                <TM_AskIt>
+                    <files>
+                        <default>TM_AskIt.csv</default>
+                    </files>
+                </TM_AskIt>
+            </modules>
+        </translate>
+    </frontend>
+    
+    <global>
+        <models>
+            <askit>
+                <class>TM_AskIt_Model</class>
+                <resourceModel>askit_mysql4</resourceModel>
+            </askit>
+            <askit_mysql4>
+                <class>TM_AskIt_Model_Mysql4</class>
+                <entities>
+                    <askit>
+                        <table>askit_item</table>
+                    </askit>
+                    <vote>
+                        <table>askit_vote</table>
+                    </vote>
+                </entities>
+            </askit_mysql4>
+        </models>
+
+        <resources>
+            <!--  -->
+            <askit_setup>
+                <setup>
+                    <module>TM_AskIt</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </askit_setup>
+            <!-- -->
+            <askit_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </askit_write>
+            <askit_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </askit_read>
+        </resources>
+        
+        <blocks>
+            <askit>
+                <class>TM_AskIt_Block</class>
+            </askit>
+        </blocks>
+
+        <helpers>
+            <askit>
+                <class>TM_AskIt_Helper</class>
+            </askit>
+        </helpers>
+
+        <template>
+            <email>
+                <askit_email_admin_template translate="label" module="askit">
+                    <label>New Product Question</label>
+                    <file>askit_to_admin.html</file>
+                    <type>html</type>
+                </askit_email_admin_template>
+                <askit_email_customer_template translate="label" module="askit">
+                    <label>Reply to your Product Question</label>
+                    <file>askit_to_customer.html</file>
+                    <type>html</type>
+                </askit_email_customer_template>
+            </email>
+        </template>
+        
+        <events>
+            <controller_front_init_routers>
+                <observers>
+                    <askit>
+                        <type>singleton</type>
+                        <class>TM_AskIt_Controller_Router</class>
+                        <method>initControllerRouters</method>
+                    </askit>
+                </observers>
+            </controller_front_init_routers>
+        </events>
+
+    </global>
+    
+    <admin>
+	<routers>
+	     <askit_admin>
+		<use>admin</use>
+		<args>
+		<module>TM_AskIt</module>
+		<frontName>askit_admin</frontName>
+		</args>
+	    </askit_admin>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        
+        <menu>
+            <customer translate="title" module="customer">
+                <children>
+                    <items module="askit">
+                        <title>Askit Products Questions</title>
+                        <sort_order>10</sort_order>
+                        <action>askit_admin/adminhtml_askIt</action>
+                    </items>
+                </children>
+            </customer>
+        </menu>
+
+        <acl>
+            <resources>
+                <admin>
+                    <children>
+                        <system>
+                            <children>
+                                <config>
+                                    <children>
+                                        <askit translate="title" module="askit">
+                                            <title>Askit Section</title>
+                                        </askit>
+                                    </children>
+                                </config>
+                            </children>
+                        </system>
+                        <customer>
+                            <children>
+                                <items module="askit">
+                                    <title>Askit Products Questions</title>
+                                    <sort_order>10</sort_order>
+                                    <action>askit_admin/adminhtml_askIt</action>
+                                </items>
+                            </children>
+                        </customer>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+        
+        <layout>
+            <updates>
+                <askit>
+                    <file>askit.xml</file>
+                </askit>
+            </updates>
+        </layout>
+
+        <translate>
+            <modules>
+                <TM_AskIt>
+                    <files>
+                        <default>TM_AskIt.csv</default>
+                    </files>
+                </TM_AskIt>
+            </modules>
+        </translate>
+
+    </adminhtml>
+    
+    <default>
+        <askit>
+            <general>
+                <enabled>0</enabled>
+                <defaultQuestionStatus>1</defaultQuestionStatus>
+                <defaultAnswerStatus>1</defaultAnswerStatus>
+                <allowedGuestQuestion>1</allowedGuestQuestion>
+                <allowedCustomerAnswer>1</allowedCustomerAnswer>
+                <allowedHint>1</allowedHint>
+                <shareCustomerName>1</shareCustomerName>
+                <productBlockView>1</productBlockView>
+                <countQuestionShowOnProductPage>2</countQuestionShowOnProductPage>
+                <enableAkismet>0</enableAkismet>
+            </general>
+            <email>
+                <enableCustomerNotification>0</enableCustomerNotification>
+                <enableAdminNotification>0</enableAdminNotification>
+                <admin_template>askit_email_admin_template</admin_template>
+                <customer_template>askit_email_customer_template</customer_template>
+            </email>
+            <rss>
+                 <enabled>0</enabled>
+                 <title>Rss Askit Feed Title</title>
+            </rss>
+        </askit>
+    </default>
+    
+</config>

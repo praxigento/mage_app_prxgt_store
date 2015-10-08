@@ -1,0 +1,17 @@
+{
+  "name": "praxigento/mage_app_prxgt_store",
+  "type": "project",
+  "license": "proprietary",
+  "homepage": "https://github.com/praxigento/mage_app_prxgt_store",
+  "description": "Project for Praxigento Store.",
+  "authors": [
+    {
+      "name": "Alex Gusev",
+      "email": "flancer64@gmail.com"
+    },
+    {
+      "name": "Dmitry Makhov",
+      "email": "dmitriimakhov@gmail.com"
+    }
+  ]
+}

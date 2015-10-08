@@ -1,0 +1,38 @@
+<div class="page-title title-buttons">
+	<h1><?php echo $this->__('My Forum Account') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="simple-forum-form-place">
+      <form action="<?php echo $this->getActionForm() ?>" method="post" enctype="multipart/form-data">
+	      <div class="simple-forum-avatar-place">
+                <img src="<?php echo $this->getAvatarUrl(); ?>" width="<?php echo $this->getAvatarWidth() ?>">
+                <?php if($this->getHaveAvatar()): ?>
+                     <a href="<?php echo $this->getDeleteAvatarUrl() ?>" style="color:#d51818; font-size:92%;" onclick="if(confirm('<?php echo $this->__('Are you sure you want delete avatar image?') ?>')){return true;}else{return false;}"><?php echo $this->__('Delete') ?></a>
+                <?php endif; ?>
+	      </div>
+	      <div class="simple-forum-upload-nickname-place">
+	      		<label for="simple-forum-nickname"><b><?php echo $this->__('Nickname') ?></b></label><br>
+          		<input type="text" name="nickname" id="simple-forum-nickname" class="simple-forum-upload-nickname" value="<?php echo  $this->getNickName() ?>" />
+	      </div>
+	      <div class="simple-forum-upload-avatar-place">
+	      		<label for="simple-forum-avatar"><b><?php echo $this->__('Avatar') ?></b></label><br>
+          		<input type="file" name="avatar" id="simple-forum-avatar" class="simple-forum-upload-avatar" />
+          		<br>
+          		<small style="font-size:85%">(<?php echo $this->__('width') ?>: <?php echo $this->getAvatarWidth() ?>px, .jpg, .png, .gif, .jpeg)</small>
+	      </div>
+	      <div class="simple-forum-signature-place">
+	      		<label for="simple-forum-signature"><b><?php echo $this->__('Signature') ?></b></label><br>
+	          	<textarea name="signature" id="simple-forum-signature"><?php echo $this->getSignature() ?></textarea>
+	          	<br>
+          		<small style="font-size:85%">(<?php echo $this->__('alowed tags') ?>: <?php echo htmlspecialchars('<b>, <ul>, <em>') ?>)</small>
+		   </div>
+          <div class="simple-forum-submit-myaccount-form">
+                <button type="submit" title="<?php echo $this->getSubmitTitle() ?>" class="simple-forum-default-button">
+						<?php echo $this->getSubmitTitle() ?>
+				</button>
+          </div>
+      </form>
+</div>
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a> &nbsp; <a href="<?php echo $this->getForumUrl() ?>"><small>&laquo; </small><?php echo $this->__('Forum') ?></a></p>
+</div>

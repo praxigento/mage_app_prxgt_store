@@ -1,0 +1,8 @@
+<div class="padder"><?php echo $this->getMessagesBlock()->getGroupedHtml() ?></div>
+<div class="category-head">
+  <?php if($this->IsRssCatalogEnable()): ?>
+    <a href="<?php echo $this->getRssLink() ?>" class="link-feed right"><?php echo $this->__('Subscribe to RSS Feed') ?></a>
+  <?php endif; ?>
+  <h2><?php echo $this->__('Sale Items') ?></h2>
+</div>
+<?php echo $this->getProductListHtml() ?>

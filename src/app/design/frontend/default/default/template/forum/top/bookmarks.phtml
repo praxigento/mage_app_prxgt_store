@@ -1,0 +1,18 @@
+
+<table cellpadding="0" width="100%" cellspacing="0" align="right">
+	<tr>
+		<td style="padding:0px;" width="50%" style="text-align:left; " valign="top">
+			<nobr><img style="margin:0px; top:3px; position:relative;" src="<?php echo $this->getSkinUrl() ?>forum/images/bookmark.png" />&nbsp;&nbsp;<span style="display:inline-block;"><?php echo $this->__('You have') ?>  <span id="simple-forum-bookmark-items" class="simple-forum-bookmark-items-class"></span>&nbsp;<?php echo $this->__('bookmarked items') ?></span> </nobr>
+		</td>
+		<?php if($this->isDisplayBookmark()): ?>
+			<td width="50%">
+				<button class="simple-forum-default-button" style="float:right" onclick="setBookmarkSF('<?php echo $this->getTopicId(); ?>', '<?php echo $this->getLimit(); ?>', <?php echo $this->getPageCurrent(); ?>)" title="<?php echo $this->getAddBookmarkTitle(); ?>" >
+					<?php echo $this->getAddBookmarkTitle(); ?>
+				</button>
+			</td>
+		<?php endif; ?>
+	</tr>
+</table>
+<form id="simple-forum-bookmarked-items-form" action="<?php echo $this->_getBookmarsUrl(); ?>" method="post">
+
+</form>

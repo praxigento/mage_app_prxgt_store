@@ -1,0 +1,349 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	    <default>
+      		<!-- reference name="left">
+            	<remove name="left.permanent.callout" />
+            	<block type="forum/util_forums" name="right.forums.callout" template="forum/util/forums.phtml" >
+					<action method="setTitle"><title>Recent Forums</title></action>
+					<action method="setForumCount"><forums_count>7</forums_count></action>
+            	</block>
+
+            	<block type="forum/util_lastposts" name="right.posts.callout" template="forum/util/lastposts.phtml" >
+					<action method="setTitle"><title>Our Forum Latest Posts</title></action>
+					<action method="setPostCount"><post_count>7</post_count></action>
+            	</block>
+
+      		</reference -->
+    	</default>
+
+	<customer_account>
+        <reference name="customer_account_navigation">
+        	<action method="addLink" translate="label" module="forum" ifconfig="forum/forumconfiguration/active" ><name>forum_topics</name><path>forum/mytopics/</path><label>My Forum Topics</label></action>
+            <action method="addLink" translate="label" module="forum" ifconfig="forum/forumconfiguration/active"><name>forum_posts</name><path>forum/myposts/</path><label>My Forum Posts</label></action>
+            <action method="addLink" translate="label" module="forum" ifconfig="forum/forumconfiguration/active"><name>forum_myaccount</name><path>forum/myaccount/</path><label>My Forum Account</label></action>
+            <action method="addLink" translate="label" module="forum" ifconfig="forum/forumconfiguration/active"><name>forum_myprivatemessages</name><path>forum/myprivatemessages/</path><label>My Private Messages</label></action>
+        </reference>
+    </customer_account>
+
+    <forum_myaccount_index translate="label">
+        <label>My Forum Account</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+            <block type="forum/myaccount" name="forum_myaccount" template="forum/myaccount.phtml"/>
+        </reference>
+    </forum_myaccount_index>
+
+	<forum_myprivatemessages_view translate="label">
+        <label>My Private Mesages(Inbox)</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+            <block type="forum/myprivatemessages_view" name="forum_myprivatemessages" template="forum/privatemessages/view.phtml">
+            	<block type="forum/recaptcha_recaptcha" name="forum_recaptcha" as="recaptcha" template="forum/recaptcha/recaptcha.phtml" ></block>
+            </block>
+        </reference>
+    </forum_myprivatemessages_view>
+
+    <forum_myprivatemessages_index translate="label">
+        <label>My Private Mesages(Inbox)</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+            <block type="forum/myprivatemessages" name="forum_myprivatemessages" template="forum/myprivatemessages.phtml">
+            	<block type="forum/object_toolbar" name="forum_toolbar" as="toolbar" template="forum/privatemessages/toolbar.phtml">
+                    <block type="forum/object_toolbar_pager" name="forum_topics_toolbar_pager" as="toolbar_pager" />
+		    	</block>
+            </block>
+        </reference>
+    </forum_myprivatemessages_index>
+
+	<forum_myprivatemessages_sent translate="label">
+        <label>My Private Mesages(Sent)</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+            <block type="forum/myprivatemessages" name="forum_myprivatemessages" template="forum/myprivatemessages.phtml">
+            	<block type="forum/object_toolbar" name="forum_toolbar" as="toolbar" template="forum/privatemessages/toolbar.phtml">
+                    <block type="forum/object_toolbar_pager" name="forum_topics_toolbar_pager" as="toolbar_pager" />
+		    	</block>
+            </block>
+        </reference>
+    </forum_myprivatemessages_sent>
+
+    <forum_myprivatemessages_trash translate="label">
+        <label>My Private Mesages(Trash)</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+            <block type="forum/myprivatemessages" name="forum_myprivatemessages" template="forum/myprivatemessages.phtml">
+            	<block type="forum/object_toolbar" name="forum_toolbar" as="toolbar" template="forum/privatemessages/toolbar.phtml">
+                    <block type="forum/object_toolbar_pager" name="forum_topics_toolbar_pager" as="toolbar_pager" />
+		    	</block>
+            </block>
+        </reference>
+    </forum_myprivatemessages_trash>
+
+    <forum_myprivatemessages_add translate="label">
+        <label>Send Private Message</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+            <block type="forum/myprivatemessages" name="forum_myprivatemessages" template="forum/myprivatemessages_add.phtml">
+            	<block type="forum/recaptcha_recaptcha" name="forum_recaptcha" as="recaptcha" template="forum/recaptcha/recaptcha.phtml" ></block>
+            </block>
+        </reference>
+    </forum_myprivatemessages_add>
+
+    <forum_myposts_index translate="label">
+        <label>My Forum Posts</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+
+            <block type="forum/myposts" name="forum_myposts" template="forum/myposts.phtml">
+				<block type="forum/object_toolbar" name="forum_toolbar" as="toolbar" template="forum/myposts/toolbar.phtml">
+                    <block type="forum/object_toolbar_pager" name="forum_topics_toolbar_pager" as="toolbar_pager" />
+		    	</block>
+			</block>
+
+        </reference>
+    </forum_myposts_index>
+
+    <forum_mytopics_index translate="label">
+        <label>My Forum Topics</label>
+        <update handle="customer_account"/>
+        <reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+    	</reference>
+        <reference name="content">
+
+			<block type="forum/mytopics" name="forum_mytopics" template="forum/mytopics.phtml">
+				<block type="forum/object_toolbar" name="forum_toolbar" as="toolbar" template="forum/mytopics/toolbar.phtml">
+                    <block type="forum/object_toolbar_pager" name="forum_topics_toolbar_pager" as="toolbar_pager" />
+		    	</block>
+			</block>
+
+		</reference>
+    </forum_mytopics_index>
+
+    <forum_topic_index>
+    	<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+			<action method="addItem"><type>skin_css</type><name>forum/css/tStyles.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/WIO_tpa.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/WIO_tBaloon.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/forum.js</name></action>
+    	</reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+			<block type="forum/breadcrumbs" name="breadcrumbs"  template="forum/util/breadcrumbs.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="forum/forum" name="forums"  template="forum/forums.phtml" >
+            <block type="forum/head" name="forum_head" as="head" template="forum/head.phtml" ></block>
+
+			<block type="forum/top" name="forum_top"  template="forum/forum_top.phtml" >
+				<block type="forum/top_bookmark" name="forum_top_bookmarks"  template="forum/top/bookmarks.phtml" />
+				<block type="forum/top_search" name="forum_top_search"  template="forum/top/search.phtml" />
+				<block type="forum/top_jump" name="forum_top_jump"  template="forum/top/jump.phtml" />
+			</block>
+
+        	<!-- block type="forum/breadcrumbs" name="util_breadcrumbs"  template="forum/util/breadcrumbs.phtml" / -->
+            <block type="forum/object_controls" name="forum_controls" as="controls" template="forum/forums/controls.phtml" ></block>
+				<block type="forum/object_toolbar" name="forum_toolbar" as="toolbar" template="forum/forums/toolbar.phtml">
+                        <block type="forum/object_toolbar_pager" name="forum_topics_toolbar_pager" as="toolbar_pager" />
+			   </block>
+		   </block>
+		   <block type="forum/top" name="forum_top"  template="forum/forum_top.phtml" >
+				<block type="forum/top_bookmark" name="forum_top_bookmarks"  template="forum/top/bookmarks.phtml" />
+				<block type="forum/top_search" name="forum_top_search"  template="forum/top/search.phtml" />
+				<block type="forum/top_jump" name="forum_top_jump"  template="forum/top/jump.phtml" />
+			</block>
+		   <block type="forum/statistic" name="forum_statistic" as="statistic" template="forum/statistic.phtml" ></block>
+		   <block type="forum/whoisonline" name="forum_whoisonline" as="whoisonline" template="forum/whoisonline.phtml" ></block>
+        </reference>
+    </forum_topic_index>
+
+
+    <forum_topic_view>
+    	<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+			<action method="addItem"><type>skin_css</type><name>forum/css/tStyles.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/WIO_tpa.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/WIO_tBaloon.js</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/forum.js</name></action>
+
+			<action method="addJs"><script>varien/product.js</script></action>
+
+    	</reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+			<block type="forum/breadcrumbs" name="breadcrumbs"  template="forum/util/breadcrumbs.phtml" />
+        </reference>
+        <reference name="content">
+            <block type="forum/view" name="posts">
+            <block type="forum/product_detail_head" name="head_product_detail" as="headproduct" template="forum/product/headdetail.phtml" >
+				<block type="forum/product_detail_head" name="head_product_detail_media" as="media" template="forum/product/media.phtml"/>
+			</block>
+            <!-- block type="forum/breadcrumbs" name="util_breadcrumbs"  template="forum/util/breadcrumbs.phtml" / -->
+			<block type="forum/recaptcha_recaptcha" name="forum_recaptcha" as="recaptcha" template="forum/recaptcha/recaptcha.phtml" ></block>
+				<action method="setPostsTemplate"><template>forum/posts.phtml</template></action>
+				<action method="setTopicsTemplate"><template>forum/topics.phtml</template></action>
+				<action method="chooseMainTemplate"/>
+				<block type="forum/head" name="forum_head" as="head" template="forum/head.phtml" ></block>
+					<block type="forum/top" name="forum_top"  template="forum/forum_top.phtml" >
+						<block type="forum/top_bookmark" name="forum_top_bookmarks"  template="forum/top/bookmarks.phtml" />
+						<block type="forum/top_search" name="forum_top_search"  template="forum/top/search.phtml" />
+						<block type="forum/top_jump" name="forum_top_jump"  template="forum/top/jump.phtml" />
+					</block>
+				<block type="forum/object_controls" name="forum_controls" as="controls" >
+					<action method="setPostsControlsTemplate"><template>forum/posts/controls.phtml</template></action>
+					<action method="setTopicsControlsTemplate"><template>forum/topics/controls.phtml</template></action>
+					<action method="chooseControlsTemplate"/>
+
+				</block>
+
+				<block type="forum/object_controls" name="forum_controls" as="controls_bottom" >
+					<block type="forum/object_controls" name="bottom_tiny" as="bottom_tiny" template="forum/posts/init_tiny_mce.phtml" />
+					<action method="setPostsControlsTemplate"><template>forum/posts/controls.phtml</template></action>
+					<action method="setTopicsControlsTemplate"><template>forum/topics/controls.phtml</template></action>
+					<action method="setData"><name>block_bottom</name><value>true</value></action>
+					<action method="chooseControlsTemplate"/>
+
+				</block>
+
+				<block type="forum/object_toolbar" name="toolbar" as="toolbar">
+						<action method="setPostsToolbarTemplate"><template>forum/posts/toolbar.phtml</template></action>
+						<action method="setTopicsToolbarTemplate"><template>forum/topics/toolbar.phtml</template></action>
+						<action method="chooseToolbarTemplate"/>
+                        <block type="forum/object_toolbar_pager" name="forum_toolbar_pager" as="toolbar_pager" />
+			   </block>
+		   </block>
+		   <block type="forum/top" name="forum_top"  template="forum/forum_top.phtml" >
+				<block type="forum/top_bookmark" name="forum_top_bookmarks"  template="forum/top/bookmarks.phtml" />
+				<block type="forum/top_search" name="forum_top_search"  template="forum/top/search.phtml" />
+				<block type="forum/top_jump" name="forum_top_jump"  template="forum/top/jump.phtml" />
+			</block>
+		   <block type="forum/whoisonline" name="forum_whoisonline" as="whoisonline">
+						<action method="setPostsWhoisonlineTemplate"><template>forum/posts/whoisonline.phtml</template></action>
+						<action method="setTopicsWhoisonlineTemplate"><template>forum/topics/whoisonline.phtml</template></action>
+						<action method="chooseWhoisonlineTemplate"/>
+		   </block>
+        </reference>
+    </forum_topic_view>
+
+	<forum_search_index>
+    	<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/forum.js</name></action>
+    	</reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+        <reference name="content">
+
+            <block type="forum/search" name="search"  template="forum/search.phtml" >
+            <block type="forum/head" name="forum_head" as="head" template="forum/head.phtml" ></block>
+
+			<block type="forum/top" name="forum_top"  template="forum/forum_top.phtml" >
+				<block type="forum/top_bookmark" name="forum_top_bookmarks"  template="forum/top/bookmarks.phtml" />
+				<block type="forum/top_search" name="forum_top_search"  template="forum/top/search.phtml" />
+				<block type="forum/top_jump" name="forum_top_jump"  template="forum/top/jump.phtml" />
+			</block>
+            <block type="forum/object_controls" name="search_controls" as="controls" template="forum/search/controls.phtml" ></block>
+				<block type="forum/object_toolbar" name="search_toolbar" as="toolbar" template="forum/search/toolbar.phtml">
+                        <block type="forum/object_toolbar_pager" name="forum_topics_toolbar_pager" as="toolbar_pager" />
+			   </block>
+		   </block>
+		   <block type="forum/top" name="forum_top"  template="forum/forum_top.phtml" >
+				<block type="forum/top_bookmark" name="forum_top_bookmarks"  template="forum/top/bookmarks.phtml" />
+				<block type="forum/top_search" name="forum_top_search"  template="forum/top/search.phtml" />
+				<block type="forum/top_jump" name="forum_top_jump"  template="forum/top/jump.phtml" />
+			</block>
+        </reference>
+    </forum_search_index>
+
+	<forum_topic_edit>
+    	<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/forum.js</name></action>
+            <action method="addJs"><script>varien/product.js</script></action>
+
+    	</reference>
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+			<block type="forum/edit_breadcrumbs" name="breadcrumbs"  template="forum/util/breadcrumbs.phtml" />
+        </reference>
+        <reference name="content">
+			<block type="forum/editor" name="forum_editor"  template="forum/head_js.phtml" />
+            <block type="forum/edit" name="topic"  template="forum/edit.phtml" >
+            	<!--block type="forum/edit_breadcrumbs" name="util_breadcrumbs"  template="forum/util/breadcrumbs.phtml" / -->
+				<block type="forum/head" name="forum_head" as="head" template="forum/head.phtml" ></block>
+				<block type="forum/product_detail_head" name="head_product_detail" as="headproduct" template="forum/product/headdetail.phtml" >
+					<block type="forum/product_detail_head" name="head_product_detail_media" as="media" template="forum/product/media.phtml"/>
+				</block>
+				<block type="forum/recaptcha_recaptcha" name="forum_recaptcha" as="recaptcha" template="forum/recaptcha/recaptcha.phtml" ></block>
+			</block>
+        </reference>
+    </forum_topic_edit>
+
+    <forum_bookmark_index>
+    	<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/forum.js</name></action>
+    	</reference>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+
+        <reference name="content">
+
+            <block type="forum/head" name="forum_head" as="head" template="forum/head.phtml" ></block>
+        	<block type="forum/top" name="forum_top"  template="forum/forum_top.phtml" >
+				<block type="forum/top_search" name="forum_top_search"  template="forum/top/search.phtml" />
+				<block type="forum/top_jump" name="forum_top_jump"  template="forum/top/jump.phtml" />
+			</block>
+            <block type="forum/bookmark" name="bookmarks"  template="forum/bookmarks.phtml" >
+			</block>
+        </reference>
+    </forum_bookmark_index>
+
+ 	<forum_customer_index>
+    	<reference name="head">
+			<action method="addItem"><type>skin_css</type><name>forum/css/forum.css</name></action>
+			<action method="addItem"><type>skin_js</type><name>forum/js/forum.js</name></action>
+    	</reference>
+
+        <reference name="root">
+            <action method="setTemplate"><template>page/1column.phtml</template></action>
+        </reference>
+
+        <reference name="content">
+
+            <block type="forum/head" name="forum_head" as="head" template="forum/head.phtml" ></block>
+            <block type="forum/customer" name="bookmarks"  template="forum/customer.phtml" >
+			</block>
+        </reference>
+    </forum_customer_index>
+
+
+    <forum_rss_index>
+        <block type="forum/rss" output="toHtml" name="rss.forum.new"/>
+    </forum_rss_index>
+</layout>

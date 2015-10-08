@@ -1,0 +1,146 @@
+<div class="page-title title-buttons">
+	<h1><?php echo $this->__('My Private Messages') ?>(<?php echo $this->getTypeOfMessages() ?>)</h1>
+</div>
+<script src="<?php echo $this->getSkinUrl('') ?>forum/js/WIO_MassactionForm.js"></script>
+<script>
+	WIO_MassactionForm.baseUrl = '<?php echo $this->getBaseUrl() ?>';
+	function WIO_massSubmitFormMessages(_el)
+	{
+		WIO_MassactionForm.confirmSubmit = true;
+  		WIO_MassactionForm.submitForm    = true;
+  		WIO_MassactionForm._onchange(_el);
+        WIO_MassactionForm._submit('<?php echo $this->__('Are you sure') ?>?', '<?php echo $this->__('No items Selected') ?>!', '<?php echo $this->__('Select Action') ?>!');
+	}
+</script>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+
+<table class="simple-forum-myprivatemessages-table data-table" border="0">
+	<thead>
+		<tr>
+             <th colspan="2">
+              	<?php echo $this->__('Folders') ?>
+             </th>
+		</tr>
+	</thead>
+	<tr>
+         <td class="simple-forum-myprivatemessages-folders">
+                <ul class="simple-forum-myprivatemessages-list">
+                	<li>
+                  		<a href="<?php echo $this->getIncomingLink(); ?>" <?php echo $this->getIsActiveInbox(); ?>><?php echo $this->__('Inbox'); ?>(<?php echo $this->getInboxCount() ?>)</a>
+                	</li>
+                	<li>
+                		<a href="<?php echo $this->getSentLink(); ?>" <?php echo $this->getIsActiveSent(); ?>><?php echo $this->__('Sent'); ?>(<?php echo $this->getSentCount() ?>)</a>
+                	</li>
+                	<li>
+                		<a href="<?php echo $this->getTrashLink(); ?>"  <?php echo $this->getIsActiveTrash(); ?>><?php echo $this->__('Trash') ?>(<?php echo $this->getTrashCount() ?>)</a>
+                	</li>
+                </ul>
+         </td>
+         <td class="simple-forum-myprivatemessages-listmessages">
+                <?php $collection = $this->getCollection(); ?>
+                    <div class="simple-forum-privatemessages-controls">
+                    <form method="post" name="wio-mass-action" no_action="true" id="wio-mass-action" action="no_action">
+	                    <nobr>
+	                           <b><?php echo $this->__('With selected') ?>: </b>
+	                           <?php if(Mage::registry('myprivatemessages_inbox')): ?>
+	                           		<a href="javascript:void(0);" href_a="<?php echo $this->getMassActionMarkRead('index'); ?>" onclick="WIO_massSubmitFormMessages(this); return false;"><?php echo $this->__('Mark as Read'); ?></a>&nbsp;|&nbsp;
+	                           		<a href="javascript:void(0);"  href_a="<?php echo $this->getMassActionTrash('index'); ?>" onclick="WIO_massSubmitFormMessages(this); return false;"><?php echo $this->__('Move to Trash'); ?></a>&nbsp;|&nbsp;
+	                           		<a href="javascript:void(0);"  href_a="<?php echo $this->getMassActionDelete('index'); ?>" onclick="WIO_massSubmitFormMessages(this); return false;"><?php echo $this->__('Delete'); ?></a>
+	                           <?php endif; ?>
+	                           <?php if(Mage::registry('myprivatemessages_sent')): ?>
+	                                <a href="javascript:void(0);"  href_a="<?php echo $this->getMassActionDelete('sent'); ?>" onclick="WIO_massSubmitFormMessages(this); return false;"><?php echo $this->__('Delete'); ?></a>
+	                           <?php endif; ?>
+	                           <?php if(Mage::registry('myprivatemessages_trash')): ?>
+	                                <a href="javascript:void(0);"  href_a="<?php echo $this->getMassActionUndoTrash('trash'); ?>" onclick="WIO_massSubmitFormMessages(this); return false;"><?php echo $this->__('Move to Inbox'); ?></a>&nbsp;|&nbsp;
+	                           		<a href="javascript:void(0);"  href_a="<?php echo $this->getMassActionDelete('trash'); ?>" onclick="WIO_massSubmitFormMessages(this); return false;"><?php echo $this->__('Delete'); ?></a>
+	                           <?php endif; ?>
+	                    </nobr>
+	                </form>
+                    </div>
+	                <?php echo $this->getToolbar(); ?>
+	                <table class="simple-forum-my-private-messages-table data-table" id="forum_table" width="100%">
+	                	<thead>
+	                    	<tr class="first last">
+	                        	<th width="1"><input type="checkbox" name="_dummy_all" id="_dummy_all" onclick="WIO_MassactionForm._selectAll(this.checked);"></th>
+	                        	<th><?php echo $this->__('Message Subject') ?></th>
+	                        	<?php if(Mage::registry('myprivatemessages_inbox') || Mage::registry('myprivatemessages_trash')): ?>
+	                        		<th><?php echo $this->__('Sent From') ?></th>
+                                <?php else: ?>
+                                    <th><?php echo $this->__('Sent To') ?></th>
+								<?php endif; ?>
+	                        	<th><?php echo $this->__('Date Sent') ?></th>
+	                        	<th width="1">&nbsp;</th>
+	                    	</tr>
+	                	</thead>
+	                		<?php if($collection->getSize()): ?>
+							<?php $count = 0; ?>
+							<?php
+								$redirect = '';
+                            	if(Mage::registry('myprivatemessages_inbox'))
+                            	{                                	$redirect = 'index';
+                            	}
+                            	if(Mage::registry('myprivatemessages_sent'))
+                            	{                                    $redirect = 'sent';
+                            	}
+                            	if(Mage::registry('myprivatemessages_trash'))
+                            	{                                	$redirect = 'trash';
+                            	}
+							?>
+			                	<?php foreach($collection as $message): ?>
+			                		<tr <?php if($count%2): ?>class="simple-forum-dark-tr" <?php endif; ?>>
+				                    	<td>
+				                    		<input type="checkbox" value="<?php echo $message->getId() ?>" name="wio-element" class="wio-mass-action-checkbox" />
+				                    	</td>
+				                    	<td>
+				                            <a href="<?php echo $this->getViewUrl($message, $redirect) ?>" <?php echo $this->getStyleMessageLink($message); ?>> <?php echo $message->getSubject() ?><?php echo $this->countAllMessages($message) ?></a>
+				                    	</td>
+				                    	<td>
+				                            	<?php echo Mage::helper('forum/customer')->getCustomerLink($this->getSentId($message), $this->_getSentLink($message)) ?>
+				                    	</td>
+				                    	<td>
+				                    	     <?php echo $this->getFormatedDate($message->getDate_sent()); ?>
+				                    	</td>
+				                    	<td>
+				                    		<nobr>
+	                                            <?php if(Mage::registry('myprivatemessages_inbox')): ?>
+	                                            	<a href="<?php echo $this->getViewUrl($message, $redirect) ?>"><img src="<?php echo $this->getSkinUrl('forum/images/page_edit.png') ?>" border="0" alt="<?php echo $this->__('Reply to Message') ?>"" title="<?php echo $this->__('Reply to Message') ?>"/></a>&nbsp;
+	                                            	<a href="<?php echo $this->getTrahsUrl($message, 'index') ?>" onclick="if(confirm('<?php echo $this->__('Are You sure?') ?>')) document.location.href=this.href; return false;"><img src="<?php echo $this->getSkinUrl('forum/images/trash.png') ?>" border="0" alt="<?php echo $this->__('Move to Trash') ?>"" title="<?php echo $this->__('Move to Trash') ?>"/></a>
+	                                            <?php endif; ?>
+	                                            <?php if(Mage::registry('myprivatemessages_sent')): ?>
+                                                  	<a href="<?php echo $this->getViewUrl($message, $redirect) ?>"><img src="<?php echo $this->getSkinUrl('forum/images/page_edit.png') ?>" border="0" alt="<?php echo $this->__('View Message') ?>"" title="<?php echo $this->__('View Message') ?>"/></a>&nbsp;
+	                                            	<a href="<?php echo $this->getDeleteUrl($message, 'sent'); ?>" onclick="if(confirm('<?php echo $this->__('Are You sure?') ?>')) document.location.href=this.href; return false;"><img border="0" src="<?php echo $this->getSkinUrl('forum/images/cancel.png') ?>" alt="<?php echo $this->__('Delete Message') ?>" title="<?php echo $this->__('Delete Message') ?>" /></a>
+	                                            <?php endif; ?>
+
+	                                            <?php if(Mage::registry('myprivatemessages_trash')): ?>
+                                                    <a href="<?php echo $this->getViewUrl($message, $redirect) ?>"><img src="<?php echo $this->getSkinUrl('forum/images/page_edit.png') ?>" border="0" alt="<?php echo $this->__('View Message') ?>"" title="<?php echo $this->__('View Message') ?>"/></a>&nbsp;
+	                                            	<a href="<?php echo $this->getUndoTrahsUrl($message, 'trash'); ?>" onclick="if(confirm('<?php echo $this->__('Are You sure?') ?>')) document.location.href=this.href; return false;" ><img border="0" src="<?php echo $this->getSkinUrl('forum/images/undo_trash.png') ?>" alt="<?php echo $this->__('Move to Inbox') ?>" title="<?php echo $this->__('Move to Inbox') ?>" /></a>
+													&nbsp;
+                                                    <a href="<?php echo $this->getDeleteUrl($message, 'trash'); ?>" onclick="if(confirm('<?php echo $this->__('Are You sure?') ?>')) document.location.href=this.href; return false;" ><img border="0" src="<?php echo $this->getSkinUrl('forum/images/cancel.png') ?>" alt="<?php echo $this->__('Delete Message') ?>" title="<?php echo $this->__('Delete Message') ?>" /></a>
+	                                            	&nbsp;
+
+	                                            <?php endif; ?>
+
+	                                         </nobr>
+				                    	</td>
+				                  	</tr>
+				                  	<?php $count++; ?>
+			                	<?php endforeach; ?>
+
+	             			<?php else: ?>
+	             				<tr>
+                                     <td colspan="5">
+						             	<div style="text-align:center" class="forum-no-data-table">
+					                          <?php echo $this->__('No Data to Display'); ?>
+						             	</div>
+                                     </td>
+	             				</tr>
+	             			<?php endif; ?>
+	                </table>
+	                <?php echo $this->getToolbar(); ?>
+         </td>
+	</tr>
+</table>
+
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a> &nbsp; <a href="<?php echo $this->getForumUrl() ?>"><small>&laquo; </small><?php echo $this->__('Forum') ?></a></p>
+</div>

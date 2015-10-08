@@ -1,0 +1,320 @@
+Forum,Forum
+Simple Forum Configuration, Simple Forum Configuration
+Forum Title, Forum Title
+Show Search block, Show Search block
+Show Jump To block, Show Jump To block
+Show Bookmark block, Show Bookmark block
+Show Fast Reply button, Show Fast Reply button
+Allow users delete own Topics, Allow users delete own Topics
+Displayed on front end, Displayed on front end
+Forum Manager, Forum Manager
+Add Forum, Add Forum
+Relative to Website Base URL/forum, Relative to Website Base URL/forum
+URL Key, URL Key
+Forum Details, Forum Details
+Save Forum, Save Forum
+Delete Forum, Delete Forum
+Edit Forum '%s', Edit Forum '%s'
+Forum was successfully saved, Forum was successfully saved
+Forum URL Key for specified forum already exist in store., Forum URL Key for specified forum already exist in store.
+Forum does not exist, Forum does not exist
+Forum was successfully deleted.<br>All Forum Topics were successfully deleted!<br>All Topics Posts were successfully deleted!, Forum was successfully deleted.<br>All Forum Topics were successfully deleted!<br>All Topics Posts were successfully deleted!
+All Forums were successfully deleted.<br>All Forums Topics were successfully deleted!<br>All Topics Posts were successfully deleted!, All Forums were successfully deleted.<br>All Forums Topics were successfully deleted!<br>All Topics Posts were successfully deleted!
+Forum Name, Forum Name
+Creation Time, Creation Time
+Updated Time, Updated Time
+All Forums statuses were successfully changed., All Forums statuses were successfully changed.
+Topic Manager, Topic Manager
+Add Topic, Add Topic
+Topic, Topic
+Parent Forum, Parent Forum
+Topic Details, Topic Details
+No Parent Forum, No Parent Forum
+Save Topic, Save Topic
+Topic was successfully saved, Topic was successfully saved
+Delete Topic, Delete Topic
+Topics was successfully deleted!<br>All Topics posts were successfully deleted!, Topics was successfully deleted!<br>All Topics posts were successfully deleted!
+All Topics were successfully deleted!<br>All Topics Posts were successfully deleted!, All Topics were successfully deleted!<br>All Topics Posts were successfully deleted!
+All Topics statuses were successfully changed., All Topics statuses were successfully changed.
+Edit Topic '%s', Edit Topic '%s'
+Topic Name, Topic Name
+Topic does not exist, Topic does not exist
+Manage Posts, Manage Posts
+Post Manager, Post Manager
+Add Post, Add Post
+Delete Post, Delete Post
+Save Post, Save Post
+Post Content, Post Content
+Post Details, Post Details
+Item Post, Item Post
+Post does not exist, Post does not exist
+Post was successfully saved, Post was successfully saved
+Post was successfully deleted, Post was successfully deleted
+All Posts were successfully deleted!, All Posts were successfully deleted!
+All Posts statuses were successfully changed., All Posts statuses were successfully changed.
+Post, Post
+Edit Post ID: '%s', Edit Post ID: '%s'
+Manage Moderators, Manage Moderators
+Moderators, Moderators
+Moderator Manager, Moderator Manager
+Create from Customer, Create from Customer
+Create Forum Moderators from Customers, Create Forum Moderators from Customers
+Assign To Moderator, Assign To Moderator
+%s customers assign to moderators, %s customers assign to moderators
+%s moderators are deleted, %s moderators are deleted
+Moderate Forum Settings, Moderate Forum Settings
+Moderate Topics, Moderate Topics
+Moderate Posts, Moderate Posts
+Forum Main Settings, Forum Main Settings
+Forum Configuration, Forum Configuration
+RE-CAPTCHA settings, RE-CAPTCHA settings
+Use RE-CAPTCHA, Use RE-CAPTCHA
+You can get it here https://www.google.com/recaptcha/. eg.6LdQ27sSAAAAANTMon0b0hNZtdd-piGtX26hpkxp, You can get it here https://www.google.com/recaptcha/. eg.6LdQ27sSAAAAANTMon0b0hNZtdd-piGtX26hpkxp
+RE-CAPTCHA Public Key API key, RE-CAPTCHA Public Key API key
+RE-CAPTCHA Private Key API key, RE-CAPTCHA Private Key API key
+Spam Protect, Spam Protect
+Forum Notification Settings, Forum Notification Settings
+Notify Moderator About New Post; Topic, Notify Moderator About New Post; Topic
+Notify Moderator Email, Notify Moderator Email
+Email Sender, Email Sender
+Allow Notify Customers Via Email, Allow Notify Customers Via Email
+Showed checkbox on Form Add Edit Post Topic, Showed checkbox on Form Add Edit Post Topic
+Email Template Moderator Notification, Email Template Moderator Notification
+Email Template Notify Customer, Email Template Notify Customer
+New Post Notify, New Post Notify
+New Post or Topic, New Post or Topic
+New Post on Forum, New Post on Forum
+New Topic on Forum, New Topic on Forum
+Forum Moderator Notification, Forum Moderator Notification
+Subscription Notification, Subscription Notification
+Allow RSS Feeds, Allow RSS Feeds
+Sitemap Settings, Sitemap Settings
+Site Map File Name, Site Map File Name
+Should be diferent to main sitemap with products and CMS pages, Should be diferent to main sitemap with products and CMS pages
+Path to Site Map File, Path to Site Map File
+Allow system Create Sitemap Files, Allow system Create Sitemap Files
+Should exists in project root, Should exists in project root; Relative to project root path
+Allow users use Nicknames, Allow users use Nicknames
+Show own Breadcrumbs, Show Forum Breadcrumbs
+Design settings, Design Settings
+Page Layout, Page Layout
+Show Top Banner, Show Top Banner
+Top Banner image src, Top Banner image src
+Top Banner Link, Top Banner Link
+Top Banner Link Open in new Window, Top Banner Link Open in new Window
+Forum Meta Data, Forum Meta Data
+Meta Keywords, Meta Keywords
+Meta Description, Meta Description
+Sort Forums by Priority, Sort Forums by Priority
+Priority, Priority
+Default Shows Newest Topics, Default Shows Newest Topics
+Default Shows Newest Posts, Default Shows Newest Posts
+
+Forum index, Forum index
+View All Forums, Viewing All Forums
+bookmarked items, bookmarked items
+Total Topics, Total Topics
+Total Posts, Total Posts
+Latest Reply, Latest Reply
+Total Forums, Total Forums
+Jump To, Jump To
+SEARCH, SEARCH
+Search Forum, Search Forum
+Statistic, Statistic
+Total Active Members, Total Active Members
+Created, Created
+Created By, Created By
+Who is online, Who is online
+Posted, Posted
+In total there is <b>%s</b> user online :: <b>%s</b> logged customers and <b>%s</b> guest (based on users active over the past 5 minutes), In total there is <b>%s</b> user online :: <b>%s</b> logged customers and <b>%s</b> guest (based on users active over the past 5 minutes)
+You have to be logged in order to Create Topics!, You have to be logged in order to Create Topics!
+Log In, Log In
+View Forum, Viewing Forum
+Sort, Sort
+Newest,Newest
+Oldest,Oldest
+Topic Title, Topic Title
+Views, Views
+Users browsing this forum <b>%s</b> logged customers:: <b>%s</b> and guest <b>%s</b> (based on users active over the past 5 minutes), Users browsing this forum <b>%s</b> logged customers:: <b>%s</b> and guest <b>%s</b> (based on users active over the past 5 minutes)
+View Topic, Viewing Topic
+Search Topic, Search Topic
+Bookmark Topic, Bookmark Topic
+You have to be logged in order to create Topics and add Posts!, You have to be logged in order to create Topics and add Posts!
+My Bookmarks, My Bookmarks
+
+Manage, Manage
+Users browsing this topic <b>%s</b> logged customers:: <b>%s</b> and guest <b>%s</b> (based on users active over the past 5 minutes), Users browsing this topic <b>%s</b> logged customers:: <b>%s</b> and guest <b>%s</b> (based on users active over the past 5 minutes)
+My Forum Topics, My Forum Topics
+My Forum Posts, My Forum Posts
+Add New Topic, Add New Topic
+Add New Post, Add New Post
+Fast Reply, Fast Reply
+Submit Post, Submit Post
+The Topic and its Posts were successfully deleted!, The Topic and its Posts were successfully deleted!
+The Topic was successfully created!, The Topic was successfully created!
+The Topic was successfully updated!, The Topic was successfully updated!
+The Post was successfully saved!, The Post was successfully saved!
+The Post was successfully deleted!, The Post was successfully deleted!
+Are You sure?, Are You sure?
+Edit Topic "%s" and Post, Edit Topic "%s" and Post
+Edit Post in Topic "%s", Edit Post in Topic "%s"
+Add Post to Topic "%s", Add Post to Topic "%s"
+Logged as Moderator, Logged as Moderator
+The Post was successfully enabled!, The Post was successfully enabled!
+The Post was successfully disabled!, The Post was successfully disabled!
+Activate, Activate
+Deactivate, Deactivate
+The Topic and its Post was successfully enabled!, The Topic and its Post was successfully enabled!
+The Topic and its Post was successfully disabled!, The Topic and its Post was successfully disabled!
+The Post was saved and will be added after moderation!, The Post was saved and will be added after moderation!
+The Topic was saved and will be added after moderation!, The Topic was saved and will be added after moderation!
+Sort By Status, Sort By Status
+Not Active, Not Active
+Active, Active
+Not Correct Recaptcha Text!, Not Correct Recaptcha Text!
+Notify me if someone post on this Topic, Notify me if someone post on this Topic
+You unsubscribed from Topic %s, You unsubscribed from Topic %s
+You are subscribed to this Topic!, You are subscribed to this Topic!
+With selected, With selected
+Go, Go
+No items Selected, No items Selected
+Select Action, Select Action
+Are you sure, Are you sure
+%s Topics and theirs Post were successfully disabled!, %s Topics and theirs Post were successfully disabled!
+%s Posts were successfully disabled!, %s Posts were successfully disabled!
+%s Topics and theirs Post were successfully enabled!, %s Topics and theirs Post were successfully enabled!
+%s Posts were successfully enabled!, %s Posts were successfully enabled!
+%s Topics and theirs Post were successfully deleted, %s Topics and theirs Post were successfully deleted
+%s Posts were successfully deleted!, %s Posts were successfully deleted!
+Reset Search, Reset Search
+NickName, NickName
+Use NickName, Use NickName
+Top, Top
+No Data To Display, No Data To Display
+Joined Date, Joined Date
+All Stores Views, All Stores Views
+Our Forum, Our Forum
+No Forum Topics about this product, No Forum Topics about this product
+
+Set limits Forums; Topics; Posts per page, Set limits Forums; Topics; Posts per page
+Show Description Field on Topic Form, Show Description Field on Topic Form
+
+tinyMCE Settings,tinyMCE Settings
+Allow image upload for backend, Allow image upload for backend
+Allow image upload for frontend, Allow image upload for frontend
+Uploader connector path,Uploader connector path
+Image path, Image path
+
+My Forum Acount, My Forum Acount
+alowed tags, alowed tags
+width, width
+Nickname could not be empty, Nickname could not be empty
+Nickname should be more then 5 characters length, Nickname should be more then 5 characters length
+Forum profile was successfully saved!, Forum profile was successfully saved!
+Nickname already exists!, Nickname already exists!
+File: <b>%s</b> successfully uploaded!, File: <b>%s</b> successfully uploaded!
+The uploaded file exceeds the max. upload filesize directive in the server configuration., The uploaded file exceeds the max. upload filesize directive in the server configuration.
+The uploaded file exceeds the MAX_FILE_SIZE directive., The uploaded file exceeds the MAX_FILE_SIZE directive.
+The uploaded file was only partially uploaded, The uploaded file was only partially uploaded
+No file was uploaded, No file was uploaded
+Missing a temporary folder., Missing a temporary folder.
+Failed to write file to disk., Failed to write file to disk.
+A PHP extension stopped the file upload., A PHP extension stopped the file upload.
+Please select a file for upload., Please select a file for upload.
+Only files with the following extensions are allowed: <b>%s</b>, Only files with the following extensions are allowed: <b>%s</b>
+Sorry. The filename contains invalid characters. Use only alphanumerical chars and separate parts of the name (if needed) with an underscore. <br>A valid filename ends with one dot followed by the extension., Sorry. The filename contains invalid characters. Use only alphanumerical chars and separate parts of the name (if needed) with an underscore. <br>A valid filename ends with one dot followed by the extension.
+The filename exceeds the maximum length of %s characters., The filename exceeds the maximum length of %s characters.
+Sorry. The upload directory does not exist!, Sorry. The upload directory does not exist!
+Uploading <b>%s...Error!</b> Sorry. A file with this name already exitst., Uploading <b>%s...Error!</b> Sorry. A file with this name already exitst.
+The uploaded file is renamed to <b>%s</b>., The uploaded file is renamed to <b>%s</b>.
+The file %s does not exist., The file %s does not exist.
+Unknown error!, Unknown error!
+Are you sure you want delete avatar image?, Are you sure you want delete avatar image?
+path to /media/forumavatar/ eg. http://www.yoursite.com/media/forumavatar/, path to /media/forumavatar/ eg. http://www.yoursite.com/media/forumavatar/
+Edit Admin Front Settings, Edit Admin Profile Settings
+Admin Display Settings, Admin Profile Settings
+Parent Topic could not have Posts. Only subtopics!, Parent Topic could not have Posts. Only subtopics!
+Latest Posts, Latest Posts
+Use Image Resize, Use Image Resize
+resize image after upload if width bigger, resize image after upload if width bigger
+Maximum Image Width, Maximum Image Width
+Accept, Accept
+Cancel, Cancel
+Saint, Saint
+Evil, Evil
+Question, Question
+Cry, Cry
+Devil, Devil
+Shame, Shame
+Disappointed, Disappointed
+Smart, Smart
+Laughter, Laughter
+Smile, Smile
+Monkey, Monkey
+Sad, Sad
+Kiss, Kiss
+Wink, Wink
+Forum Icons, Forum Icons
+Topic Icons, Topic Icons
+Show Topic Status, Show Topic Status
+Display different folder icons for non-answered and hot topic, Display different folder icons for non-answered and hot topic
+Forum Topic or Sub-Topic, Forum Topic or Sub-Topic
+Forum Topic with childs Sub-Topics, Forum Topic with childs Sub-Topics
+Topic or Sub-Topic without new Posts, Topic or Sub-Topic without new Posts
+Hot Topic or Sub-Topic!, Hot Topic or Sub-Topic!
+Show Quote Link, Show Quote Link
+QUOTE, QUOTE
+
+My Private Messages, My Private Messages
+Send Private Message, Send Private Message
+My Private Mesages(Trash), My Private Mesages(Trash)
+My Private Mesages(Sent), My Private Mesages(Sent)
+My Private Mesages(Inbox), My Private Mesages(Inbox)
+Send Private Message to, Send Private Message to
+Error saving private message! Data not valid!, Error saving private message! Data not valid!
+Error saving private message!, Error saving private message!
+Private message sent!, Private message sent!
+Message Subject, Message Subject
+Sent From, Sent From
+Date Sent, Date Sent
+Move to Trash, Move to Trash
+Delete Message, Delete Message
+Move to Sent, Move to Sent
+Move to Inbox, Move to Inbox
+Reply to Message, Reply to Message
+Mark as Read, Mark as Read
+%s private message(s) marked as read!, %s private message(s) marked as read!
+%s private message(s) moved to trash!, %s private message(s) moved to trash!
+%s private message(s) are deleted!, %s private message(s) are deleted!
+me, me
+Recipient, Recipient
+Sender, Sender
+View Private Messages, View Private Messages
+Original Message, Original Message
+from, from
+Back to Inbox, Back to Inbox
+Back to Sent, Back to Sent
+Back to Trash, Back to Trash
+Message, Message
+Reply Text, Reply Text
+Someone has sent you a Private Message, Someone has sent you a Private Message
+User Private Message Notification, User Private Message Notification
+Forum User Notification, Forum User Notification
+
+Inbox, Inbox
+Sent, Sent
+Trash, Trash
+
+Administrator, Administrator
+Moderator, Moderator
+User, User
+Name Not Set, Name Not Set
+Forum Admin, Forum Admin
+Profile for Forum User, Profile for Forum User
+Forum Status, Forum Status
+Send Private Message, Send Private Message
+Send PM, Send PM
+
+Search by Posts Content, Search by Posts Content
+Search by Topics Title, Search by Topics Title
+

@@ -1,0 +1,22 @@
+<table width="100%" id="table_forum_top" border="0">
+	<tr>
+		<td width="100%" colspan="2" style="padding-bottom:10px;">
+			<?php echo $this->getSearchBlock(); ?>
+		</td>
+	</tr>
+	<tr>
+		<td width="50%">
+			<div align="left" class="simple-forum-jump-to">
+				<?php echo $this->getJumpBlock(); ?>
+			</div>
+		</td>
+		<td width="50%">
+			<div id="simple-forum-bookmarked-items-div" style="text-align:right">
+				<?php echo $this->getBookmarkItemsBlock(); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+<script>
+	showBookmarksSF('<?php echo $this->getCurrentUrl() ?>');
+</script>

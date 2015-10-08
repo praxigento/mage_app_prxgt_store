@@ -1,0 +1,55 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Kbase
+ * @version    1.3.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+
+/*
+<?php echo htmlspecialchars($article->getArticle()); ?>
+*/
+
+$article = $this->getArticle();
+
+if(($category = $this->getCategory()) && $category instanceof Varien_Object)
+    $url = AW_Kbase_Helper_Url::getUrl(AW_Kbase_Helper_Url::URL_TYPE_ARTICLE, $article, $category->getData());
+else
+    $url = AW_Kbase_Helper_Url::getUrl(AW_Kbase_Helper_Url::URL_TYPE_ARTICLE, $article);
+
+?>
+<tr title="<?php echo $url ?>" class="kbase-listing kbase-listing-short <?php echo $this->getEven() ? 'kbase-even' : 'kbase-odd'; ?>">
+    <td class="kbase-listing-general"><a href="<?php echo $url ?>"><?php echo htmlspecialchars($article->getArticleTitle()); ?></a>
+    </td>
+    <?php if($this->getRatingEnabled()): ?>
+        <td class="kbase-listing-rating">
+            <div class="rating-box">
+                <div style="width: <?php echo ($article->getArticleRating())/5*100; ?>%;" class="rating"></div>
+            </div>
+            <?php // echo number_format($article->getArticleRating(), AW_Kbase_Helper_Data::RATING_DECIMALS); ?>
+        </td>
+    <?php endif; ?>
+    <td class="kbase-listing-date-updated"><?php echo $this->formatDate($article->getArticleDateUpdated()); ?></td>
+</tr>

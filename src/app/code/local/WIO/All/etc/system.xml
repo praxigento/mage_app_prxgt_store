@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<config>
+    <tabs>
+        <webideaonline translate="label" module="wioall">
+            <label>WebIdeaOnline Extensions</label>
+            <sort_order>300</sort_order>
+        </webideaonline>
+    </tabs>
+	<sections>
+		<wioall translate="label" module="wioall">
+			<label>Notifications</label>
+			<tab>webideaonline</tab>
+			<frontend_type>text</frontend_type>
+			<sort_order>99999</sort_order>
+			<show_in_default>1</show_in_default>
+			<show_in_website>1</show_in_website>
+			<show_in_store>1</show_in_store>
+			<groups>
+				<feeds>
+					<label>Notifications Setup</label>
+					<frontend_type>text</frontend_type>
+					<sort_order>10</sort_order>
+					<show_in_default>1</show_in_default>
+					<show_in_website>1</show_in_website>
+					<show_in_store>1</show_in_store>
+					<fields>	
+						<allownotification translate="label">
+							<label>I'd like to be informed by webidiaonline about theirs Products and Updates</label>
+							<frontend_type>select</frontend_type>
+							<sort_order>100</sort_order>
+							<show_in_default>1</show_in_default>
+							<show_in_website>1</show_in_website>
+							<show_in_store>1</show_in_store>
+							<source_model>adminhtml/system_config_source_yesno</source_model>
+						</allownotification>
+					</fields>	
+				</feeds>		
+			</groups>
+		</wioall>
+	</sections>
+</config>

@@ -1,0 +1,41 @@
+<div class="head-forum">
+<?php if($this->isModerator()): ?>
+	<div class="simple-forum-moderator-block-top">
+		<?php echo $this->__('Logged as Moderator') ?>
+	</div>
+<?php endif; ?>
+	<div class="page-head-forum"><?php echo $this->getTitle() ?></div>
+    <?php if ($this->getDisplayRSS()): ?>
+        <div class="simple-forum-rss-link">
+            <a href="<?php echo $this->getRSSUrl() ?>"><img src="<?php echo $this->getSkinUrl('') ?>forum/images/rss.png" border="0"/> RSS</a>
+        </div>
+    <?php endif; ?>
+    <div style="clear:both"></div>
+	<?php if($this->getShowTopBanner()): ?>
+		<div class="banner-forum">
+			<?php if($this->getTopBannerIsLink()): ?>
+			<a href="<?php echo $this->getLinkTopBanner() ?>"  <?php if($this->getTopLinkBannerBlank()): ?>target="_blank" <?php endif; ?>>
+			<?php endif; ?>
+				<img src="<?php echo $this->getTopBannerSrc() ?>" border=0>
+			<?php if($this->getTopBannerIsLink()): ?>
+			</a>
+			<?php endif; ?>
+		</div>
+	<?php endif; ?>
+</div>
+<?php if($this->displayForumControls()): ?>
+    <div class="simple-forum-top-controls">
+        <div class="simple-forum-top-controls-my-messages">
+            <a href="<?php echo $this->getUrl('forum/myprivatemessages'); ?>" <?php echo $this->getMessagesLinkStyle() ?>><?php echo $this->__('My Messages') ?><?php echo $this->getMessagesCount() ?></a>
+        </div>
+        <div class="simple-forum-top-controls-my-account">
+            <a href="<?php echo $this->getUrl('forum/myaccount'); ?>"><?php echo $this->__('My Forum Account') ?></a>
+        </div>
+        <div class="simple-forum-top-controls-my-topics">
+            <a href="<?php echo $this->getUrl('forum/mytopics'); ?>"><?php echo $this->__('My Forum Topics') ?></a>
+        </div>
+        <div class="simple-forum-top-controls-my-posts">
+            <a href="<?php echo $this->getUrl('forum/myposts'); ?>"><?php echo $this->__('My Forum Posts') ?></a>
+        </div>
+    </div>
+<?php endif; ?>

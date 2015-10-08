@@ -1,0 +1,40 @@
+<div id="message-popup-window-mask" style="display:none;"></div>	
+
+	<div id="wio_notification" class="notification" style="display:none;">
+		<div class="head-wio">
+			<div class="head-message-wio"><?php echo $this->getHeaderText();?></div>
+			<div class="head-close-wio" id="head-close-wio-button"></div>
+		</div>
+		<div class="wio-notifications-content">
+			<?php echo $this->getNoticeMessageText(); ?>
+		</div>
+	</div>
+<script>
+
+	function WIO_center_Notification()
+	{
+		var el        = $('wio_notification');
+		var width     = el.getWidth(); 
+		var height    = el.getHeight(); 
+		var winWidth  = document.viewport.getWidth();
+		var winHeight = document.viewport.getHeight();
+		
+		var scrollObject = document.viewport.getScrollOffsets(); 
+		el.style.top     = ((winHeight/2) - (height/2)) + (scrollObject.top) + 'px';
+		el.style.left    = ((winWidth/2) - (width/2)) + 'px';
+		el.style.display  = 'block';
+		$('message-popup-window-mask').setStyle({'height': $('html-body').getHeight()+'px'});
+		$('message-popup-window-mask').style.display = 'block';
+		
+		Event.observe($('head-close-wio-button'), 'click', WIO_closeNotification);
+	}
+	
+	function WIO_closeNotification()
+	{
+		$('wio_notification').style.display = 'none';
+		$('message-popup-window-mask').style.display = 'none';
+	}
+	
+	Event.observe(window, 'load', WIO_center_Notification);
+
+</script>

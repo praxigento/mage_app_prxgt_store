@@ -1,0 +1,31 @@
+<?php
+
+/**
+ * webideaonline.com.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://webideaonline.com/licensing/
+ *
+ */
+
+
+class Simple_Forum_Block_Adminhtml_Moderators_Index_Tab_Fromcustomermoder extends Mage_Adminhtml_Block_Widget_Grid_Container
+{
+    public function __construct()
+    {
+        $this->_controller = 'adminhtml_customer';
+        $this->_blockGroup = 'forum';
+        parent::__construct();
+		$this->setTemplate('forum/customers.phtml');
+    }
+
+	protected function _prepareLayout()
+	{
+		return parent::_prepareLayout();
+	}
+}
+

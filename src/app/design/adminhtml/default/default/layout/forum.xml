@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+	<default>
+		<reference name="head">
+			<action method="addCss"><name>forum/css/forum.css</name></action>
+		</reference>
+	</default>
+    <forum_admin_adminhtml_forum_index>
+        <reference name="content">
+            <block type="forum/adminhtml_forum" name="post" >
+            	<block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+        </reference>
+    </forum_admin_adminhtml_forum_index>
+    <forum_admin_adminhtml_post_index>
+        <reference name="content">
+            <block type="forum/adminhtml_post" name="post" >
+            	<block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+        </reference>
+    </forum_admin_adminhtml_post_index>
+
+	<forum_admin_adminhtml_post_edit>
+		<reference name="js">
+			<block type="forum/adminhtml_head" template="forum/head.phtml" name="head_js"></block>
+		</reference>
+    </forum_admin_adminhtml_post_edit>
+
+    <forum_admin_adminhtml_topic_index>
+        <reference name="content">
+            <block type="forum/adminhtml_topic" name="topic" >
+            	<block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+        </reference>
+    </forum_admin_adminhtml_topic_index>
+
+	<forum_admin_adminhtml_subtopic_index>
+        <reference name="content">
+            <block type="forum/adminhtml_subtopic" name="topic" >
+            	<block type="adminhtml/store_switcher" name="store_switcher" as="store_switcher">
+                    <action method="setUseConfirm"><params>0</params></action>
+                </block>
+            </block>
+        </reference>
+    </forum_admin_adminhtml_subtopic_index>
+
+    <forum_admin_adminhtml_admsettings_index>
+        <reference name="js">
+			<block type="forum/adminhtml_admsettings" template="forum/tumbjs.phtml" name="head_js"></block>
+		</reference>
+    </forum_admin_adminhtml_admsettings_index>
+
+</layout>

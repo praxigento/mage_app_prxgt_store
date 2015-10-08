@@ -1,0 +1,9 @@
+#article_attachment_container span.kbase {
+    font-weight: bold;
+}
+#article_attachment_container .delete {
+    margin-left: 20px;
+}
+#article_attachment_container label {
+    vertical-align: middle;
+}

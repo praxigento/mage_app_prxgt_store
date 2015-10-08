@@ -1,0 +1,134 @@
+<script>
+	function WIO_ShowHide(_id)
+	{
+		var _im_hide = '<?php echo $this->getSkinUrl('forum/images/minus.png') ?>';
+		var _im_show = '<?php echo $this->getSkinUrl('forum/images/plus.png') ?>';    	var _el = $('mes-id-text-' + _id);
+    	var _im = $('mes-id-image-' + _id);
+    	if(_el)
+    	{        	if(_el.style.display != 'none')
+        	{            	_el.style.display = 'none';
+            	_im.src = _im_show;
+        	}
+        	else
+        	{             	_el.style.display = 'block';
+             	_im.src = _im_hide;
+        	}
+    	}
+	}
+</script>
+<?php $message = Mage::registry('message') ?>
+<div class="page-title title-buttons">
+	<h1><?php echo $this->__('View Private Messages') ?></h1>
+</div>
+<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+<div class="simple-forum-private-message-description">
+<table>
+	<tr>
+		<td align="center">
+         	<div class="simple-forum-customer-avatar-block">
+           		<b><?php echo $this->getTypeAvatar() ?></b><br>
+				<img src="<?php echo $this->getAvatarUrl(); ?>" width="<?php echo $this->getAvatarWidth(); ?>" />
+			</div>
+		</td>
+		<td>
+			<div class="simple-forum-private-message-description-block">
+				<h3><?php echo $this->__('Subject') ?>: <em><?php echo $this->getMessageTitle() ?></em></h3>
+				<h4><?php echo $this->__('Sent from') ?>: <em><?php echo $this->getSentFrom() ?></em></h4>
+				<h4><?php echo $this->__('Sent to') ?>: <em><?php echo $this->getSentTo() ?></em></h4>
+				<h4><?php echo $this->__('Date sent') ?>: <em><?php echo $this->getSentDate() ?></em></h4>
+				<h4><em><?php echo $this->getBackLinkUrl() ?></em></h4>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+<?php $parents = $this->getParents(); ?>
+<?php foreach($parents as $mes): ?>
+	<div class="simple-forum-private-messages-view-header" id="mes-id-header-<?php echo $mes->getId() ?>" onclick="WIO_ShowHide('<?php echo $mes->getId() ?>')">
+	 	<table>
+	 		<tr>
+	 			<td>
+	            	<img src="<?php echo $this->getSkinUrl('forum/images/plus.png') ?>" id="mes-id-image-<?php echo $mes->getId() ?>" />
+	 			</td>
+	 			<td>
+	 				<em><?php echo $this->__('Message') ?>&nbsp;<?php echo $this->__('from') ?>:&nbsp;<?php echo $this->getSentFrom($mes) ?>&nbsp;<?php echo $this->__('to') ?>:&nbsp;<?php echo $this->getSentTo($mes) ?>&nbsp;<?php echo $this->__('date') ?>:&nbsp;<?php echo $this->getSentDate($mes) ?></em>
+	            </td>
+	     	</tr>
+	     </table>
+	</div>
+
+
+	<div class="simple-forum-private-messages-view-text" id="mes-id-text-<?php echo $mes->getId() ?>" style="display:none;">
+		<em><?php echo $this->__('Subject') ?>: <?php echo $mes->getSubject(); ?></em><br>
+	    <?php echo $this->getMessageText($mes) ?>
+	</div>
+<?php endforeach; ?>
+<div class="simple-forum-private-messages-view-header" id="mes-id-header-<?php echo $this->getMessageId() ?>" onclick="WIO_ShowHide('<?php echo $this->getMessageId() ?>')">
+ 	<table>
+ 		<tr>
+ 			<td>
+            	<img src="<?php echo $this->getSkinUrl('forum/images/minus.png') ?>" id="mes-id-image-<?php echo $this->getMessageId() ?>" />
+ 			</td>
+ 			<td>
+ 				<em><?php echo $this->__('Message') ?>&nbsp;<?php echo $this->__('from') ?>:&nbsp;<?php echo $this->getSentFrom() ?>&nbsp;<?php echo $this->__('to') ?>:&nbsp;<?php echo $this->getSentTo() ?>&nbsp;<?php echo $this->__('date') ?>:&nbsp;<?php echo $this->getSentDate() ?></em>
+            </td>
+     	</tr>
+     </table>
+</div>
+
+
+<div class="simple-forum-private-messages-view-text" id="mes-id-text-<?php echo $this->getMessageId() ?>">
+    <?php echo $this->getMessageText() ?>
+</div>
+<br>
+
+<?php if($this->haveReplyBox()): ?>
+<form method="post" id="simple-forum-private-message-reply" name="simple-forum-private-message-reply" action="<?php echo $this->getRyplyFormAction() ?>">
+	<input type="hidden" name="parent_id" value="<?php echo $this->getParentId() ?>" />
+	<input type="hidden" name="cid" value="<?php echo $this->getCId() ?>" />
+	<input type="hidden" name="r" value="<?php echo $this->getRedirect() ?>" />
+ 	<div class="simple-forum-myprivatemessages-subject-label">
+   		<label for="privatemessagetitle"><em>*</em><?php echo $this->__('Subject'); ?>:</label>
+	</div>
+ 	<input type="text" name="subject" id="privatemessagetitle" value="<?php echo $this->getSubject() ?>" class="input-text required-entry" style="width:100%"/>
+
+	<div class="simple-forum-myprivatemessages-subject-label">
+		<label for="simple-forum-reply-privatemessage-text"><em>*</em><?php echo $this->__('Reply Text') ?>:</label>
+	</div>
+    <textarea name="privatemessage" id="simple-forum-reply-privatemessage-text" class="input-text required-entry simple-forum-reply-privatemessage-text"><?php echo $this->getMessageTextarea() ?></textarea>
+	<div>
+		<small style="font-size:85%">(<?php echo $this->__('alowed tags') ?>: <?php echo htmlspecialchars('<b>, <ul>, <em>') ?>)</small>
+	</div>
+	<div style="text-align:right;">
+ 		<?php echo $this->getRecaptchField(); ?>
+ 	</div>
+    <div class="simple-forum-privatemessages-buttonset">
+    	<button type="submit" title="<?php echo $this->getSubmitTitle() ?>" class="simple-forum-default-button">
+			<?php echo $this->getSubmitTitle() ?>
+		</button>
+		<?php if($this->getIsInbox()): ?>
+        	<button title="<?php echo $this->getMoveTrashTitle() ?>" onclick="if(confirm('<?php echo $this->__('Are you sure?') ?>')){document.location.href='<?php echo $this->getTrahsUrl($message) ?>'; return false;}" class="simple-forum-default-button">
+				<?php echo $this->getMoveTrashTitle() ?>
+			</button>
+		<?php endif; ?>
+		<?php if($this->getIsTrash()): ?>
+        	<button title="<?php echo $this->getUndotrashTitle() ?>" onclick="if(confirm('<?php echo $this->__('Are you sure?') ?>')){document.location.href='<?php echo $this->getUndoTrahsUrl($message) ?>'; return false;}" class="simple-forum-default-button">
+				<?php echo $this->getUndotrashTitle() ?>
+			</button>
+		<?php endif; ?>
+        <button title="<?php echo $this->getDeleteTitle() ?>" onclick="if(confirm('<?php echo $this->__('Are you sure?') ?>')){document.location.href='<?php echo $this->getDeleteUrl($message) ?>'; return false;}" class="simple-forum-default-button">
+			<?php echo $this->getDeleteTitle() ?>
+		</button>
+    </div>
+</form>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('simple-forum-private-message-reply', true);
+//]]>
+</script>
+<?php else: ?>
+
+<?php endif; ?>
+<div class="buttons-set">
+    <p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a> &nbsp; <a href="<?php echo $this->getForumUrl() ?>"><small>&laquo; </small><?php echo $this->__('Forum') ?></a></p>
+</div>

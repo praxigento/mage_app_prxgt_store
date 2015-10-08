@@ -1,0 +1,94 @@
+<?php echo $this->getHeadHtml(); ?>
+<div class="forum-top">
+<?php echo $this->getTop(); ?>
+<table width="100%">
+	<tr>
+		<td>
+			<div class="forum-title">
+				<?php echo $this->getTitleContent(); ?>
+			</div>
+		</td>
+		<td>
+			<div class="forum-controls">
+				<?php echo $this->getControls(); ?>
+			</div>
+		</td>
+	</tr>
+</table>
+</div>
+<?php $bookmarks = $this->getAllBookmarks(); ?>
+<script>
+	eraseBookmarksSF();
+</script>
+<div>
+    <table witdh="100%" border="0" id="forum_table_bookmark" class="data-table">
+		<thead>
+		<tr class="first last">			
+			<th width="45%"><?php echo $this->__('Forum Name') ;?></th>
+			<th width="45%"><?php echo $this->__('Topic Title') ?></th>		
+			<th width="10%"><?php echo $this->__('Manage') ?></th>
+		<tr>
+		</thead>
+	
+	<?php if(count($bookmarks) > 0): ?>
+	
+		<?php foreach($bookmarks as $id=>$bookmark): ?>
+			<tr id="simple-forum-row-id-<?php echo $bookmark->getId() ?>">
+				<td>
+					<?php if($bookmark['parent']): ?>
+					<table width="100%" cellpadding="2" cellspacing="2">
+						<tr>
+							<td width="1%">
+								<img src="<?php echo $this->getSkinUrl() ?>forum/images/folder_forum.png" >
+							</td>
+							<td>
+								<a href="<?php echo $this->getViewUrl($bookmark['parent']->getId(), $bookmark['parent']) ?>" ><?php echo $bookmark['parent']->getTitle() ?></a><br>
+								<?php echo $this->__('Created By') ?>: <?php echo $bookmark['parent']->getUser_name(); ?>
+							</td>
+						</tr>
+					</table>
+						
+					<?php else: ?>
+						<?php echo $this->__('No Data') ?>
+					<?php endif; ?>
+				</td>
+				<td>
+					<table width="100%" cellpadding="2" cellspacing="2">
+						<tr>
+							<td width="1%">
+								<img src="<?php echo $this->getSkinUrl() ?>forum/images/folder_topic.png" >									
+							</td>
+							<td>
+								<a href="<?php echo $this->getViewUrl($bookmark->getId(), $bookmark) ?>" ><?php echo $bookmark->getTitle() ?></a><br>
+								<?php echo $this->__('Created By') ?>: <?php echo $bookmark->getUser_name(); ?>
+							</td>
+						</tr>
+					</table>
+				</td>
+				<td>
+					<div class="simple-forum-my-bookmarks-controls">
+						<nobr>
+								<a href="javascript:;" onclick="deleteBookmarkSF('<?php echo $bookmark->getId() ?>')" class="simple-forum-control-delete"><?php echo $this->__('Delete') ?></a>
+						</nobr>
+					</div>
+					<script>
+						setBookmarkSF('<?php echo $bookmark->getId(); ?>');
+					</script>
+				</td>
+			</tr>
+		<?php endforeach; ?>
+
+	<?php else: ?>
+		<tr>
+		<td colspan="3">
+			<div style="text-align:center" class="forum-no-data-table">
+				<?php echo $this->__('No Data To Display'); ?>
+			</div>
+		</td>
+	</tr>
+	<?php endif;?>
+	</table>
+</div>
+<div class="buttons-set">
+	<p class="back-link"><a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a></p>
+</div>

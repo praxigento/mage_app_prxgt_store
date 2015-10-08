@@ -1,0 +1,174 @@
+<?php if(!$this->isOnProduct()): ?>
+	<?php echo $this->getHeadHtml(); ?>
+	<?php echo $this->getMessagesBlock()->getGroupedHtml() ?>
+	<?php echo $this->getBreadCrumbs(); ?>
+<?php endif; ?>
+<div align="center">
+<?php if($this->isOnProduct()): ?>
+	<table style="width:auto;">
+		<tr>
+			<td align="left">
+				<?php echo $this->getHeadProductHtml(); ?>
+			</td>
+		</tr>
+	</table>
+<?php endif; ?>
+<table align="center" border="0" width="100%">
+	<tr>
+		<td >
+			&nbsp;
+		</td>
+		<td align="left">
+			<form action="<?php echo $this->getSaveUrl() ?>" method="post" id="form-validate">
+			    <input type="hidden" name="topic_id" value="<?php echo $this->getModel()->getId() ?>" />
+			    <input type="hidden" name="back" value="<?php echo $this->getBackFormUrl() ?>" />
+			    <?php if($this->getModelPost()->getid()): ?>
+					<input type="hidden" name="post_id" value="<?php echo $this->getModelPost()->getId() ?>" />
+				<?php endif; ?>
+				<?php if($this->getRedirectUrl()): ?>
+					<input type="hidden" name="redirect" value="<?php echo $this->getRedirectUrl() ?>" />
+				<?php endif; ?>
+				<?php if($this->getParentId()): ?>
+					<input type="hidden" name="parent_id" value="<?php echo $this->getParentId() ?>" />
+			     <?php endif; ?>
+			     <?php if($this->isOnProduct()): ?>
+			     	<input type="hidden" name="product_id" value="<?php echo $this->getProductId() ?>">
+			     <?php endif; ?>
+				<div class="fieldset">
+				<?php if(!$this->isOnProduct()): ?>
+					<h2 class="legend"><?php echo $this->getTitle() ?></h2>
+				<?php endif; ?>
+				<ul class="form-list">
+					<?php if($this->isOnProduct()): ?>
+
+					<?php $forums_arr = $this->getForums(); ?>
+						<li class="fields">
+							<div class="field">
+							    <label for="parent_id" class="required"><em>*</em><?php echo $this->__('Forum') ?></label>
+							    <div class="input-box" style="width:100%">
+									<select name="parent_id" style="width:480px;" class="input-text required-entry" id="parent_id" <?php echo $this->titleReadOnly() ?> >
+										<?php foreach($forums_arr as $val): ?>
+											<option value="<?php echo $val['value'] ?>" <?php if($val['value'] == $this->getModelParentId()): ?> selected <?php endif; ?>><?php echo $val['label'] ?></option>
+										<?php endforeach; ?>
+									</select>
+							    </div>
+							</div>
+						</li>
+					<?php endif; ?>
+
+					<?php if(!$this->getNotAllowIcons()): ?>
+					<?php $icons = Mage::helper('forum/data')->getForumIconsRadios(); ?>
+                    <li class="fields">
+						<div>
+						    <label for="icons"><?php echo $this->__('Icons') ?></label>
+						    <div class="input-box" style="width:100%">
+                                  <?php if(is_array($icons) && !empty($icons)): ?>
+                                  		<table class="simple-forum-icons-table" width="100%" border="0">
+                                  			<tr>
+                                  			<?php $count = 1;  ?>
+	                                  		<?php foreach($icons as $icon): ?>
+		                                  		<?php if( !empty($icon['label']) ): ?>
+		                                  			<td width="1%" class="simple-forum-radio-place">
+		                                      				<input type="radio" name="icon_id" id="icon_id_<?php echo $icon['value'] ?>" value="<?php echo $icon['value'] ?>" <?php if(($this->getIcon_id() == $icon['value']) || ($this->getIcon_id() == '' && $icon['value'] === 0) || ($this->getIcon_id() === NULL && $icon['value'] === 0)): ?>checked <?php endif; ?>>
+			                    					</td>
+			                    					<td width="29%" class="simple-forum-radio-label-place">
+			       				            				<label for="icon_id_<?php echo $icon['value'] ?>"><?php echo $this->__($icon['label']) ?></label>
+		                                  			</td>
+	                                                <?php if(!($count%3)): ?></tr><tr> <?php endif; ?>
+	                                  				<?php $count++; ?>
+	                                  			<?php endif; ?>
+	                                  		<?php endforeach; ?>
+	                                  		</tr>
+                                  		</table>
+                                  <?php endif; ?>
+							</div>
+						</div>
+					</li>
+					<?php endif; ?>
+
+					<li class="fields">
+						<div class="field">
+						    <label for="Title" class="required"><em>*</em><?php echo $this->__('Title') ?></label>
+						    <div class="input-box" style="width:100%">
+							<input type="text" name="Title" style="width:480px;" value="<?php echo $this->getModelTitle(); ?>" class="input-text required-entry" id="Title" <?php echo $this->titleReadOnly() ?> />
+						    </div>
+						</div>
+					</li>
+
+					<?php if(Mage::helper('forum/topic')->getDisplayShortDescriptionField()): ?>
+
+						<li class="fields">
+							<div class="field">
+							    <label for="description"><?php echo $this->__('Description') ?></label>
+							    <div class="input-box" style="width:100%">
+								<textarea name="description" style="width:480px;" id="description" <?php echo $this->titleReadOnly() ?>><?php echo $this->getModelDescription(); ?></textarea>
+							</div>
+						</li>
+
+					<?php endif; ?>
+					<?php if(Mage::getStoreConfig('forum/advanced_settings/show_quote_link') && $this->getQuoteId()): ?>
+	                    <li class="fields">
+	                    	<strong><?php echo $this->__('QUOTE'); ?>:</strong>
+		                    <div class="simple-forum-quote-edit">
+		                         <textarea name="quote" style="display:none;width:1px; height:1px;" ><?php echo $this->getQuoteText(); ?></textarea>
+		                         <?php echo $this->getQuoteText(); ?>
+		                    </div>
+	                    </li>
+					<?php endif; ?>
+					<li class="fields">
+						<label for="Post"><?php echo $this->__('Post') ?></label>
+						<br>
+						<div class="field">
+						    <div class="text-box">
+							<textarea name="Post" style="width:480px; height:400px;" id="Post" ><?php echo $this->getModelContent() ?></textarea>
+						    </div>
+						</div>
+					</li>
+					<?php if($this->getAllowNotification()): ?>
+						<li class="fields">
+							<table>
+								<tr>
+									<td>
+										<input type="checkbox" id="simple-forum-notify" name="notify_me" <?php if($this->getNotifyMe($this->getModel()->getId())): ?>checked <?php endif; ?>>
+									</td>
+									<td style="padding-left:10px;">
+										<label for="simple-forum-notify">
+											<?php echo $this->__('Notify me if someone post on this Topic') ?>
+										</label>
+									</td>
+								</tr>
+							</table>
+						</li>
+					<?php endif; ?>
+
+							<?php echo $this->getRecaptchField() ?>
+				</ul>
+			    </div>
+
+
+			    <div class="buttons-set">
+				<p class="required"><?php echo $this->__('* Required Fields') ?></p>
+				<p class="simple-forum-back-link">
+					<nobr>
+						<a href="<?php echo $this->getBackUrl() ?>"><small>&laquo; </small><?php echo $this->__('Back') ?></a>
+					</nobr>
+				</p>
+				<p class="simple-forum-submit-form">
+					<button type="submit" title="<?php echo $this->getSubmitTitle() ?>" class="simple-forum-default-button">
+						<?php echo $this->getSubmitTitle() ?>
+					</button>
+				</p>
+			    </div>
+		    </form>
+		</td>
+		<td >
+			&nbsp;
+		</td>
+	</tr>
+</table>
+</div>
+<script type="text/javascript">
+//<![CDATA[
+    var dataForm = new VarienForm('form-validate', true);
+//]]>
+</script>

@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+
+    <kbase_admin_adminhtml_article_index>
+        <reference name="content">
+            <block type="kbase/adminhtml_article" name="kbase" />
+        </reference>
+    </kbase_admin_adminhtml_article_index>
+
+    <kbase_admin_adminhtml_article_edit>
+        <update handle="editor" />
+        <reference name="head">
+            <action method="addCss"><stylesheet>aw_kbase/css/main.css</stylesheet></action>
+        </reference>
+    </kbase_admin_adminhtml_article_edit>
+
+    <kbase_admin_adminhtml_category_index>
+        <reference name="content">
+            <block type="kbase/adminhtml_category" name="kbase" />
+        </reference>
+    </kbase_admin_adminhtml_category_index>
+
+</layout>

@@ -1,0 +1,61 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Kbase
+ * @version    1.3.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+$maxTagsPerPage = (int) Mage::getStoreConfig('kbase/tag/mainpagetagcount');
+
+$autoSize = $this->getAutoSize();
+if (1 < $tagMaxCount = $this->getTagMaxCount())
+    $tagMaxCount--;
+
+
+DEFINE('FONT_SCALE_MIN', 0.75); // minimal tag font size
+DEFINE('FONT_SCALE_MAX', 3.0); // maximal tag font size
+
+DEFINE('FONT_SCALE_DIFF', FONT_SCALE_MAX - FONT_SCALE_MIN);
+?>
+<div class="kbase-block kbase-main-tag kbase-main-search">
+    <h2 class="kbase-block-title"><?php printf(Mage::getStoreConfig('kbase/tag/title')) ?></h2>
+    <div class="kbase-block-content">
+        <ul class="kbase-list level-0">
+            <?php $tagCounter = 0; ?>
+            <?php
+            foreach ($this->getTags() as $tag):
+                if ($tagCounter >= $maxTagsPerPage && $maxTagsPerPage)
+                    break;
+                $tagCounter++;
+                $size = $autoSize ? 100 * (FONT_SCALE_MIN + FONT_SCALE_DIFF * ($tag['weight'] - 1) / $tagMaxCount) : 100;
+                ?>
+                <li>
+                    <a style="font-size:<?php echo $size ?>%;line-height:<?php echo round($size / 2) ?>%;" href="<?php echo AW_Kbase_Helper_Url::getUrl(AW_Kbase_Helper_Url::URL_TYPE_TAG, $tag) ?>"><?php echo htmlspecialchars($tag['tag_name']) ?></a>
+                </li>
+            <?php endforeach; ?>
+        </ul>
+        <br clear="all" />
+    </div>
+</div>

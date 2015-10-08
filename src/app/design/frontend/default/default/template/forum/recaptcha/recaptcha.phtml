@@ -1,0 +1,13 @@
+<script>
+var RecaptchaOptions = {
+   theme : 'clean',
+   lang: '<?php echo $this->getLanguage() ?>'
+};
+</script>
+<li>
+	<label for="Spam_Protect"><?php echo $this->__('Spam Protect') ?></label>
+	<br>
+	<div>
+		<?php echo $this->displayRecaptcha() ?>
+	</div>
+</li>

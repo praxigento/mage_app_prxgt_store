@@ -1,0 +1,174 @@
+.accordion_content
+{
+	color: #fff;
+}
+.accordion_content h2
+{
+	color: #0099FF;
+	margin: 15px 0 5px 10px;
+}
+.accordion_content p
+{
+	margin: 0;
+	padding: 5px;
+}
+.accordion_toggle_active
+{
+	border: 1px solid #E5DCC3;
+	color: #ffffff;
+}
+.add-askit-box
+{
+	border-top: 1px solid #E5DCC3;
+	clear: both;
+	margin-top: 25px;
+	padding-top: 10px;
+}
+.askit-accordion-content {
+    padding: 5px;
+    background: #fdf9f6;
+}
+.askit-accordion-content .action
+{
+    overflow: hidden;
+    zoom: 1;
+	padding: 10px 0;
+}
+.askit-accordion-content h4
+{
+    clear: left;
+	margin: 0;
+}
+.askit-accordion-toggle
+{
+	background: #F1ECDB;
+	border: 1px solid #E5DCC3;
+	color: #000000;
+	cursor: pointer;
+	display: block;
+	font-size: 12px;
+	font-weight: normal;
+	line-height: 25px;
+	margin: 5px 0 5px 0;
+	outline: none;
+	padding: 0 10px 0 10px;
+	text-decoration: none;
+}
+.askit-author
+{
+	font-weight: bold;
+}
+.askit-answergroup{
+    margin-top: 3px;
+	border-top: 1px solid #E5DCC3;
+}	
+.askit-haveyouanswer
+{
+    float: left;
+    width: 150px;
+	font-weight: bold;
+	margin-right: 10px;
+}
+.askit-hintwrapper
+{
+    float: left;
+    width: 150px;
+	font-size: 11px;
+	font-weight:bold;
+	margin-right:10px;	
+}
+.askit-hintwrapper p
+{
+	float: left;
+}
+.askit-hintwrapperinner
+{
+	margin-top: 15px;
+}
+.askit-minus-image
+{
+	background: url(../images/askit/thumb_down_askit.png) no-repeat 0 100%;
+	height: 16px;
+	width: 16px;
+}
+.askit-noquestion{
+	padding-bottom:15px;	
+}
+.askit-plus-image
+{
+	background: url(../images/askit/thumb_up_askit.png) no-repeat 0 100%;
+	height: 16px;
+	width: 16px;
+}
+
+.askit-query-answer .askit-hintwrapper
+{
+	/*margin-top: 10px;*/
+}
+.askit-query-answer {
+	padding: 10px !important;
+}
+.askit-query-answer .dec-answer-hint, .askit-query-answer .dec-answer-hint div
+{
+	float: left;
+}
+.askit-query-answer-list li
+{
+	border-top: 1px dashed #E5DCC3;
+}
+.askit-question-answer-info
+{
+	font-size:10px;
+	font-weight:bold;
+	margin: 0;
+}
+.askit-question-answer-info div
+{
+	margin-left: -10px;
+}
+.askit-question-answer-text
+{
+}
+.askit-question-answer-text
+{
+	margin-top: 7px;
+}
+.askit-question-auth
+{
+	float: right;
+	font-size: 0.9em;
+}
+.askit-question-text-full
+{
+	margin: 10px 0 0;
+}
+.askit-question-text
+{
+	margin-right: 130px;
+}
+.askit-question-text a
+{
+	text-decoration: none;
+}
+.askit-question-text a:hover
+{
+	text-decoration: none;
+}
+.askit-same
+{
+    color: #999;
+	font-size: 11px;
+	margin: 4px 0;
+}
+
+.dec-question-hint button
+{
+	margin: 0px 3px;
+}
+
+.dec-question-hint, .inc-question-hint
+{
+    margin-left: 5px;
+	float: left;
+}
+

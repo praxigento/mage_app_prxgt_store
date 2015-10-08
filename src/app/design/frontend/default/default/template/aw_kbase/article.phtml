@@ -1,0 +1,103 @@
+<?php
+/**
+* aheadWorks Co.
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ *
+ * =================================================================
+ *                 MAGENTO EDITION USAGE NOTICE
+ * =================================================================
+ * This package designed for Magento COMMUNITY edition
+ * aheadWorks does not guarantee correct work of this extension
+ * on any other Magento edition except Magento COMMUNITY edition.
+ * aheadWorks does not provide extension support in case of
+ * incorrect edition usage.
+ * =================================================================
+ *
+ * @category   AW
+ * @package    AW_Kbase
+ * @version    1.3.0
+ * @copyright  Copyright (c) 2010-2012 aheadWorks Co. (http://www.aheadworks.com)
+ * @license    http://ecommerce.aheadworks.com/AW-LICENSE-COMMUNITY.txt
+ */
+?>
+<?php
+
+$article = $this->getArticle();
+$attachmentUrl = Mage::getUrl('kbase/article/attachment', array(
+        AW_Kbase_Helper_Url::URL_PARAM_NAME_ARTICLE_ID => $article->getArticleId())
+    );
+$ratingPercent = ($article->getArticleRating())/5*100;
+$author = $article->getAuthor()->getFirstname().' '.$article->getAuthor()->getLastname();
+
+?>
+<div class="kbase kbase-article">
+
+    <?php echo $this->getChildHtml('kbase_header'); ?>
+    <?php echo $this->getChildHtml('kbase_main_search'); ?>
+    <?php echo $this->getChildHtml('kbase_breadcrumbs'); ?>
+
+    <h2><?php echo htmlspecialchars($article->getArticleTitle()) ?></h2>
+
+    <p class="kbase-article-date"><?php echo $this->formatDate($article->getArticleDateUpdated()) ?></p>
+    <p class="kbase-article-author"><?php echo $this->__('By') ?> <?php echo htmlspecialchars($author) ?></p>
+    <div class="kbase-article-text"><?php echo $this->getProcessedText() ?></div>
+
+    <?php if($article->getArticleAttachment()): ?>
+        <p class="kbase-article-attachment">
+            <span><?php echo $this->__('Attachment:') ?></span>
+            <a href="<?php echo $attachmentUrl ?>" ><?php echo htmlspecialchars($article->getArticleAttachment()) ?></a>
+        </p>
+    <?php endif; ?>
+
+    <?php if(AW_Kbase_Helper_Data::getFrontendEnabled()): ?>
+
+        <p class="kbase-article-category">
+            <span><?php echo $this->__('Category:') ?></span>
+            <?php foreach($article->getCategories() as $c): ?>
+                <?php $_category = Mage::getModel('kbase/category')->load($c['category_id']) ?>
+                <?php if ($c['category_status'] == AW_Kbase_Model_Source_Status::STATUS_ENABLED && in_array(Mage::app()->getStore()->getId(), $_category->getData('category_store_ids'))): ?>
+                    <a href="<?php echo AW_Kbase_Helper_Url::getUrl(AW_Kbase_Helper_Url::URL_TYPE_CATEGORY, $c) ?>"><?php echo htmlspecialchars($c['category_name']) ?></a>
+                <?php endif; ?>
+           <?php endforeach; ?>
+        </p>
+
+        <p class="kbase-article-tag">
+            <span><?php echo $this->__('Tags:') ?></span>
+            <?php foreach($article->getArticleTags() as $tag): ?>
+                <a href="<?php echo AW_Kbase_Helper_Url::getUrl(AW_Kbase_Helper_Url::URL_TYPE_TAG, array('tag_name' => $tag)) ?>"><?php echo $tag ?></a>
+           <?php endforeach; ?>
+        </p>
+
+        <?php if($this->getRatingEnabled()): ?>
+            <div class="kbase-article-rating" >
+                <span><?php echo $this->__('Rating:') ?></span>
+                <div class="rating-box">
+                    <div style="width: <?php echo $ratingPercent ?>%;" class="rating"></div>
+                </div>
+                <?php if(AW_Kbase_Helper_Data::isArticleVoteAllowed($article->getId())): ?>
+                <form action="<?php echo AW_Kbase_Helper_Url::secureUrl(Mage::getUrl('*/*/vote', array(AW_Kbase_Helper_Url::URL_PARAM_NAME_ARTICLE_ID => $article->getArticleId()))) ?>"
+                          method="get" >
+                        <label for="rating"><?php echo $this->__('Rate this article:') ?></label>
+                        <input type="hidden" name="id" value="<?php echo $article->getId() ?>">
+                        <select name="rating" id="rating" >
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5">5</option>
+                        </select>
+                        <button class="button form-button" title="<?php echo $this->__('Vote') ?>" type="submit"><span><span><?php echo $this->__('Vote') ?></span></span></button>
+                    </form>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
+    <?php endif; ?>
+
+</div>

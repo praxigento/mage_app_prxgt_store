@@ -1,0 +1,14 @@
+<div class="forum-controls">	
+<nobr>
+		<?php if($this->getAllowFastReplyButton()): ?>
+			<?php if($this->_isLogged()): ?>
+				<button class="simple-forum-default-button" onclick="forumFastReplaySF();" title="<?php echo $this->__('Fast Reply'); ?>" ><?php echo $this->__('Fast Reply'); ?></button>
+			<?php endif; ?>
+		<?php endif; ?>	
+			<button class="simple-forum-default-button" onclick="document.location.href='<?php echo $this->_getAddNewTopicUrl(); ?>'" title="<?php echo $this->__('Add New Topic'); ?>" ><?php echo $this->__('Add New Topic'); ?></button>
+			<button class="simple-forum-default-button" onclick="document.location.href='<?php echo $this->_getAddNewPostUrl(); ?>'" title="<?php echo $this->__('Add New Post'); ?>" ><?php echo $this->__('Add New Post'); ?></button>
+</nobr>	
+</div>
+<?php if($this->getAllowFastReplyButton() && $this->_isLogged()): ?>
+	<?php echo $this->getInitTiny() ?>
+<?php endif; ?>

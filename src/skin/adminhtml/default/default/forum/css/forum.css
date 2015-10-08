@@ -1,0 +1,37 @@
+.head-forum{
+	background-image:url(../images/folder_forum.png);
+}
+.head-topic{
+	background-image:url(../images/folder_topic.png);
+}
+.head-post{
+	background-image:url(../images/post.png);
+}
+h3.head-forum-moderators
+{
+	border-bottom: 4px solid #DFDFDF;
+	color: #EB5E00;
+	font-size: 1.25em;
+	line-height: 1.2em;
+	margin: 0.3em 0.5em 18px 0;
+	background-image:url(../images/moderators.png);
+}
+
+.simple-forum-avatar-place
+{
+	padding:7px;
+	background:#fff;
+	border:1px solid #ccc;
+	width:100px;
+	text-align:center;
+	margin:6px;
+}
+.simple-forum-upload-avatar-place
+{
+    margin:6px;
+}
+.simple-forum-icons-small
+{
+    top:5px;
+    position:relative;
+}

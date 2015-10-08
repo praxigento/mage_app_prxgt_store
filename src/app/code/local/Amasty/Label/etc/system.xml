@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<!--
+/**
+* @author Amasty Team
+* @copyright Copyright (c) 2008-2012 Amasty (http://www.amasty.com)
+* @package Amasty_Label
+*/
+-->
+<config>
+
+    <sections>
+        <amlabel translate="label" module="amlabel">
+            <label>Product Labels</label>
+            <tab>amasty</tab>
+            <frontend_type>text</frontend_type>
+            <sort_order>161812</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <general translate="label">
+                    <label>General</label>
+                    <frontend_type>text</frontend_type>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <sale_min translate="label">
+                            <label>Minimal discount for `On Sale` condition</label>
+                            <frontend_type>text</frontend_type> 
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </sale_min>                      
+                    </fields>
+                </general>
+            </groups>
+        </amlabel>
+    </sections>
+    
+</config>
