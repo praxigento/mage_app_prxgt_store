@@ -12,7 +12,7 @@
         {
             "type": "vcs",
             "url": "https://github.com/praxigento/mage_ext_log4php"
-        },
+        }
     ],
     "require": {
         "magento-hackathon/magento-composer-installer": "3.0.5",
