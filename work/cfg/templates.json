@@ -1,0 +1,52 @@
+{
+  "templates": {
+      "bin/dump_db/do.sh": {
+          "src": "cfg/bin/dump_db/do.sh",
+          "dst": "bin/dump_db/do.sh",
+          "events": [
+              "post-install-cmd",
+              "post-status-cmd",
+              "post-update-cmd"
+          ],
+          "rewrite": true
+      },
+      "bin/dump_media/do.sh": {
+          "src": "cfg/bin/dump_media/do.sh",
+          "dst": "bin/dump_media/do.sh",
+          "events": [
+              "post-install-cmd",
+              "post-status-cmd",
+              "post-update-cmd"
+          ],
+          "rewrite": true
+      },
+      "bin/post_update.sh": {
+          "src": "cfg/bin/post_update.sh",
+          "dst": "bin/post_update.sh",
+          "events": [
+              "post-status-cmd",
+              "post-update-cmd"
+          ],
+          "rewrite": true
+      },
+      "mage/app/etc/local.xml": {
+          "src": "cfg/mage/app/etc/local.xml",
+          "dst": "mage/app/etc/local.xml",
+          "events": [
+              "post-install-cmd",
+              "post-status-cmd",
+              "post-update-cmd"
+          ],
+          "rewrite": true
+      },
+    "mage/app/etc/log4php.cfg.xml": {
+      "src": "cfg/mage/app/etc/log4php.cfg.xml",
+      "dst": "mage/app/etc/log4php.cfg.xml",
+      "events": [
+        "post-install-cmd",
+        "post-status-cmd"
+      ],
+      "rewrite": true
+    }
+  }
+}

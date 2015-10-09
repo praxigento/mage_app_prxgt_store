@@ -1,8 +1,11 @@
 {
   "vars": {
     "LOCAL_ROOT": "/home/alex/work/github/app_prxgt_store/test",
+    "LOCAL_MEDIA_ROOT": "C:\work\wwwroot\app_prxgt_store\media",
     "LOCAL_OWNER": "user",
     "LOCAL_GROUP": "group",
+    "REMOTE_SSH_URL": "magento@192.168.3.95",
+    "REMOTE_SSH_ROOT": "/home/magento/instance/prxgt_store.work",
     "CFG_DB_HOST": "localhost",
     "CFG_DB_NAME": "mage_prxgt_store_local",
     "CFG_DB_USER": "mage_prxgt_store_local",
@@ -13,6 +16,8 @@
     "CFG_TIMEZONE": "America/Los_Angeles",
     "CFG_DEFAULT_CURRENCY": "USD",
     "CFG_URL": "http://prxgt_store.mage.local.prxgt.com:50080/",
+    "CFG_URL_SECURED": "https://prxgt_store.mage.local.prxgt.com:50080/",
+    "CFG_SMTP_HOST": "localhost",
     "CFG_USE_REWRITES": "yes",
     "CFG_USE_SECURE": "no",
     "CFG_SECURE_BASE_URL": "",
