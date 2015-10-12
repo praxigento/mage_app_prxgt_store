@@ -1,5 +1,5 @@
 {
-    "name": "praxigento/mage_app_prxgt_store",
+    "name": "praxigento/mage_work_app_prxgt_store",
     "type": "project",
     "license": "proprietary",
     "homepage": "https://github.com/praxigento/mage_app_prxgt_store",
@@ -8,22 +8,6 @@
         {
             "type": "composer",
             "url": "http://packages.firegento.com"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/praxigento/mage_ext_log4php"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/praxigento/mage_ext_login_as"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/praxigento/mage_ext_tuneup"
-        },
-        {
-            "type": "vcs",
-            "url": "https://github.com/praxigento/mage_ext_jira_feedback"
         },
         {
             "type": "vcs",
