@@ -24,6 +24,10 @@
         {
             "type": "vcs",
             "url": "https://github.com/praxigento/mage_ext_jira_feedback"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/praxigento/mage_app_prxgt_store"
         }
     ],
     "require": {
@@ -33,18 +37,13 @@
         "praxigento/mage_ext_log4php": "*",
         "praxigento/mage_ext_login_as": "*",
         "praxigento/mage_ext_tuneup": "*",
-        "praxigento/mage_ext_jira_feedback": "*"
+        "praxigento/mage_ext_jira_feedback": "*",
+        "praxigento/mage_app_prxgt_store": "*@dev"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
     },
-    "scripts": {
-        "pre-install-cmd": [
-            "# Create root directory for the development Magento instance.",
-            "mkdir -p htdocs"
-        ]
-    },
-    "extra": {
+     "extra": {
         "magento-root-dir": "htdocs",
         "magento-deploystrategy": "symlink",
         "magento-force": true,
