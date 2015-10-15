@@ -1,9 +1,9 @@
 {
-    "name": "praxigento/mage_app_dev_prxgt_store",
+    "name": "praxigento/mage_app_prxgt_store_live",
     "type": "project",
     "license": "proprietary",
     "homepage": "https://github.com/praxigento/mage_app_prxgt_store",
-    "description": "Test instance for Praxigento Store",
+    "description": "Work instance for Praxigento Store",
     "repositories": [
         {
             "type": "composer",
@@ -22,17 +22,14 @@
         "praxigento/mage_ext_login_as": "*",
         "praxigento/mage_ext_tuneup": "*",
         "praxigento/mage_ext_jira_feedback": "*",
-        "praxigento/mage_app_prxgt_store": "*@dev"
+        "praxigento/mage_app_prxgt_store": "*"
     },
     "require-dev": {
         "phpunit/phpunit": "3.7.*"
     },
-     "extra": {
+    "extra": {
         "magento-root-dir": "htdocs",
         "magento-deploystrategy": "copy",
-        "magento-deploystrategy-overwrite": {
-           "praxigento/mage_app_prxgt_store": "symlink"
-        },
         "magento-force": true,
         "auto-append-gitignore": false,
         "praxigento_templates_config": [
