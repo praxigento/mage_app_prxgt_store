@@ -1,6 +1,6 @@
 {
   "name": "praxigento/mage_app_prxgt_store",
-  "type": "project",
+  "type": "magento-module",
   "license": "proprietary",
   "homepage": "https://github.com/praxigento/mage_app_prxgt_store",
   "description": "Project for Praxigento Store.",
