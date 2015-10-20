@@ -108,9 +108,9 @@
           ],
           "rewrite": true
       },
-      "mage/app/etc/local.xml": {
+      "htdocs/app/etc/local.xml": {
           "src": "cfg/mage/app/etc/local.xml",
-          "dst": "mage/app/etc/local.xml",
+          "dst": "htdocs/app/etc/local.xml",
           "events": [
               "post-install-cmd",
               "post-status-cmd",
@@ -118,9 +118,9 @@
           ],
           "rewrite": true
       },
-    "mage/app/etc/log4php.cfg.xml": {
+    "htdocs/app/etc/log4php.cfg.xml": {
       "src": "cfg/mage/app/etc/log4php.cfg.xml",
-      "dst": "mage/app/etc/log4php.cfg.xml",
+      "dst": "htdocs/app/etc/log4php.cfg.xml",
       "events": [
         "post-install-cmd",
         "post-status-cmd"
