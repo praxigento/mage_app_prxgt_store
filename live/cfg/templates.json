@@ -30,7 +30,7 @@
           "rewrite": true
       },
       "htdocs/app/etc/local.xml": {
-          "src": "cfg/mage/app/etc/local.xml",
+          "src": "cfg/htdocs/app/etc/local.xml",
           "dst": "htdocs/app/etc/local.xml",
           "events": [
               "post-install-cmd",
@@ -40,7 +40,7 @@
           "rewrite": true
       },
     "htdocs/app/etc/log4php.cfg.xml": {
-      "src": "cfg/mage/app/etc/log4php.cfg.xml",
+      "src": "cfg/htdocs/app/etc/log4php.cfg.xml",
       "dst": "htdocs/app/etc/log4php.cfg.xml",
       "events": [
         "post-install-cmd",
