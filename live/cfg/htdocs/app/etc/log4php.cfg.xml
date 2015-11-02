@@ -21,7 +21,7 @@
         <layout class="LoggerLayoutPattern">
             <param name="conversionPattern" value="%d{Y/m/d H:i:s,u} %p %c{2}: %m%n"/>
         </layout>
-        <param name="file" value="${LOCAL_ROOT}/mage/var/log/log4php.log"/>
+        <param name="file" value="${LOCAL_ROOT}/htdocs/var/log/log4php.log"/>
         <param name="append" value="true"/>
     </appender>
 
