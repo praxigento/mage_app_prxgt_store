@@ -7,12 +7,16 @@
     "repositories": [
         {
             "type": "composer",
-            "url": "http://packages.firegento.com"
+            "url": "https://packages.firegento.com"
         },
         {
             "type": "vcs",
             "url": "https://github.com/praxigento/mage_app_prxgt_store"
-        }
+        },
+	{
+	    "type": "vcs",
+	    "url": "https://github.com/bragento/magento-core"
+	}
     ],
     "require": {
         "magento-hackathon/magento-composer-installer": "3.0.5",
